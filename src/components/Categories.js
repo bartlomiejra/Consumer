@@ -7,7 +7,8 @@ export default function Categories() {
 	const [isLoading, setIsLoading] =  useState(true)
 
 	useEffect (() => {
-		const fetchItems = async () => {
+	},[])
+		const fetchMovie = async () => {
 			// const result = await axios(`https://swapi.dev/api/planets
 
 			// `)
@@ -23,15 +24,19 @@ export default function Categories() {
 			setIsLoading(false)
 		}
 
-		fetchItems();
-	},[])
+		// fetchMovie();
 	
 	return (
+		<>
 		<div items={items}>
 			 
 			 
   {items.map(item =>(
-	<li key={item.id}>{item.name}</li>
+	  <>
+	      
+
+	<div key={item.id}>  <input key={item.id} type="checkbox" />{item.name}</div>
+	</>
 ))} 
 
 			  {/* console.log(items); */}
@@ -39,5 +44,5 @@ export default function Categories() {
           
 			
 		</div>
-	)
+</>	)
 }
