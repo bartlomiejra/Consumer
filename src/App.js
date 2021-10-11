@@ -6,7 +6,8 @@ import GlobalStyles from './components/styles/Global'
 // import content from './content'
 import Footer from './components/Footer'
 import Categories from './components/Categories'
-import React, {useState, useEffect} from 'react'
+import Movies from './components/Movies/Movies'
+import {BrowserRouter as Router, Rout, Switch } from 'react-router-dom'
 
 
 const theme = {
