@@ -2,7 +2,14 @@
 import styled from "styled-components";
 export const Styledheader = styled.header `
 background-color: ${({theme}) => theme.colors.header};
-padding:  40px 0  ;
+/* padding:  40px 0  ; */
+
+h1{
+
+	/* color: #D26C94; */
+
+	/* color: #730B46 */
+}
 
 
 /* h1{
@@ -13,17 +20,7 @@ padding:  40px 0  ;
 } */
 `
 
- export const Nav = styled.nav`
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 40px;
-
-@media(max-width: ${({theme}) => theme.mobile }){
-flex-direction: column;
-
-}
- `
+ 
 
  export const Logo = styled.img`
  @media(max-width: ${({theme}) => theme.mobile }){

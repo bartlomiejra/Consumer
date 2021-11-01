@@ -5,7 +5,6 @@ import Header from './components/Header'
 import GlobalStyles from './components/styles/Global'
 // import content from './content'
 import Footer from './components/Footer'
-import Categories from './components/Categories'
 import Movies from './components/Movies/Movies'
 import {BrowserRouter as Router, Rout, Switch } from 'react-router-dom'
 
