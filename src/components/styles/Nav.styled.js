@@ -39,7 +39,7 @@ margin-bottom: 40px;
  export const Li = styled.li`
  
 display: flex;
-font-size: 2rem;
+font-size: 2vw;
   list-style-type: none;
 align-items: center;
 /* justify-content: space-between; */
@@ -62,13 +62,16 @@ width: 100%;
 @media(max-width: ${({theme}) => theme.mobile }){
 flex-direction: column;
 
+font-size: 1rem;
 }
+
  `
  
 
  export const Logo = styled.img`
  @media(max-width: ${({theme}) => theme.mobile }){
 margin-bottom: 40px;
+
 
 }
 

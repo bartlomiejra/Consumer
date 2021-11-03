@@ -1,7 +1,7 @@
 
 import styled from "styled-components";
 export const Styledheader = styled.header `
-background-color: ${({theme}) => theme.colors.header};
+/* background-color: ${({theme}) => theme.colors.header}; */
 /* padding:  40px 0  ; */
 
 h1{
@@ -31,8 +31,8 @@ margin-bottom: 40px;
  `
 
  export const Image = styled.img`
- width: 375px;
- margin-left: 40px;
+ /* width: 375px; */
+ /* margin-left: 40px; */
 background-color: transparent;
  @media(max-width: ${({theme}) => theme.bottom }){
 margin: 40px 0 30px;

@@ -1,14 +1,16 @@
 import React from 'react'
+import {Item, Img} from '../styles/ItemsGrid.styled'
 
  const MovieItem = ({item}) => {
 	 console.log(item);
 	return (
-		<div class="item">
-			{item.id}
-			{item.name}
-			 <img src={"https://image.tmdb.org/t/p/w500" + item.poster_path} alt={"logo"}/> 
+		<Item>
+
+			{/* {item.id} */}
+			{/* {item.name} */}
+			 <Img key="{item.id}" src={"https://image.tmdb.org/t/p/w500" + item.poster_path} alt={"logo"}/> 
 			
-		</div>
+		</Item>
 	)
 }
 

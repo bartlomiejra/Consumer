@@ -1,4 +1,4 @@
-import {ThemeProvider} from 'styled-components'
+import {ThemeProvider, injectGlobal} from 'styled-components'
 import {Container} from './components/styles/Container.styled'
 import axios from "axios"
 import Header from './components/Header'
@@ -9,11 +9,11 @@ import Movies from './components/Movies/Movies'
 import {BrowserRouter as Router, Rout, Switch } from 'react-router-dom'
 
 
+
 const theme = {
 	colors: {
 		header: '#214141',
 		
-		body: '#000',
 		footer: '#003333'
 	},
 	mobile:'768px'
