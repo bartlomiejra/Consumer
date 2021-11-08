@@ -39,23 +39,29 @@ margin-bottom: 40px;
  export const Li = styled.li`
  
 display: flex;
-font-size: 2vw;
+font-size: 1.3vw;
   list-style-type: none;
 align-items: center;
-/* justify-content: space-between; */
+justify-content: space-between;
 /* margin-bottom: 40px; */
+  textDecoration: none,;
+    color: white,;
+    fontSize: 20px,;
+    margin-left: 20px;
+   
 
 @media(max-width: ${({theme}) => theme.mobile }){
 flex-direction: column;
 
 }
- `
+ }`
 
   export const Ul = styled.ul`
 display: flex;
-justify-content: space-around;
+/* /* justify-content: space-around; */
 align-items: center;
-width: 100%;
+width: 100%; 
+
 /* justify-content: space-between; */
 /* margin-bottom: 40px; */
 

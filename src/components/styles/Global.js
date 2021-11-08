@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import background from '../../img/background6.svg';
+import background from '../../img/background4.svg';
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
@@ -19,9 +19,6 @@ const GlobalStyles = createGlobalStyle`
     opacity: 0.6;
     line-height: 1.5;
   }
-  img {
-    max-width: 30%;
-}
 `
 
 export default GlobalStyles

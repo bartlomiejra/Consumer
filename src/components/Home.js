@@ -1,5 +1,6 @@
 import React from 'react';
 import {Flex} from './styles/Flex.styled'
+import {Img} from './styles/Flex.styled'
 
 function Podcast(){
 	return(
@@ -14,7 +15,8 @@ The purpose of this app is to allow you to search for high quality niche media a
 </p>
 
 				</div>
-			</Flex>	
+				<Img/>
+				</Flex>	
 	);
 }
 export default Podcast;
