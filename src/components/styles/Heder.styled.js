@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Styledheader = styled.header `
 /* background-color: ${({theme}) => theme.colors.header}; */
 /* padding:  40px 0  ; */
-
+min-height: 90vh;
 h1{
 
 	/* color: #D26C94; */

@@ -2,10 +2,13 @@
 import styled from "styled-components";
 export const Stylednav = styled.nav `
 display: flex;
+width: 100%;
 text-decoration: none;
 
 
+
 ul{
+	justify-content: space-around;
 	list-style-type: none;
 }
 
@@ -26,9 +29,9 @@ a{
 
 export const Navi = styled.nav`
 font-weight: 500;
-display: flex;
-align-items: center;
-justify-content: space-between;
+/* display: flex; */
+/* align-items: center; */
+/* justify-content: space-between; */
 margin-bottom: 40px;
 
 @media(max-width: ${({theme}) => theme.mobile }){
@@ -51,7 +54,7 @@ justify-content: space-between;
    
 
 @media(max-width: ${({theme}) => theme.mobile }){
-flex-direction: column;
+/* flex-direction: column; */
 
 }
  }`

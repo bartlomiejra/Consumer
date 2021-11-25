@@ -12,7 +12,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { pink } from '@mui/material/colors';
 import Box from '@material-ui/core/Box';
 import { Typography } from '@material-ui/core'
-
+// import Spinner from '../../img/spin.gif'
+import { useMediaQuery } from '@mui/material'
 
 import Button from '@mui/material/Button';
 // import SearchIcon from '@mui/icons-material';
@@ -96,8 +97,12 @@ const Movies = () => {
 			
 			fetchItems();
 		},[query]);
-			return (
-				<section>
+
+		
+	
+return (
+
+<section>
 				 
 <Box    sx={{
 
@@ -152,18 +157,13 @@ color="secondary" >Search</Button>
         }} >
 
 	    <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}>
+	
+
+
+
+		 
 			
 
-			{movies.map(item => (
-			<>
-
-				<MovieItem key={item.id} item={item} > 
-					
-				
-				</MovieItem>
-				           
-			</>
-			))}
 			</Grid>
 			</Box>
 

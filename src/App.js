@@ -1,5 +1,4 @@
 import {ThemeProvider, injectGlobal} from 'styled-components'
-import {Container} from './components/styles/Container.styled'
 import axios from "axios"
 import Header from './components/Header'
 import GlobalStyles from './components/styles/Global'
@@ -12,6 +11,12 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import {Box} from '@material-ui/core';
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+import 'firebase/auth'
+// import {useAuthState} from 'react-fireabse-hooks/auth';
+// import {useCollectionData} from 'react-firebase-hooks/firestore';
+
 
 
 const theme = {
@@ -26,7 +31,7 @@ const theme = {
 function App() {
 
 	return (
-		<Box    sx={{
+		<Box   m={2} sx={{
 		color: 'white',
 
         }} >
@@ -36,7 +41,9 @@ function App() {
 	  <ThemeProvider theme = {theme}>
       
 	  <>
+	  
 	  <GlobalStyles/>
+	  
 <Header />
 	{/* <Content /> */}
 	   <Footer/>
