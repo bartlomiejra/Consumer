@@ -13,6 +13,9 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     font-size: 1.15em;
     margin: 0;
+      overflow-x: hidden;
+      height: 100%;
+
   }
   p {
     opacity: 0.6;

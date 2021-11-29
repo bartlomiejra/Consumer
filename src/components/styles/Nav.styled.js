@@ -4,27 +4,27 @@ export const Stylednav = styled.nav `
 display: flex;
 width: 100%;
 text-decoration: none;
+justify-content: space-between;
 
 
 
 ul{
-	justify-content: space-around;
+	/* justify-content: space-around; */
+  justify-content: center;
 	list-style-type: none;
+  margin: 0px;
+  font-weight: 700;
 }
 
 
 a{
 	text-decoration: none;
 	color: inherit;
-
+margin: 10px;
+font-size: 1rem
 }
 
-/* h1{
-	color: green;
-	&:hover{
-		color: blue;
-	}
-} */
+
 `
 
 export const Navi = styled.nav`
@@ -47,8 +47,8 @@ font-size: 1.3vw;
 align-items: center;
 justify-content: space-between;
 /* margin-bottom: 40px; */
-  textDecoration: none,;
-    color: white,;
+  textDecoration: none;
+    color: white;
     fontSize: 20px,;
     margin-left: 20px;
    
@@ -64,6 +64,7 @@ display: flex;
 /* /* justify-content: space-around; */
 align-items: center;
 width: 100%; 
+padding: 0px;
 
 /* justify-content: space-between; */
 /* margin-bottom: 40px; */

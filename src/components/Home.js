@@ -25,7 +25,7 @@ function Home(){
 					<h1>
 					The best media search finder. 	
 					</h1>
-    <Box  m={2}>
+    <Box  >
 <p>Top Category </p>
 <Grid container spacing={2}>
         <Grid item xs={8}>
