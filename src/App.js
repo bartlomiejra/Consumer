@@ -14,13 +14,13 @@ import {Box} from '@material-ui/core';
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
-
+import {MuiThemeProvider, createTheme} from '@material-ui/core/styles';
 // import {useAuthState} from 'react-fireabse-hooks/auth';
 // import {useCollectionData} from 'react-firebase-hooks/firestore';
 
 
 
-const theme = {
+const themes = {
 	colors: {
 		header: '#214141',
 		
@@ -28,10 +28,27 @@ const theme = {
 	},
 	mobile:'768px'
 }
-
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: '#757ce8',
+      main: '#3f50b5',
+      dark: '#002884',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#fff',
+    },
+  },
+});
 function App() {
 
 	return (
+		<MuiThemeProvider theme={theme}>
+
 		<Box   m={2} sx={{
 		color: 'white',
 
@@ -39,7 +56,7 @@ function App() {
 
 		
 
-	  <ThemeProvider theme = {theme}>
+	  <ThemeProvider theme = {themes}>
       
 	  <>
 	  
@@ -55,7 +72,8 @@ function App() {
 </>
 	  </ThemeProvider>
 		</Box>
-  );
+		</MuiThemeProvider>
+	);
 }
 
 export default App;

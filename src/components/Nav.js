@@ -20,6 +20,7 @@ import {
   import Hamburger from './Hamburger/Hamburger';
 import Button from '@mui/material/Button';
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { motion } from "framer-motion"
 
  function Nav(){
    const node = useRef(); 
@@ -50,8 +51,9 @@ useOnClickOutside(node, () => setOpen(false));
 {/* <Li> */}
 {/* <Box sx={{   justifyContent: 'space-between' }}> */}
 
-
-			 <Logo src="./images/logo2.svg" alt="" />
+<NavLink to="/">
+                   <Logo src="./images/logo2.svg" alt="" />
+                 </NavLink>
         <Hamburger open={open} setOpen={setOpen}/>
    <Menu open={open} setOpen={setOpen}/> 
      
@@ -69,11 +71,20 @@ useOnClickOutside(node, () => setOpen(false));
              <Stylednav>
                  <NavLink to="/">
                    <Logo src="./images/logo2.svg" alt="" />
+                   
                  </NavLink>
                <Ul>
                  <NavLink activeStyle={{ color: '#c40491' }} to="/Movies">
+                 <motion.div
+                   whileHover={{
+                     scale: 1.2,
+                     transition: { duration: 1 },
+                   }}>
                    Movie
+
+  </motion.div>
                  </NavLink>
+                 
                  <NavLink activeStyle={{ color: '#c40491' }} to="/Tvseries">
                    TV Series
                  </NavLink>

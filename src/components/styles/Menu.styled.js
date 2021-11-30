@@ -6,9 +6,9 @@ export const StyledMenu = styled.nav`
 transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(110%)'};
 
   flex-direction: column;
-  justify-content: center;
   background: ${({ theme }) => theme.primaryLight};
-  height: 100vh;
+  align-items: flex-start;
+  height: 100%;
   text-align: left;
   /* padding: 2rem; */
   position: absolute;
@@ -18,7 +18,7 @@ transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(110%)'};
   transition: transform 1s ease-in-out;
   width: 100%;
   z-index: 20;
-  
+  justify-content: center;
  
   
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -26,9 +26,9 @@ transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(110%)'};
   }
 
   a {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     font-weight: bold;
     letter-spacing: 0.5rem;
     color: ${({ theme }) => theme.primaryDark};
