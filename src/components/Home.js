@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import {  Logo } from './styles/Heder.styled';
 import { NavLink } from 'react-router-dom';
+import {motion, AnimatePresence} from 'framer-motion'
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -22,6 +23,26 @@ const Item = styled(Paper)(({ theme }) => ({
 
 }));
 
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+};
+
 function Home(){
 	return(
 	<Flex>
@@ -31,9 +52,18 @@ function Home(){
 					</h1>
     <Box  m={2}>
 <p>Top Category </p>
+ <motion.div
+    className="container"
+    variants={container}
+    initial="hidden"
+    animate="visible"
+  >
+
+{/* {[0, 1, 2, 3].map((index) => ( */}
 <Grid container spacing={2}>
         <Grid item xs={8}>
-                          <NavLink to="/Movies">
+          
+                          <NavLink  key={1} className="item" variants={item} to="/Movies">
 
           <Item style={{background: 'linear-gradient(to right bottom, #181818, #fd2d2d)'}}>
             Find Movies
@@ -42,16 +72,27 @@ function Home(){
                             </NavLink>
         </Grid>
         <Grid item xs={4}>
+  <NavLink  key={2} className="item" variants={item} to="/Movies">
 
           <Item style={{background: 'linear-gradient(to right bottom, #430089, #181818)'}}>Music</Item>
+  </NavLink>
         </Grid>
         <Grid item xs={4}>
+            <NavLink  key={3} className="item" variants={item} to="/Movies">
+
           <Item style={{background: 'linear-gradient(to left bottom, #181818, #c40491)'}}>Movies For 2</Item>
+                            </NavLink>
         </Grid>
         <Grid item xs={8}>
+            <NavLink  key={4} className="item" variants={item} to="/Movies">
+
           <Item style={{background: 'linear-gradient(to right bottom, #430089, #fcb045)'}}>Our Recomendation</Item>
+                            </NavLink>
         </Grid>
       </Grid>
+          {/* ))} */}
+
+  </motion.div>
 	  </Box>
 
 					<p>

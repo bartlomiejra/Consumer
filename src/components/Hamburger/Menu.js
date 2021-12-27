@@ -4,21 +4,65 @@ import { bool } from 'prop-types';
 import { StyledMenu } from '../styles/Menu.styled'
 import { NavLink } from 'react-router-dom';
 import {  Logo } from '../styles/Heder.styled';
-// import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 
 const Menu = ({ open, ...props }) => {
 
    const isHidden = open ? true : false;
   const tabIndex = isHidden ? 0 : -1;
+  
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    x: '-100vw',
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: 'spring',
+      mass: 0.5,
+      damping: 200,
+      when: 'beforeChildren',
+      staggerChildren: 0.1,
+    }
+  }
+}
+
+  const childVariants = {
+    hidden: {
+      opacity: 0,
+
+  },
+  visible: {
+    opacity: 1,
+  }
+}
 return (
+  
     <StyledMenu tabIndex={tabIndex}
     open={open} aria-hidden={!isHidden} {...props}>
-  
-  
-                   <NavLink aria-hidden="true"  activeStyle={{ color: '#c40491' }} to="/Movies" tabIndex={tabIndex}>
-                   Movies
+       <AnimatePresence arria-hidden={!isHidden}>
+
+   <motion.div
+       initial={{ scale: 0 }}
+       transition={{
+         type: "spring",
+         stiffness: 860,
+         damping: 20,
+         duration: 10
+        }} 
+        animate={{ rotate: 580, scale: 3 }}
+      >
+
+                   <NavLink 
+                   aria-hidden="true"  activeStyle={{ color: '#c40491' }} to="/Movies" tabIndex={tabIndex}
+                   >
+                     Movies
+                  
                  </NavLink>
+                     </motion.div>
                  <NavLink aria-hidden="true" activeStyle={{ color: '#c40491' }} to="/Tvseries" tabIndex={tabIndex}>
                    TV Series
                  </NavLink>
@@ -44,6 +88,9 @@ return (
                  >
                    LogIn 
                  </NavLink> 
+                 </AnimatePresence>
+
+
     </StyledMenu>
   )
 }
