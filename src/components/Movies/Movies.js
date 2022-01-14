@@ -13,6 +13,8 @@ import { pink } from '@mui/material/colors';
 import Box from '@material-ui/core/Box';
 import { Typography } from '@material-ui/core'
 // import Spinner from '../../img/spin.gif'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ClearIcon from '@mui/icons-material/Clear';
 import { useMediaQuery } from '@mui/material'
 
 import Button from '@mui/material/Button';
@@ -76,7 +78,7 @@ const Movies = () => {
 					
 								//  const result = await axios(`https://api.themoviedb.org/3/trending/all/day?api_key=f0b539c0e3a06d06f8301d709f2fdf86`)
 					
-				const result = await axios(`https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=1&query=${query}`)
+				const result = await axios(`https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=1&query=House`)
 				// const result = await axios(`https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=35`)
 		
 
@@ -155,11 +157,20 @@ color="secondary" >Search</Button>
           p: 1,
           m: 1,
         }} >
-
-	    <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}>
+<Grid container spacing={2} justify="space-between" alignItems="stretch">
+	    {/* <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}> */}
 	
 
+	{movies.map(item => (
+			<>
 
+				<MovieItem key={item.id} item={item} > 
+					
+				
+				</MovieItem>
+				           
+			</>
+			))}
 
 		 
 			

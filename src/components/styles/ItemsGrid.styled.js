@@ -26,9 +26,12 @@ padding: 0px;
 
 .detals{
   position:absolute;
-  color: white;  font-size: 15px;
-  color: black;
+  color: white;  font-size: 20px;
+  /* color: black; */
   z-index: 2;
+  height: 100%;
+  text-decoration: none;
+
 
 }
 
