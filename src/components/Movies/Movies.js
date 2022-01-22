@@ -1,12 +1,12 @@
 import MovieItem from './MovieItem'
 import React, {useState, useEffect} from 'react'
-import Spinner  from '../styles/Spinner'
+// import Spinner  from '../styles/Spinner'
 import axios from "axios"
-import Search from '../Search'
+// import Search from '../Search'
 import StyledSearchBar from '../Search'
-import {ItemsGrid, Flex } from '../styles/ItemsGrid.styled.js'
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
+// import {ItemsGrid, Flex } from '../styles/ItemsGrid.styled.js'
+// import Grid from '@mui/material/Grid';
+// import Container from '@mui/material/Container';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { pink } from '@mui/material/colors';
@@ -15,8 +15,8 @@ import { Typography } from '@material-ui/core'
 // import Spinner from '../../img/spin.gif'
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 // import ClearIcon from '@mui/icons-material/Clear';
-import { useMediaQuery } from '@mui/material'
-
+// import { useMediaQuery } from '@mui/material'
+import {Stack, Pagination, PaginationItem, PaginationLink} from '@mui/material'
 import Button from '@mui/material/Button';
 // import SearchIcon from '@mui/icons-material';
 
@@ -26,11 +26,11 @@ const Movies = () => {
 
 	const [movies, setMovies] =  useState([])
 	const [query, setQuery] =  useState('')
-	const [genres, setGenres] =  useState('')
+	// const [genres, setGenres] =  useState('')
 	
 	// const [items, setItems] =  useState([])
 	const [moviegenres, setItems] =  useState([])
-	const [isLoading, setIsLoading] =  useState(true)
+	// const [isLoading, setIsLoading] =  useState(true)
 	
 	const handleChange = event => {
     const { checked, value } = event.currentTarget;
@@ -40,7 +40,8 @@ const Movies = () => {
         ? [...prev, value]
         : prev.filter(val => val !== value)
     );
-	console.log(setSelected);
+	// console.log(setSelected);
+	console.log(selected);
 };
 
 	useEffect (() => {
@@ -48,7 +49,7 @@ const Movies = () => {
 
 		const fetchMoviesbyGenres = async( ) => {
 				const moviesbygenres = await fetch(
-					`https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=1`
+					`https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres={}`
 					)
 					const findmoviesbygenres = await moviesbygenres.json();
 					console.log(findmoviesbygenres.results);
@@ -57,6 +58,7 @@ const Movies = () => {
 				}
 		useEffect (() => {
 			const fetchCategory = async( ) => {
+
 				const category = await fetch(
 					`https://api.themoviedb.org/3/genre/movie/list?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US`)
 					
@@ -74,11 +76,17 @@ const Movies = () => {
 			
 			useEffect (() => {
 					const fetchItems = async () => {
-					
+						let result;
+						if(query == ''){
+ result = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=1`)
+						} else {
+
+							 result = await axios(`https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&query=${query}`)
+
+						}
 					
 								//  const result = await axios(`https://api.themoviedb.org/3/trending/all/day?api_key=f0b539c0e3a06d06f8301d709f2fdf86`)
 					
-				const result = await axios(`https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=1&query=House`)
 				// const result = await axios(`https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=35`)
 		
 
@@ -91,7 +99,7 @@ const Movies = () => {
 				console.log(result.data.results)
 				// console.log(moviegenres)
 				setMovies(result.data.results)
-				// console.log(movies);
+				console.log(query);
 				
 			}
 			// console.log(movies);
@@ -125,17 +133,23 @@ return (
 {moviegenres.map(item => (
 	<>
 	
-		       <FormControlLabel   control={<Checkbox key={item.id} value={item.id}      checked={selected.some(val => val === item.id)}
-            onChange={handleChange} 
-			    sx={{
-    color: pink[800],
-    '&.Mui-checked': {
-      color: pink[600],
-    },
-  }} />} label={item.name} />
+		       <FormControlLabel   
+			   
+			   control={<Checkbox key={item.id} value={item.id}     
+			   sx={{
+				   color: pink[800],
+				   '&.Mui-checked': {
+					   color: pink[600],
+					},
+				}} />} 
+				
+				// checked={selected.some(val => val === item.id)}
+		   onChange={handleChange} 
+  label={item.name} />
 
 	
 
+{/* console.log(selected); */}
 </>
 )
 )
@@ -176,7 +190,9 @@ color="secondary" >Search</Button>
 			</>
 			))}
 
-		 
+		   <Stack spacing={2}>
+      <Pagination count={10}  />
+    </Stack>
 			
 
 			{/* </Grid> */}
