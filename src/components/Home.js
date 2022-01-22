@@ -11,7 +11,9 @@ import {motion, AnimatePresence} from 'framer-motion'
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
+  border: '2px solid #333333',
   height: '300px',
+  borderRadius: '10px',
   // backgroundColor: `#262626`,
   color: '#f1f1f1',
     textAlign: 'bottom',
@@ -47,11 +49,10 @@ function Home(){
 	return(
 	<Flex>
 				<div>
-					<h1>
 					The best media search finder. 	
-					</h1>
-    <Box  m={2}>
-<p>Top Category </p>
+    <Box  ml={3} mr={3} mb={15}
+    >
+<h1>Top Category </h1>
  <motion.div
     className="container"
     variants={container}
@@ -60,12 +61,13 @@ function Home(){
   >
 
 {/* {[0, 1, 2, 3].map((index) => ( */}
-<Grid container spacing={2}>
+<Grid container spacing={4}>
         <Grid item xs={8}>
           
                           <NavLink  key={1} className="item" variants={item} to="/Movies">
 
-          <Item style={{background: 'linear-gradient(to right bottom, #181818, #fd2d2d)'}}>
+                  <Item style={{background: 'linear-gradient(to right bottom, #222d22, #181818)'}}>
+
             Find Movies
 
             </Item>
@@ -74,7 +76,8 @@ function Home(){
         <Grid item xs={4}>
   <NavLink  key={2} className="item" variants={item} to="/Movies">
 
-          <Item style={{background: 'linear-gradient(to right bottom, #430089, #181818)'}}>Music</Item>
+          <Item style={{background: 'linear-gradient(to right bottom, #430089, #181818)'}}>
+            Music</Item>
   </NavLink>
         </Grid>
         <Grid item xs={4}>

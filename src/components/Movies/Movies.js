@@ -4,7 +4,7 @@ import Spinner  from '../styles/Spinner'
 import axios from "axios"
 import Search from '../Search'
 import StyledSearchBar from '../Search'
-import {ItemsGrid, } from '../styles/ItemsGrid.styled.js'
+import {ItemsGrid, Flex } from '../styles/ItemsGrid.styled.js'
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Checkbox from '@mui/material/Checkbox';
@@ -13,8 +13,8 @@ import { pink } from '@mui/material/colors';
 import Box from '@material-ui/core/Box';
 import { Typography } from '@material-ui/core'
 // import Spinner from '../../img/spin.gif'
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ClearIcon from '@mui/icons-material/Clear';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
+// import ClearIcon from '@mui/icons-material/Clear';
 import { useMediaQuery } from '@mui/material'
 
 import Button from '@mui/material/Button';
@@ -22,7 +22,8 @@ import Button from '@mui/material/Button';
 
 
 const Movies = () => {
-	
+	const [selected, setSelected] = useState([]);
+
 	const [movies, setMovies] =  useState([])
 	const [query, setQuery] =  useState('')
 	const [genres, setGenres] =  useState('')
@@ -31,30 +32,29 @@ const Movies = () => {
 	const [moviegenres, setItems] =  useState([])
 	const [isLoading, setIsLoading] =  useState(true)
 	
+	const handleChange = event => {
+    const { checked, value } = event.currentTarget;
+
+    setSelected(
+      prev => checked
+        ? [...prev, value]
+        : prev.filter(val => val !== value)
+    );
+	console.log(setSelected);
+};
+
 	useEffect (() => {
-		// const handleSubmit = e => {
-		//   e.preventDefault();
-		//   console.log( "render" );
-		//   fetchMoviesbyGenres();
-		// }
 	},[]);
+
 		const fetchMoviesbyGenres = async( ) => {
 				const moviesbygenres = await fetch(
-					`https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=28`
+					`https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=1`
 					)
-					
-					//  console.log(category.data);
-					//  console.log(category);
-					
 					const findmoviesbygenres = await moviesbygenres.json();
 					console.log(findmoviesbygenres.results);
-					//  console.log(moviegenres.genres);
-					//   setMode(newMode);
-
 					setMovies(findmoviesbygenres.results);
 					
 				}
-				// fetchMoviesbyGenres();
 		useEffect (() => {
 			const fetchCategory = async( ) => {
 				const category = await fetch(
@@ -125,7 +125,8 @@ return (
 {moviegenres.map(item => (
 	<>
 	
-		       <FormControlLabel   control={<Checkbox key={item.id}
+		       <FormControlLabel   control={<Checkbox key={item.id} value={item.id}      checked={selected.some(val => val === item.id)}
+            onChange={handleChange} 
 			    sx={{
     color: pink[800],
     '&.Mui-checked': {
@@ -154,11 +155,14 @@ color="secondary" >Search</Button>
 <Box   sx={{
           display: 'flex',
           justifyContent: 'center',
-          p: 1,
-          m: 1,
+		  alignItems: "stretch",
+        //   p: 1,
+        //   m: 1,
+		  flexWrap: 'wrap'
         }} >
-<Grid container spacing={2} justify="space-between" alignItems="stretch">
+{/* <Grid container spacing={2} justify="space-between" alignItems="stretch"> */}
 	    {/* <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}> */}
+		
 	
 
 	{movies.map(item => (
@@ -175,7 +179,7 @@ color="secondary" >Search</Button>
 		 
 			
 
-			</Grid>
+			{/* </Grid> */}
 			</Box>
 
 			{/* </ItemsGrid> */}

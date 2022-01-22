@@ -49,7 +49,7 @@ function App() {
 	return (
 		<MuiThemeProvider theme={theme}>
 
-		<Box   m={2} sx={{
+		<Box   m={0} sx={{
 		color: 'white',
 
         }} >

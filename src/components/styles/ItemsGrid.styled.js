@@ -1,6 +1,8 @@
 
 import styled from "styled-components";
 import SearchBar from "material-ui-search-bar";
+import {motion } from "framer-motion";
+import {Card} from '@material-ui/core';
 
 export const ItemsGrid = styled.div `
 /* background-color: ${({theme}) => theme.colors.header}; */
@@ -13,9 +15,10 @@ grid-template-columns: auto auto auto;
 
 
 `
-export const Item = styled.div `
+export const Item = styled(motion.Card) `
 position: relative;
 display: flex;
+/* width: auto; */
 /* display: grid; */
 /* height: 30vh; */
 /* height: 10px; */
@@ -31,13 +34,14 @@ padding: 0px;
   z-index: 2;
   height: 100%;
   text-decoration: none;
+  
 
 
 }
 
 
 `
-export const Img = styled.img `
+export const Img = styled(motion.img) `
 /* position:absolute; */
 /* z-index: -2 */
 /* position: relative */
