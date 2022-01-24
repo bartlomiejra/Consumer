@@ -1,3 +1,6 @@
+/* eslint react/prop-types: 0 */
+
+
 import { getSuggestedQuery } from '@testing-library/dom';
 import React, {useState} from 'react'
 import SearchBar from "material-ui-search-bar";
@@ -34,7 +37,6 @@ const Search = ({getQuery}) => {
 			 value={text}
 			 onChange ={(newValue) => onChange(newValue)}
 
-				autoFocus 
 				/>
 
 </>	

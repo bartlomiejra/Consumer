@@ -1,3 +1,5 @@
+//  eslint-disable react/prop-types 
+
 import {ThemeProvider} from 'styled-components'
 // import axios from "axios"
 import Header from './components/Header'
@@ -5,6 +7,7 @@ import GlobalStyles from './components/styles/Global'
 // import content from './content'
 import Footer from './components/Footer'
 // import Movies from './components/Movies/Movies'
+import React from 'react';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';

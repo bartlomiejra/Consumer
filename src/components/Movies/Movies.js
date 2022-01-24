@@ -1,11 +1,14 @@
+
 import MovieItem from './MovieItem'
 import React, {useState, useEffect} from 'react'
 // import Spinner  from '../styles/Spinner'
 import axios from "axios"
 // import Search from '../Search'
+import Skeleton from '@mui/material/Skeleton';
+
 import StyledSearchBar from '../Search'
 // import {ItemsGrid, Flex } from '../styles/ItemsGrid.styled.js'
-// import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid';
 // import Container from '@mui/material/Container';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -166,15 +169,18 @@ color="secondary" >Search</Button>
 </Box>
 {/* <ItemsGrid> */}
 
-<Box   sx={{
-          display: 'flex',
-          justifyContent: 'center',
-		  alignItems: "stretch",
+{/* <Box 
+>
+justify="center"
+// sx={12} 
+flexWrap='wrap'
+alignItems= "stretch"
+// display= 'flex'
+ sx={{ 
         //   p: 1,
         //   m: 1,
-		  flexWrap: 'wrap'
-        }} >
-{/* <Grid container spacing={2} justify="space-between" alignItems="stretch"> */}
+        }}  */}
+<Grid       container spacing={0} alignItems="center" justify="center"  direction="row" justifyContent="center">
 	    {/* <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}> */}
 		
 	
@@ -182,21 +188,27 @@ color="secondary" >Search</Button>
 	{movies.map(item => (
 			<>
 
-				<MovieItem key={item.id} item={item} > 
+				<MovieItem sm={3}  key={item.id} item={item} > 
 					
 				
 				</MovieItem>
 				           
 			</>
 			))}
+			{!movies.isLoading && 
 
+				<Skeleton variant="rectangular" width={210} height={118} animation="wave" background="#444444" /> 
+
+}
+		
+
+			
+
+			</Grid>
 		   <Stack spacing={2}>
       <Pagination count={10}  />
     </Stack>
-			
-
-			{/* </Grid> */}
-			</Box>
+			{/* </Box> */}
 
 			{/* </ItemsGrid> */}
 

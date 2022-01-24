@@ -1,4 +1,6 @@
 import { Styledheader,  Logo, Image } from './styles/Heder.styled';
+import React from 'react';
+
 import { Button} from './styles/Button.styled';
 import Movies from './Movies/Movies'
 import {Link} from "react-router";

@@ -18,7 +18,10 @@ grid-template-columns: auto auto auto;
 export const Item = styled(motion.Card) `
 position: relative;
 display: flex;
-/* width: auto; */
+width: 350px;
+/* height: 70vh; */
+/* width: px;
+height: 750px; */
 /* display: grid; */
 /* height: 30vh; */
 /* height: 10px; */
@@ -29,7 +32,7 @@ padding: 0px;
 
 .detals{
   position:absolute;
-  color: white;  font-size: 20px;
+  color: white;  font-size: 1rem;
   /* color: black; */
   z-index: 2;
   height: 100%;
@@ -47,8 +50,8 @@ export const Img = styled(motion.img) `
 /* position: relative */
   /* width:auto; */
 /* height:auto; */
-/* height: 100%;
-    width: 100%; */
+ height: 100%;
+    width: 100%; 
 `
 // export const StyledSearchBar = styled(SearchBar)`
 //   margin: 0 auto;
@@ -56,6 +59,7 @@ export const Img = styled(motion.img) `
 //   background-color: red;
 // `; 
 export const Moviedetals = styled.div `
+
 `
 export const StyledSearchBar = styled(SearchBar)`
   margin: 0 auto;

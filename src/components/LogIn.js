@@ -60,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
 			  label="Email Address"
 			  name="email"
                 autoComplete="email"
-                autoFocus
 	  variant="filled"
               />
               <TextField
