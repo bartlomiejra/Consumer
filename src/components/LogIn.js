@@ -1,9 +1,13 @@
 import React from 'react';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import StyledLog from '../components/styles/Log.styled';
+// import {pink } from '@material-ui/core/colors';
+import { pink } from '@mui/material/colors';
+
 import { makeStyles } from "@material-ui/core/styles";
 // import firebase  from '../Firebase/firebase';
 import {Grid, Box, Typography ,Avatar, CssBaseline, Paper, TextField, Checkbox, Button,  FormControlLabel,  Link} from '@material-ui/core';
+
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -11,7 +15,20 @@ const useStyles = makeStyles((theme) => ({
   }
 
 }));
-
+const styles = theme => ({
+    textField: {
+        width: '90%',
+        marginLeft: 'auto',
+        marginRight: 'auto',            
+        paddingBottom: 0,
+        marginTop: 0,
+        fontWeight: 500,
+        color: pink[800],
+    },
+    input: {
+        color: 'white'
+    }
+});
  const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -27,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 	  return(
 		<>
 			<h1>Login to Your Accound</h1>
-			 <Grid container component="main" sx={{ height: '100vh' }}>
+			 <Grid  component="main" sx={{ height: '100vh', alignItems: "center" }}>
         
      
           <Box
@@ -51,37 +68,69 @@ const useStyles = makeStyles((theme) => ({
 				{/* <StyledLog> */}
 
               <TextField
-			  InputProps={{ className: classes.input }}
-			  color="secondary"
-			  margin="normal"
-			  required
-			  fullWidth
-			  id="email"
-			  label="Email Address"
-			  name="email"
-                autoComplete="email"
-	  variant="filled"
-              />
-              <TextField
-      InputProps={{ className: classes.input }}
+                  className={classes.textField}
 
-			  color="secondary"
-			  variant="filled"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+
+                InputProps={{
+        className: classes.input,
+    }}
+                      sx={{input: {color: '#fffffff'},
+                    
+                      input: {
+    color: "#2EFF22"
+  }
+}}
+                      
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      autoComplete="email"
+                      variant="outlined"
+                 
+
+              />
+
+              <TextField
+
+// color="secondary"
+variant="outlined"
+margin="normal"
+required
+fullWidth
+name="password"
+label="Password"
+type="password"
+id="password"
+autoComplete="current-password"
+InputProps={{ className: classes.input }}
 				/>
 				{/* </StyledLog> */}
-              <FormControlLabel
-                control={<Checkbox value="remember" color="secondary" />}
-                label="Remember me"
+              <FormControlLabel 
+                  labelStyle={{color: 'white'}}
+                  iconStyle={{fill: 'white'}}
+                control={
+                  
+                  
+                  <Checkbox 
+                  labelStyle={{color: 'white'}}
+  iconStyle={{fill: 'white'}}
+  //  checked={pink}
+  sx={{
+    color: pink[800],
+    '&.Mui-checked': {
+      color: pink[600],
+    },
+  }}
+  value="remember"   
+  />
+}
+label="Remember me"
               />
-              <Button
+           
+                       <Button
 			  color="secondary"
                 type="submit"
                 fullWidth

@@ -75,14 +75,11 @@ useOnClickOutside(node, () => setOpen(false));
                  </NavLink>
                <Ul>
                  <NavLink activeStyle={{ color: '#c40491' }} to="/Movies">
-                 <motion.div
-                   whileHover={{
-                     scale: 1.2,
-                     transition: { duration: 1 },
-                   }}>
+                  <div
+               > 
                    Movie
 
-  </motion.div>
+  </div>
                  </NavLink>
                  
                  <NavLink activeStyle={{ color: '#c40491' }} to="/Tvseries">

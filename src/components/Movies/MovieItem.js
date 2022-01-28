@@ -25,7 +25,7 @@ const container = {
 }
 
 	 return (
-		 <Item  
+		 <Item spacing={1} 
 			   >
 			 {item.poster_path ?
 			  <Img   src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title}/> 

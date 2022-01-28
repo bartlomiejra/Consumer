@@ -144,7 +144,8 @@ return (
 				   '&.Mui-checked': {
 					   color: pink[600],
 					},
-				}} />} 
+				}}
+				 />} 
 				
 				// checked={selected.some(val => val === item.id)}
 		   onChange={handleChange} 
