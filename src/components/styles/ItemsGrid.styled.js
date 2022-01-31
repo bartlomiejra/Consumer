@@ -19,6 +19,7 @@ export const Item = styled(motion.Card) `
 position: relative;
 display: flex;
 width: 350px;
+margin-bottom: 10px;
 /* height: 70vh; */
 /* width: px;
 height: 750px; */
@@ -34,12 +35,30 @@ padding: 0px;
   position:absolute;
   color: white;  font-size: 1rem;
   /* color: black; */
+  /* display: flex; */
+  /* margin: 4px;
+   */
+display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   z-index: 2;
   height: 100%;
   text-decoration: none;
   
+  
 
 
+}
+
+.pagination{
+  color: white;
+  font-size: 1rem;
+  background-color: red;
+}
+
+
+.detals_linkbutton{
+  text-decoration: none;
 }
 
 
@@ -68,3 +87,7 @@ export const StyledSearchBar = styled(SearchBar)`
  
   /* border-radius: 10px; */
 `;
+
+
+
+

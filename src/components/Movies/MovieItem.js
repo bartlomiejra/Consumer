@@ -1,11 +1,13 @@
 /* eslint react/prop-types: 0 */
 
 //  eslint-disable jsx-a11y/no-autofocus
-import {Grid } from '@material-ui/core';
+import {CardContent, Grid } from '@material-ui/core';
 import React from 'react'
 import {Item, Img} from '../styles/ItemsGrid.styled'
 import { motion, AnimatePresence } from "framer-motion"
-import {Button, Card} from '@material-ui/core'
+import {Button, Card, ButtonGroup, Box, Typography} from '@material-ui/core'
+import Skeleton from '@mui/material/Skeleton';
+
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ClearIcon from '@material-ui/icons/Clear';
 
@@ -25,7 +27,8 @@ const container = {
 }
 
 	 return (
-		 <Item spacing={1} 
+		item ? (
+		 <Item  spacing={1} 
 			   >
 			 {item.poster_path ?
 			  <Img   src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title}/> 
@@ -41,23 +44,41 @@ const container = {
     backgroundColor: "rgba(0, 0, 0, 0.8)",
   }}
 			   className="detals">
-				 <motion.p 
-		  whileHover={{ opacity: 0.8,
-		  }}
-		  variants={container}
+					   
+					<Typography>
+				 {/* <p 
+		
+				>
 
-				>{item.genre_ids}</motion.p>
+				{console.log(item.genre_ids)}
+					{item.genre_ids}</p> */}
+					
+
+				
+
 				 <h3>{item.title}</h3>
 				 <p>{item.release_date}</p>
-			 <p>{item.vote_average }</p>
+					
+
+			 <p><strong>{item.vote_average }</strong>/10</p>
+					</Typography>
+					<Typography>
+
 				 <p>{item.overview}</p>
-				 <a href={`https://www.moviefone.com/${item.title}`}>
-				 <Button sx={{ borderColor: '#c40491' }} variant="contained"  size="large" style= {{
-                       color: '#CD388C'
-					   
-                      }}
-					  >More info</Button>
-					  </a>
+					</Typography>
+			  <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& > *': {
+          m: 1,
+        },
+      }}
+    >
+				 <ButtonGroup variant="contained" aria-label="outlined primary button group">
+					 
+
 					  <Button sx={{ borderColor: '#c40491' }} variant="contained"  size="large" style= {{
                       color: '#ffffff',
 					   background: '#cd388c'
@@ -65,6 +86,13 @@ const container = {
                      >
 						 <FavoriteIcon/>
 					 </Button>
+				 <a className="detals_linkbutton" href={`https://duckduckgo.com/?q=${item.title}`}>
+				 <Button sx={{ borderColor: '#c40491' }} variant="contained"  size="large" style= {{
+                       color: '#CD388C'
+					   
+                      }}
+					  >More info</Button>
+					  </a>
 					 <Button sx={{ borderColor: '#c40491' }} variant="contained"  size="large" style= {{
 						 
 						 color: '#ffffff',
@@ -76,9 +104,16 @@ const container = {
 						<ClearIcon/>
 					 </Button>
 
+				 </ButtonGroup>
+				 </Box>
+
 			  </motion.div>
 				 {/* console.log(item) */}
 		 </Item>
+		) : (
+							<Skeleton variant="rectangular"  height={525} width={325} animation="wave"  i sx={{ bgcolor: 'grey.900' }} /> 
+
+		)
 	 )
 }
 

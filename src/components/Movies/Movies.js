@@ -5,6 +5,10 @@ import React, {useState, useEffect} from 'react'
 import axios from "axios"
 // import Search from '../Search'
 import Skeleton from '@mui/material/Skeleton';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+import Collapse from '@mui/material/Collapse'; 
+import {Item} from '../styles/ItemsGrid.styled'
 
 import StyledSearchBar from '../Search'
 // import {ItemsGrid, Flex } from '../styles/ItemsGrid.styled.js'
@@ -19,11 +23,25 @@ import { Typography } from '@material-ui/core'
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 // import ClearIcon from '@mui/icons-material/Clear';
 // import { useMediaQuery } from '@mui/material'
-import {Stack, Pagination, PaginationItem, PaginationLink} from '@mui/material'
+// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+
 import Button from '@mui/material/Button';
 // import SearchIcon from '@mui/icons-material';
 
-
+const ExpandMore = styled((props) => {
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
+})(({ theme, expand }) => ({
+  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+  marginLeft: 'auto',
+  transition: theme.transitions.create('transform', {
+    duration: theme.transitions.duration.shortest,
+  }),
+}));
 const Movies = () => {
 	const [selected, setSelected] = useState([]);
 
@@ -33,8 +51,16 @@ const Movies = () => {
 	
 	// const [items, setItems] =  useState([])
 	const [moviegenres, setItems] =  useState([])
-	// const [isLoading, setIsLoading] =  useState(true)
+	const [isLoading, setIsLoading] =  useState(true)
 	
+
+	const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
+
 	const handleChange = event => {
     const { checked, value } = event.currentTarget;
 
@@ -52,7 +78,8 @@ const Movies = () => {
 
 		const fetchMoviesbyGenres = async( ) => {
 				const moviesbygenres = await fetch(
-					`https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres={}`
+					`https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=${selected}&page=1
+					`
 					)
 					const findmoviesbygenres = await moviesbygenres.json();
 					console.log(findmoviesbygenres.results);
@@ -131,7 +158,19 @@ return (
 
 
 />
-    
+Category
+     <ExpandMore
+	 color="secondary"
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="Category"
+
+        >
+          <ExpandMoreIcon />
+		  </ExpandMore>
+		        <Collapse in={expanded} timeout="auto" unmountOnExit>
+
 
 {moviegenres.map(item => (
 	<>
@@ -145,11 +184,11 @@ return (
 					   color: pink[600],
 					},
 				}}
-				 />} 
+				/>} 
 				
 				// checked={selected.some(val => val === item.id)}
 		   onChange={handleChange} 
-  label={item.name} />
+		   label={item.name} />
 
 	
 
@@ -167,6 +206,9 @@ onClick={fetchMoviesbyGenres}
 variant="contained"
 size="large"
 color="secondary" >Search</Button>
+
+
+</Collapse>
 </Box>
 {/* <ItemsGrid> */}
 
@@ -177,11 +219,12 @@ justify="center"
 flexWrap='wrap'
 alignItems= "stretch"
 // display= 'flex'
- sx={{ 
+sx={{ 
         //   p: 1,
         //   m: 1,
         }}  */}
-<Grid       container spacing={0} alignItems="center" justify="center"  direction="row" justifyContent="center">
+<Grid       container spacing={0} alignItems="center"   justifyContent="space-around"
+  direction="row" >
 	    {/* <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}> */}
 		
 	
@@ -196,18 +239,25 @@ alignItems= "stretch"
 				           
 			</>
 			))}
-			{!movies.isLoading && 
+			{/* {!movies.isLoading &&  */}
+			<>
+{/* <Item> */}
+{/* 
+				<Skeleton variant="rectangular"  height={525} width={325} animation="wave"  i sx={{ bgcolor: 'grey.900' }} /> 
+				<Skeleton variant="rectangular"  height={525} width={325}    sx={{ bgcolor: 'grey.900' }} /> 
+				<Skeleton variant="rectangular"  height={525} width={325} animation="wave"   sx={{ bgcolor: 'grey.900' }} /> 
+			 */}
+				
 
-				<Skeleton variant="rectangular" width={210} height={118} animation="wave" background="#444444" /> 
-
-}
+{/* </Item> */}
+			</>
+{/* } */}
 		
-
 			
-
 			</Grid>
+			
 		   <Stack spacing={2}>
-      <Pagination count={10}  />
+      <Pagination count={10}   sx={{bgcolor: 'grey.900'}} />
     </Stack>
 			{/* </Box> */}
 

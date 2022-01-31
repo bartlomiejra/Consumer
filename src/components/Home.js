@@ -74,22 +74,22 @@ function Home(){
                             </NavLink>
         </Grid>
         <Grid item xs={4}>
-  <NavLink  key={2} className="item" variants={item} to="/Movies">
+  <NavLink  key={2} className="item" variants={item} to="/Music">
 
           <Item style={{background: 'linear-gradient(to right bottom, #430089, #181818)'}}>
             Music</Item>
   </NavLink>
         </Grid>
         <Grid item xs={4}>
-            <NavLink  key={3} className="item" variants={item} to="/Movies">
+            <NavLink  key={3} className="item" variants={item} to="/Moviesfor2">
 
           <Item style={{background: 'linear-gradient(to left bottom, #181818, #c40491)'}}>Movies For 2</Item>
                             </NavLink>
         </Grid>
         <Grid item xs={8}>
-            <NavLink  key={4} className="item" variants={item} to="/Movies">
+            <NavLink  key={4} className="item" variants={item} to="/Recommendation">
 
-          <Item style={{background: 'linear-gradient(to right bottom, #430089, #fcb045)'}}>Our Recomendation</Item>
+          <Item style={{background: 'linear-gradient(to right bottom, #430089, #fcb045)'}}>Our Recommendation</Item>
                             </NavLink>
         </Grid>
       </Grid>
