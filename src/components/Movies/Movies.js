@@ -45,8 +45,11 @@ const ExpandMore = styled((props) => {
 const Movies = () => {
 	const [selected, setSelected] = useState([]);
 
-	const [movies, setMovies] =  useState([])
 	const [query, setQuery] =  useState('')
+
+
+
+	const [movies, setMovies] =  useState([])
 	// const [genres, setGenres] =  useState('')
 	
 	// const [items, setItems] =  useState([])
@@ -60,10 +63,10 @@ const Movies = () => {
     setExpanded(!expanded);
   };
 
+const skeletonArray = Array(20).fill('');
 
 	const handleChange = event => {
     const { checked, value } = event.currentTarget;
-
     setSelected(
       prev => checked
         ? [...prev, value]
@@ -72,10 +75,8 @@ const Movies = () => {
 	// console.log(setSelected);
 	console.log(selected);
 };
-
 	useEffect (() => {
 	},[]);
-
 		const fetchMoviesbyGenres = async( ) => {
 				const moviesbygenres = await fetch(
 					`https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=${selected}&page=1
@@ -84,36 +85,42 @@ const Movies = () => {
 					const findmoviesbygenres = await moviesbygenres.json();
 					console.log(findmoviesbygenres.results);
 					setMovies(findmoviesbygenres.results);
-					
 				}
 		useEffect (() => {
 			const fetchCategory = async( ) => {
-
 				const category = await fetch(
 					`https://api.themoviedb.org/3/genre/movie/list?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US`)
-					
-					//  console.log(category.data);
-					//  console.log(category);
-					
 					const moviegenres = await category.json();
-					//  console.log(moviegenres);
-					//  console.log(moviegenres.genres);
 					setItems(moviegenres.genres);
 					
 				}
 				fetchCategory();
 			},[]);
-			
+
+
+
+
+
+
+
 			useEffect (() => {
 					const fetchItems = async () => {
+
+
 						let result;
 						if(query == ''){
  result = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=1`)
 						} else {
-
 							 result = await axios(`https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&query=${query}`)
 
 						}
+						setMovies(result.data.results)
+					}
+						const timer = setTimeout(() => {
+							fetchItems();
+						}, 1000);
+					    return () => clearTimeout(timer);
+
 					
 								//  const result = await axios(`https://api.themoviedb.org/3/trending/all/day?api_key=f0b539c0e3a06d06f8301d709f2fdf86`)
 					
@@ -126,37 +133,24 @@ const Movies = () => {
 				
 				// 	// console.log(result.data.results);
 				// 	// setIsLoading(false)
-				console.log(result.data.results)
-				// console.log(moviegenres)
-				setMovies(result.data.results)
-				console.log(query);
+				// console.log(result.data.results)
+				// // console.log(moviegenres)
+				// console.log(query);
 				
-			}
 			// console.log(movies);
 			// console.log(moviesgenres);
 			
-			fetchItems();
 		},[query]);
-
-		
-	
 return (
-
 <section>
-				 
 <Box    sx={{
-
           justifyContent: 'center',
-        
         }} >
 				 <Typography variant="h3">Movies</Typography>
-				
 				 <Typography variant="p">				 Select several genres of movies you are interested in or just use the search. 				 </Typography>
 <StyledSearchBar
  sx={{   color: pink[800],
  }} getQuery={(q) => setQuery(q)} 
-
-
 />
 Category
      <ExpandMore
@@ -165,18 +159,13 @@ Category
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="Category"
-
         >
           <ExpandMoreIcon />
 		  </ExpandMore>
 		        <Collapse in={expanded} timeout="auto" unmountOnExit>
-
-
 {moviegenres.map(item => (
 	<>
-	
 		       <FormControlLabel   
-			   
 			   control={<Checkbox key={item.id} value={item.id}     
 			   sx={{
 				   color: pink[800],
@@ -185,14 +174,8 @@ Category
 					},
 				}}
 				/>} 
-				
-				// checked={selected.some(val => val === item.id)}
 		   onChange={handleChange} 
 		   label={item.name} />
-
-	
-
-{/* console.log(selected); */}
 </>
 )
 )
@@ -239,21 +222,24 @@ sx={{
 				           
 			</>
 			))}
-			{/* {!movies.isLoading &&  */}
+			{/* {movies.isloading &&
+  skeletonArray.map((item, index) => (
+    <Skeleton key={index} variant="rect" width={200} height={300} />
+))} */}
+			{movies.isLoading && 
 			<>
-{/* <Item> */}
-{/* 
+<Item>
+
 				<Skeleton variant="rectangular"  height={525} width={325} animation="wave"  i sx={{ bgcolor: 'grey.900' }} /> 
 				<Skeleton variant="rectangular"  height={525} width={325}    sx={{ bgcolor: 'grey.900' }} /> 
 				<Skeleton variant="rectangular"  height={525} width={325} animation="wave"   sx={{ bgcolor: 'grey.900' }} /> 
-			 */}
+			
 				
 
-{/* </Item> */}
+</Item>
 			</>
-{/* } */}
 		
-			
+			}	
 			</Grid>
 			
 		   <Stack spacing={2}>

@@ -20,34 +20,17 @@ position: relative;
 display: flex;
 width: 350px;
 margin-bottom: 10px;
-/* height: 70vh; */
-/* width: px;
-height: 750px; */
-/* display: grid; */
-/* height: 30vh; */
-/* height: 10px; */
-/* display: flex; */
-/* max-width: 25%; */
 padding: 0px;
-/* position:absolute; */
 
 .detals{
   position:absolute;
   color: white;  font-size: 1rem;
-  /* color: black; */
-  /* display: flex; */
-  /* margin: 4px;
-   */
 display: flex;
   flex-direction: column;
   justify-content: space-around;
   z-index: 2;
   height: 100%;
   text-decoration: none;
-  
-  
-
-
 }
 
 .pagination{

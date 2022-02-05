@@ -3,7 +3,6 @@ import React from 'react';
 import { bool } from 'prop-types';
 import { StyledMenu } from '../styles/Menu.styled'
 import { NavLink } from 'react-router-dom';
-import {  Logo } from '../styles/Heder.styled';
 import { motion, AnimatePresence } from "framer-motion"
 
 
@@ -46,14 +45,14 @@ return (
        <AnimatePresence arria-hidden={!isHidden}>
 
    <motion.div
-       initial={{ scale: 0 }}
+      //  initial={{ scale: 0 }}
        transition={{
-         type: "spring",
-         stiffness: 860,
-         damping: 20,
-         duration: 10
+        //  type: "spring",
+        //  stiffness: 860,
+        //  damping: 20,
+        //  duration: 10
         }} 
-        animate={{ rotate: 580, scale: 3 }}
+        // animate={{ rotate: 580, scale: 3 }}
       >
 
                    <NavLink 

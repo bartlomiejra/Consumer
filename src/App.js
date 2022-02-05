@@ -31,6 +31,10 @@ const themes = {
 	},
 	mobile:'768px'
 }
+
+
+
+
 const theme = createTheme({
   palette: {
     primary: {

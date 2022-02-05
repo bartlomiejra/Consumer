@@ -11,11 +11,7 @@ import Skeleton from '@mui/material/Skeleton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ClearIcon from '@material-ui/icons/Clear';
 
-// import FavoriteIcon from '@mui/icons-material/Favorite';
  const MovieItem = ({item}) => {
-	//  console.log(item);
-//if poster_path is not null render this image if true when foto not found image
-
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -25,7 +21,6 @@ const container = {
     }
   }
 }
-
 	 return (
 		item ? (
 		 <Item  spacing={1} 
@@ -58,8 +53,6 @@ const container = {
 
 				 <h3>{item.title}</h3>
 				 <p>{item.release_date}</p>
-					
-
 			 <p><strong>{item.vote_average }</strong>/10</p>
 					</Typography>
 					<Typography>
