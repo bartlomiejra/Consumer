@@ -22,12 +22,13 @@ import {MuiThemeProvider, createTheme} from '@material-ui/core/styles';
 // import {useCollectionData} from 'react-firebase-hooks/firestore';
 
 
+// import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
 
 const themes = {
 	colors: {
-		header: '#214141',
+		header: '#ffffff',
 		
-		footer: '#003333'
+		footer: '#ffffff'
 	},
 	mobile:'768px'
 }
@@ -37,18 +38,149 @@ const themes = {
 
 const theme = createTheme({
   palette: {
+    type: 'dark',
     primary: {
-      light: '#757ce8',
-      main: '#3f50b5',
-      dark: '#002884',
-      contrastText: '#fff',
+      main: '#8a0940',
+      light: '#ffffff',
     },
     secondary: {
-      light: '#5c27b0',
-      main: '#9c27b0',
-      dark: '#9ee7b0',
-      contrastText: '#fff',
+      main: '#3f061c',
     },
+    text: {
+      primary: '#fff9f9',
+      secondary: '#f1efef',
+      disabled: 'rgba(251,248,248,0.38)',
+      hint: 'rgba(239,234,234,0.38)',
+    },
+    background: {
+      default: '#000000',
+      paper: '#333333',
+    },
+    divider: 'rgba(0,0,0,0.12)',
+    error: {
+      main: '#ffffff',
+    },
+    warning: {
+      main: '#ffffff',
+    },
+    info: {
+      main: '#f321b1',
+    },
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        border: 0,
+        borderRadius: 3,
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white',
+        height: 48,
+        padding: '0 30px',
+      },
+    },
+    MuiAppBar: {
+      colorInherit: {
+        backgroundColor: '#689f38',
+        color: '#fff',
+      },
+    },
+    MuiSwitch: {
+      root: {
+        width: 42,
+        height: 26,
+        padding: 0,
+        margin: 8,
+      },
+      switchBase: {
+        padding: 1,
+        '&$checked, &$colorPrimary$checked, &$colorSecondary$checked': {
+          transform: 'translateX(16px)',
+          color: '#fff',
+          '& + $track': {
+            opacity: 1,
+            border: 'none',
+          },
+        },
+      },
+      thumb: {
+        width: 24,
+        height: 24,
+      },
+      track: {
+        borderRadius: 13,
+        border: '1px solid #bdbdbd',
+        backgroundColor: '#fafafa',
+        opacity: 1,
+        transition: 'background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+      },
+    },
+  },
+  props: {
+    MuiButtonBase: {
+      disableRipple: true,
+    },
+    MuiList: {
+      dense: true,
+    },
+    MuiMenuItem: {
+      dense: true,
+    },
+    MuiTable: {
+      size: 'small',
+    },
+    MuiButton: {
+      size: 'small',
+    },
+    MuiButtonGroup: {
+      size: 'small',
+    },
+    MuiCheckbox: {
+      size: 'small',
+    },
+    MuiFab: {
+      size: 'small',
+    },
+    MuiFormControl: {
+      margin: 'dense',
+      size: 'small',
+    },
+    MuiFormHelperText: {
+      margin: 'dense',
+    },
+    MuiIconButton: {
+      size: 'small',
+    },
+    MuiInputBase: {
+      margin: 'dense',
+    },
+    MuiInputLabel: {
+      margin: 'dense',
+    },
+    MuiRadio: {
+      size: 'small',
+    },
+    MuiSwitch: {
+      size: 'small',
+    },
+    MuiTextField: {
+      margin: 'dense',
+      size: 'small',
+    },
+    MuiTooltip: {
+      arrow: true,
+    },
+    MuiAppBar: {
+      color: 'inherit',
+    },
+  },
+  typography: {
+    fontSize: 16,
+  },
+  spacing: 8,
+  direction: 'rtl',
+  shape: {
+    borderRadius: 4,
   },
 });
 function App() {

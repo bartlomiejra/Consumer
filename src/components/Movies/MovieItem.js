@@ -10,7 +10,10 @@ import Skeleton from '@mui/material/Skeleton';
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ClearIcon from '@material-ui/icons/Clear';
-
+const animationhover = {
+  visible: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, x: -100 },
+}
  const MovieItem = ({item}) => {
 const container = {
   hidden: { opacity: 0 },
@@ -24,6 +27,7 @@ const container = {
 	 return (
 		item ? (
 		 <Item  spacing={1} 
+		 
 			   >
 			 {item.poster_path ?
 			  <Img   src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title}/> 
@@ -32,6 +36,7 @@ const container = {
 /> 			  
 			  }
 			  <motion.div
+
 			  initial={{ opacity: 0}}
 			  whileHover={{ opacity: 1.2 }}
 			  			  animate={{
@@ -41,17 +46,11 @@ const container = {
 			   className="detals">
 					   
 					<Typography>
-				 {/* <p 
-		
-				>
-
-				{console.log(item.genre_ids)}
-					{item.genre_ids}</p> */}
-					
-
-				
-
-				 <h3>{item.title}</h3>
+				 <motion.h3
+				   animate={{ x: 100 }}
+  transition={{ ease: "easeOut", duration: 3 }}
+				 
+				 >{item.title}</motion.h3>
 				 <p>{item.release_date}</p>
 			 <p><strong>{item.vote_average }</strong>/10</p>
 					</Typography>
@@ -79,7 +78,7 @@ const container = {
                      >
 						 <FavoriteIcon/>
 					 </Button>
-				 <a className="detals_linkbutton" href={`https://duckduckgo.com/?q=${item.title}`}>
+				 <a className="detals_linkbutton" target="_blank" href={`https://duckduckgo.com/?q=${item.title}`}>
 				 <Button sx={{ borderColor: '#c40491' }} variant="contained"  size="large" style= {{
                        color: '#CD388C'
 					   
@@ -104,7 +103,7 @@ const container = {
 				 {/* console.log(item) */}
 		 </Item>
 		) : (
-							<Skeleton variant="rectangular"  height={525} width={325} animation="wave"  i sx={{ bgcolor: 'grey.900' }} /> 
+							<Skeleton variant="rectangular"  height={525} width={325} animation="wave"   /> 
 
 		)
 	 )

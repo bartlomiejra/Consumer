@@ -9,6 +9,8 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse'; 
 import {Item} from '../styles/ItemsGrid.styled'
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
 
 import StyledSearchBar from '../Search'
 // import {ItemsGrid, Flex } from '../styles/ItemsGrid.styled.js'
@@ -32,17 +34,47 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 // import SearchIcon from '@mui/icons-material';
 
+
 const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
+	const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+	transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
   marginLeft: 'auto',
   transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
+	  duration: theme.transitions.duration.shortest,
+	}),
 }));
 const Movies = () => {
+// 	const useStyles=makeStyles((theme)=>({
+// text:{
+//     color:"#ffffff"
+// }
+// }));
+
+
+const useStyles = makeStyles(() => ({
+  ul: {
+    "& .MuiPaginationItem-root": {
+      color: "#fff"
+    }
+  }
+}));
+
+	// const useStyles = makeStyles({
+	//   caption: {
+	// 	color: "green",
+	// 	padding: 8,
+	// 	border: "1px dashed grey",
+	// 	fontSize: "0.875rem"
+	//   },
+	//   typography: {
+	// 	  allVariants: {
+	// 		  color: "pink"
+	// 		}
+	// 	},
+	// });
+	const classes = useStyles();
 	const [selected, setSelected] = useState([]);
 
 	const [query, setQuery] =  useState('')
@@ -242,8 +274,16 @@ sx={{
 			}	
 			</Grid>
 			
+			   
 		   <Stack spacing={2}>
-      <Pagination count={10}   sx={{bgcolor: 'grey.900'}} />
+
+      <Pagination count={10} classes={{ ul: classes.ul }}  sx={{bgcolor: 'grey.900'}} // ...
+      classes={{
+        toolbar: classes.toolbar,
+        caption: classes.caption
+      }} 
+	  className={classes.text}
+	   />
     </Stack>
 			{/* </Box> */}
 
