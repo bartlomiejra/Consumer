@@ -15,6 +15,7 @@ const animationhover = {
   hidden: { opacity: 0, x: -100 },
 }
  const MovieItem = ({item}) => {
+
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -24,7 +25,13 @@ const container = {
     }
   }
 }
+    const rowSkeletons = 6
+
+
+
+    
 	 return (
+			 
 		item ? (
 		 <Item  spacing={1} 
 		 

@@ -242,6 +242,20 @@ sx={{
   direction="row" >
 	    {/* <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}> */}
 		
+				{!movies.isLoading && 
+				<>
+	<Item>
+	
+					<Skeleton variant="rectangular"  height={525} width={325} animation="wave"  i sx={{ bgcolor: 'grey.900' }} /> 
+					<Skeleton variant="rectangular"  height={525} width={325}    sx={{ bgcolor: 'grey.900' }} /> 
+					<Skeleton variant="rectangular"  height={525} width={325} animation="wave"   sx={{ bgcolor: 'grey.900' }} /> 
+				
+					
+	
+	</Item>
+				</>
+			
+				}	
 	
 
 	{movies.map(item => (
@@ -254,34 +268,14 @@ sx={{
 				           
 			</>
 			))}
-			{/* {movies.isloading &&
-  skeletonArray.map((item, index) => (
-    <Skeleton key={index} variant="rect" width={200} height={300} />
-))} */}
-			{movies.isLoading && 
-			<>
-<Item>
-
-				<Skeleton variant="rectangular"  height={525} width={325} animation="wave"  i sx={{ bgcolor: 'grey.900' }} /> 
-				<Skeleton variant="rectangular"  height={525} width={325}    sx={{ bgcolor: 'grey.900' }} /> 
-				<Skeleton variant="rectangular"  height={525} width={325} animation="wave"   sx={{ bgcolor: 'grey.900' }} /> 
-			
-				
-
-</Item>
-			</>
-		
-			}	
+	
 			</Grid>
 			
 			   
 		   <Stack spacing={2}>
 
-      <Pagination count={10} classes={{ ul: classes.ul }}  sx={{bgcolor: 'grey.900'}} // ...
-      classes={{
-        toolbar: classes.toolbar,
-        caption: classes.caption
-      }} 
+      <Pagination count={10}   sx={{bgcolor: 'grey.900'}} // ...
+    
 	  className={classes.text}
 	   />
     </Stack>
