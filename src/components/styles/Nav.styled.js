@@ -1,45 +1,38 @@
-
 import styled from "styled-components";
-export const Stylednav = styled.nav `
-display: flex;
-width: 100%;
-text-decoration: none;
-justify-content: space-between;
+export const Stylednav = styled.nav`
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+  justify-content: space-between;
 
+  ul {
+    /* justify-content: space-around; */
+    justify-content: center;
+    list-style-type: none;
+    margin: 0px;
+    font-weight: 700;
+  }
 
-
-ul{
-	/* justify-content: space-around; */
-  justify-content: center;
-	list-style-type: none;
-  margin: 0px;
-  font-weight: 700;
-}
-
-
-a{
-	text-decoration: none;
-	color: inherit;
-margin: 10px;
-font-size: 1rem
-}
-
-
-`
+  a {
+    text-decoration: none;
+    color: inherit;
+    margin: 10px;
+    font-size: 1rem;
+  }
+`;
 
 export const Navi = styled.nav`
-font-weight: 500;
-/* display: flex; */
-/* align-items: center; */
-/* justify-content: space-between; */
-margin-bottom: 40px;
+  font-weight: 500;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  margin-bottom: 40px;
 
-@media(max-width: ${({theme}) => theme.mobile }){
-	flex-direction: column;
-	
-}
-`
- export const Li = styled.li`
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    flex-direction: column;
+  }
+`;
+export const Li = styled.li`
  
 display: flex;
 font-size: 1.3vw;
@@ -53,37 +46,31 @@ justify-content: space-between;
     margin-left: 20px;
    
 
-@media(max-width: ${({theme}) => theme.mobile }){
+@media(max-width: ${({ theme }) => theme.mobile}){
 /* flex-direction: column; */
 
 }
- }`
+ }`;
 
-  export const Ul = styled.ul`
-display: flex;
-/* /* justify-content: space-around; */
-align-items: center;
-width: 100%; 
-padding: 0px;
+export const Ul = styled.ul`
+  display: flex;
+  /* /* justify-content: space-around; */
+  align-items: center;
+  width: 100%;
+  padding: 0px;
 
-/* justify-content: space-between; */
-/* margin-bottom: 40px; */
+  /* justify-content: space-between; */
+  /* margin-bottom: 40px; */
 
-@media(max-width: ${({theme}) => theme.mobile }){
-flex-direction: column;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    flex-direction: column;
 
-font-size: 1rem;
-}
+    font-size: 1rem;
+  }
+`;
 
- `
- 
-
- export const Logo = styled.img`
- @media(max-width: ${({theme}) => theme.mobile }){
-margin-bottom: 40px;
-
-
-}
-
- `
-
+export const Logo = styled.img`
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin-bottom: 40px;
+  }
+`;

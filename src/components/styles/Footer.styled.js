@@ -2,7 +2,7 @@ import styled from "styled-components";
 export const StyledFooter = styled.footer`
   color: #fff;
   padding: 100px 0 60px;
- position: sticky;
+  position: sticky;
   top: 100vh;
   ul {
     list-style-type: none;
@@ -25,4 +25,4 @@ export const StyledFooter = styled.footer`
       text-align: center;
     }
   }
-`
+`;

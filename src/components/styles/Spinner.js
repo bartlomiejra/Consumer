@@ -1,9 +1,12 @@
-import React from 'react'
-import spinner from '../../img/spin.gif'
+import React from "react";
+import spinner from "../../img/spin.gif";
 const Spinner = () => {
-	return (
-		<img src={spinner} style={{width:'200px', margin: 'auto', display: 'block'}} />
-	)
-}
+  return (
+    <img
+      src={spinner}
+      style={{ width: "200px", margin: "auto", display: "block" }}
+    />
+  );
+};
 
-export default Spinner
+export default Spinner;
