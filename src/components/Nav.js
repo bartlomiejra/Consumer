@@ -18,7 +18,7 @@ import { borders } from "@mui/system";
 
 import Hamburger from "./Hamburger/Hamburger";
 import Button from "@mui/material/Button";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 
 function Nav() {
@@ -95,7 +95,7 @@ function Nav() {
                 variant="outlined"
                 size="large"
                 style={{
-                  color: "#CD388C",
+                  color: "#CD388C"
                   //  border-color: '#cd388c'
                 }}
               >

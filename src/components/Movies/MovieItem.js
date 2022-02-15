@@ -5,11 +5,11 @@ import { CardContent, Grid } from "@material-ui/core";
 import React from "react";
 import { Item, Img } from "../styles/ItemsGrid.styled";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button, Card, ButtonGroup, Box, Typography } from "@material-ui/core";
+import { Button, Card, ButtonGroup, Box, Typography } from "@mui/material";
 import Skeleton from "@mui/material/Skeleton";
 
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ClearIcon from "@material-ui/icons/Clear";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ClearIcon from "@mui/icons-material/Clear";
 const animationhover = {
   visible: { opacity: 1, x: 0 },
   hidden: { opacity: 0, x: -100 },
@@ -52,8 +52,7 @@ const MovieItem = ({ item }) => {
       >
         <Typography>
           <motion.h3
-            animate={{ x: 100 }}
-            transition={{ ease: "easeOut", duration: 3 }}
+            
           >
             {item.title}
           </motion.h3>

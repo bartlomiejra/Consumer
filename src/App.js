@@ -29,7 +29,6 @@ const themes = {
 
     footer: "#ffffff",
   },
-  mobile: "768px",
 };
 
 const theme = createTheme({
@@ -171,7 +170,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontSize: 16,
+    fontSize: 14,
   },
   spacing: 8,
   direction: "rtl",

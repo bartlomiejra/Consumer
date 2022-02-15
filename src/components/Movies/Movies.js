@@ -11,20 +11,13 @@ import { Item } from "../styles/ItemsGrid.styled";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 import StyledSearchBar from "../Search";
-// import {ItemsGrid, Flex } from '../styles/ItemsGrid.styled.js'
 import Grid from "@mui/material/Grid";
-// import Container from '@mui/material/Container';
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { pink } from "@mui/material/colors";
-import Box from "@material-ui/core/Box";
+import Box from "@mui/material/Box";
 import { Typography } from "@material-ui/core";
-// import Spinner from '../../img/spin.gif'
-// import FavoriteIcon from '@mui/icons-material/Favorite';
-// import ClearIcon from '@mui/icons-material/Clear';
-// import { useMediaQuery } from '@mui/material'
-// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
@@ -262,6 +255,7 @@ sx={{
       <Stack spacing={2}>
         <Pagination
           count={10}
+          color="secondary"
           classes={{ ul: classes.ul }}
           sx={{ bgcolor: "grey.900" }} // ...
           classes={{
