@@ -1,37 +1,37 @@
-import MovieItem from "./MovieItem";
-import React, { useState, useEffect } from "react";
+import MovieItem from './MovieItem';
+import React, { useState, useEffect } from 'react';
 // import Spinner  from '../styles/Spinner'
-import axios from "axios";
+import axios from 'axios';
 // import Search from '../Search'
-import Skeleton from "@mui/material/Skeleton";
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
-import Collapse from "@mui/material/Collapse";
-import { Item } from "../styles/ItemsGrid.styled";
-import makeStyles from "@material-ui/core/styles/makeStyles";
+import Skeleton from '@mui/material/Skeleton';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+import Collapse from '@mui/material/Collapse';
+import { Item } from '../styles/ItemsGrid.styled';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 
-import StyledSearchBar from "../Search";
-import Grid from "@mui/material/Grid";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import { pink } from "@mui/material/colors";
-import Box from "@mui/material/Box";
-import { Typography } from "@material-ui/core";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import StyledSearchBar from '../Search';
+import Grid from '@mui/material/Grid';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { pink } from '@mui/material/colors';
+import Box from '@mui/material/Box';
+import { Typography } from '@material-ui/core';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import { styled } from "@mui/material/styles";
-import IconButton from "@mui/material/IconButton";
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
 
-import Button from "@mui/material/Button";
+import Button from '@mui/material/Button';
 // import SearchIcon from '@mui/icons-material';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
+  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+  marginLeft: 'auto',
+  transition: theme.transitions.create('transform', {
     duration: theme.transitions.duration.shortest,
   }),
 }));
@@ -44,15 +44,15 @@ const Movies = () => {
 
   const useStyles = makeStyles(() => ({
     ul: {
-      "& .MuiPaginationItem-root": {
-        color: "#fff",
+      '& .MuiPaginationItem-root': {
+        color: '#fff',
       },
     },
   }));
 
   const classes = useStyles();
   const [selected, setSelected] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [moviegenres, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -66,7 +66,7 @@ const Movies = () => {
   const handleChange = (event) => {
     const { checked, value } = event.currentTarget;
     setSelected((prev) =>
-      checked ? [...prev, value] : prev.filter((val) => val !== value)
+      checked ? [...prev, value] : prev.filter((val) => val !== value),
     );
     // console.log(setSelected);
     console.log(selected);
@@ -75,17 +75,18 @@ const Movies = () => {
   const fetchMoviesbyGenres = async () => {
     const moviesbygenres = await fetch(
       `https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=${selected}&page=1
-					`
+					`,
     );
 
     const findmoviesbygenres = await moviesbygenres.json();
     console.log(findmoviesbygenres.results);
     setMovies(findmoviesbygenres.results);
+    // setQuery(findmoviesbygenres.results);
   };
   useEffect(() => {
     const fetchCategory = async () => {
       const category = await fetch(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US`
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US`,
       );
       const moviegenres = await category.json();
       setItems(moviegenres.genres);
@@ -95,13 +96,13 @@ const Movies = () => {
   useEffect(() => {
     const fetchItems = async () => {
       let result;
-      if (query == "") {
+      if (query == '') {
         result = await axios(
-          `https://api.themoviedb.org/3/movie/popular?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=1`
+          `https://api.themoviedb.org/3/movie/popular?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=1`,
         );
       } else {
         result = await axios(
-          `https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&query=${query}`
+          `https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&query=${query}`,
         );
       }
       setMovies(result.data.results);
@@ -115,14 +116,14 @@ const Movies = () => {
     <section>
       <Box
         sx={{
-          justifyContent: "center",
+          justifyContent: 'center',
         }}
       >
         <Typography variant="h3">Movies</Typography>
         <Typography variant="p">
-          {" "}
+          {' '}
           Select several genres of movies you are interested in or just use the
-          search.{" "}
+          search.{' '}
         </Typography>
         <StyledSearchBar
           sx={{ color: pink[800] }}
@@ -148,7 +149,7 @@ const Movies = () => {
                     value={item.id}
                     sx={{
                       color: pink[800],
-                      "&.Mui-checked": {
+                      '&.Mui-checked': {
                         color: pink[600],
                       },
                     }}
@@ -211,7 +212,7 @@ sx={{
                 width={350}
                 animation="wave"
                 i
-                sx={{ bgcolor: "grey.900" }}
+                sx={{ bgcolor: 'grey.900' }}
               />
             </Item>
 
@@ -222,7 +223,7 @@ sx={{
                 width={350}
                 animation="wave"
                 i
-                sx={{ bgcolor: "grey.900" }}
+                sx={{ bgcolor: 'grey.900' }}
               />
             </Item>
             <Item>
@@ -232,7 +233,7 @@ sx={{
                 width={350}
                 animation="wave"
                 i
-                sx={{ bgcolor: "grey.900" }}
+                sx={{ bgcolor: 'grey.900' }}
               />
             </Item>
             <Item>
@@ -241,7 +242,7 @@ sx={{
                 height={525}
                 width={350}
                 i
-                sx={{ bgcolor: "grey.900" }}
+                sx={{ bgcolor: 'grey.900' }}
               />
             </Item>
           </>
@@ -257,7 +258,7 @@ sx={{
           count={10}
           color="secondary"
           classes={{ ul: classes.ul }}
-          sx={{ bgcolor: "grey.900" }} // ...
+          sx={{ bgcolor: 'grey.900' }} // ...
           classes={{
             toolbar: classes.toolbar,
             caption: classes.caption,
