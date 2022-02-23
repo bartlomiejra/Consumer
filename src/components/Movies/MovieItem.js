@@ -1,30 +1,42 @@
 /* eslint react/prop-types: 0 */
 
 //  eslint-disable jsx-a11y/no-autofocus
-import { CardContent, Grid } from "@material-ui/core";
-import React from "react";
-import { Item, Img } from "../styles/ItemsGrid.styled";
-import { motion, AnimatePresence } from "framer-motion";
-import { Button, Card, ButtonGroup, Box, Typography } from "@mui/material";
-import Skeleton from "@mui/material/Skeleton";
+// import { CardContent, Grid } from '@material-ui/core';
+import React from 'react';
+import { Item, Img } from '../styles/ItemsGrid.styled';
+import { motion } from 'framer-motion';
+import StarIcon from '@mui/icons-material/Star';
 
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ClearIcon from "@mui/icons-material/Clear";
-const animationhover = {
-  visible: { opacity: 1, x: 0 },
-  hidden: { opacity: 0, x: -100 },
-};
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+
+import {
+  Button,
+  Card,
+  ButtonGroup,
+  Box,
+  Typography,
+  Rating,
+} from '@mui/material';
+// import Skeleton from '@mui/material/Skeleton';
+import Link from '@mui/material/Link';
+
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ClearIcon from '@mui/icons-material/Clear';
+// const animationhover = {
+//   visible: { opacity: 1, x: 0 },
+//   hidden: { opacity: 0, x: -100 },
+// };
 const MovieItem = ({ item }) => {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.5,
-      },
-    },
-  };
-  const rowSkeletons = 6;
+  // const container = {
+  //   hidden: { opacity: 0 },
+  //   show: {
+  //     opacity: 1,
+  //     transition: {
+  //       delayChildren: 0.5,
+  //     },
+  //   },
+  // };
+  // const rowSkeletons = 6;
 
   return (
     <Item spacing={1}>
@@ -46,81 +58,109 @@ const MovieItem = ({ item }) => {
         whileHover={{ opacity: 1.2 }}
         animate={{
           x: 0,
-          backgroundColor: "rgba(0, 0, 0, 0.8)",
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
         }}
         className="detals"
       >
-        <Typography>
-          <motion.h3
-            
+        <motion.h3>{item.title}</motion.h3>
+        <Box>
+          <Typography>{item.release_date.slice(0, 4)}</Typography>
+          <Typography></Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              alignContent: 'center',
+              alignItems: 'center',
+            }}
           >
-            {item.title}
-          </motion.h3>
-          <p>{item.release_date}</p>
-          <p>
-            <strong>{item.vote_average}</strong>/10
-          </p>
-        </Typography>
-        <Typography>
-			
-          <p>{item.overview}</p>
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            "& > *": {
-              m: 1,
-            },
-          }}
-        >
-          <ButtonGroup
-            variant="contained"
-            aria-label="outlined primary button group"
-          >
-            <Button
-              sx={{ borderColor: "#c40491" }}
-              variant="contained"
-              size="large"
-              style={{
-                color: "#ffffff",
-                background: "#cd388c",
-              }}
+            <Rating
+              name="simple-controlled"
+              value={item.vote_average}
+              max={10}
+              precision={0.5}
+              sx={{ borderColor: '#f5f5f5', color: '#c40491' }}
+              readOnly
+              icon={<StarIcon />}
+              emptyIcon={
+                <StarBorderIcon
+                  style={{
+                    opacity: 0.9,
+                    color: '#c40491',
+                  }}
+                />
+              }
+            />
+
+            <Typography
+              sx={{ color: '#d40491', fontWeight: '900', fontSize: '1.3rem' }}
             >
-              <FavoriteIcon />
-            </Button>
-            <a
-              className="detals_linkbutton"
-              target="_blank"
-              href={`https://duckduckgo.com/?q=${item.title}`}
+              {item.vote_average}
+            </Typography>
+          </Box>
+          <Typography>{item.overview}</Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              '& > *': {
+                m: 1,
+              },
+            }}
+          >
+            <ButtonGroup
+              variant="contained"
+              aria-label="outlined primary button group"
             >
               <Button
-                sx={{ borderColor: "#c40491" }}
+                sx={{ borderColor: '#c40491' }}
                 variant="contained"
                 size="large"
                 style={{
-                  color: "#CD388C",
+                  border: 'none',
+                  color: '#ffffff',
+                  background: '#cd388c',
                 }}
               >
-                More info
+                <FavoriteIcon />
               </Button>
-            </a>
-            <Button
-              sx={{ borderColor: "#c40491" }}
-              variant="contained"
-              size="large"
-              style={{
-                color: "#ffffff",
-                // border-color: '#cd388c'
-                background: "#cd388c",
-              }}
-            >
-              <ClearIcon />
-            </Button>
-          </ButtonGroup>
+
+              <Link
+                href={`https://duckduckgo.com/?q=${item.title}`}
+                sx={{ textDecoration: 'none' }}
+                // variant="contained"
+                size="large"
+                component="button"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#fff',
+                  background: '#cd388c',
+                  m: 2,
+                }}
+                target="_blank"
+                rel="noreferrer"
+              >
+                More info
+              </Link>
+              <Button
+                sx={{ borderColor: '#c40491' }}
+                variant="contained"
+                size="large"
+                style={{
+                  color: '#ffffff',
+                  // border-color: '#cd388c'
+                  background: '#cd388c',
+                }}
+              >
+                <ClearIcon />
+              </Button>
+            </ButtonGroup>
+          </Box>
         </Box>
       </motion.div>
+
       {/* console.log(item) */}
     </Item>
   );

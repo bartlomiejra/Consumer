@@ -1,25 +1,16 @@
-import { Logo } from "./styles/Heder.styled";
-import { Stylednav, Li, Ul } from "./styles/Nav.styled";
-import { StyledMenu } from "./styles/Menu.styled";
-import React, { useState, useRef } from "react";
-import { useOnClickOutside } from "./Hamburger/hooks";
-import Menu from "./Hamburger/Menu.js";
-import { NavLink, Router } from "react-router-dom";
-import {
-  AppBar,
-  Toolbar,
-  CssBaseline,
-  Typography,
-  useMediaQuery,
-  Box,
-} from "@material-ui/core";
+import { Logo } from './styles/Heder.styled';
+import { Stylednav, Ul } from './styles/Nav.styled';
+// import { StyledMenu } from './styles/Menu.styled';
+import React, { useState, useRef } from 'react';
+import { useOnClickOutside } from './Hamburger/hooks';
+import Menu from './Hamburger/Menu.js';
+import { NavLink } from 'react-router-dom';
+import { AppBar, CssBaseline, useMediaQuery } from '@mui/material';
 
-import { borders } from "@mui/system";
-
-import Hamburger from "./Hamburger/Hamburger";
-import Button from "@mui/material/Button";
-import { makeStyles, useTheme } from "@mui/material/styles";
-import { motion } from "framer-motion";
+import Hamburger from './Hamburger/Hamburger';
+import Button from '@mui/material/Button';
+import { useTheme } from '@mui/material/styles';
+// import { motion } from 'framer-motion';
 
 function Nav() {
   const node = useRef();
@@ -27,13 +18,13 @@ function Nav() {
   const [open, setOpen] = useState(false);
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const Header = (props) => {};
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  // const Header = (props) => {};
   return (
     <AppBar
       style={{
-        border: "none",
-        backgroundColor: "transparent",
+        border: 'none',
+        backgroundColor: 'transparent',
       }}
       position="static"
     >
@@ -68,34 +59,34 @@ function Nav() {
               <Logo src="./images/logo2.svg" alt="" />
             </NavLink>
             <Ul>
-              <NavLink activeStyle={{ color: "#c40491" }} to="/Movies">
+              <NavLink activeStyle={{ color: '#c40491' }} to="/Movies">
                 <div>Movie</div>
               </NavLink>
 
-              <NavLink activeStyle={{ color: "#c40491" }} to="/Tvseries">
+              <NavLink activeStyle={{ color: '#c40491' }} to="/Tvseries">
                 TV Series
               </NavLink>
 
-              <NavLink activeStyle={{ color: "#c40491" }} to="/Books">
+              <NavLink activeStyle={{ color: '#c40491' }} to="/Books">
                 Books
               </NavLink>
-              <NavLink activeStyle={{ color: "#c40491" }} to="/Music">
+              <NavLink activeStyle={{ color: '#c40491' }} to="/Music">
                 Music
               </NavLink>
-              <NavLink activeStyle={{ color: "#c40491" }} to="/Moviesfor2">
+              <NavLink activeStyle={{ color: '#c40491' }} to="/Moviesfor2">
                 Moviefor2
               </NavLink>
-              <NavLink activeStyle={{ color: "#c40491" }} to="/Recommendation">
+              <NavLink activeStyle={{ color: '#c40491' }} to="/Recommendation">
                 Our Recommendation
               </NavLink>
             </Ul>
-            <NavLink activeStyle={{ color: "#c40491" }} to="/LogIn">
+            <NavLink activeStyle={{ color: '#c40491' }} to="/LogIn">
               <Button
-                sx={{ borderColor: "#c40491" }}
+                sx={{ borderColor: '#c40491' }}
                 variant="outlined"
                 size="large"
                 style={{
-                  color: "#CD388C"
+                  color: '#CD388C'
                   //  border-color: '#cd388c'
                 }}
               >

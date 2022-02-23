@@ -1,26 +1,25 @@
-import React from "react";
-import { Flex } from "./styles/Flex.styled";
-import { Img } from "./styles/Flex.styled";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import { Logo } from "./styles/Heder.styled";
-import { NavLink } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import React from 'react';
+import { Flex } from './styles/Flex.styled';
+import { Img } from './styles/Flex.styled';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
-  border: "2px solid #333333",
-  height: "300px",
-  borderRadius: "10px",
+  border: '2px solid #333333',
+  height: '300px',
+  borderRadius: '10px',
   // backgroundColor: `#262626`,
-  color: "#f1f1f1",
-  textAlign: "bottom",
-  fontSize: "2.5rem",
-  display: "flex",
+  color: '#f1f1f1',
+  textAlign: 'bottom',
+  fontSize: '2.5rem',
+  display: 'flex',
 
-  alignItems: "flex-end",
+  alignItems: 'flex-end',
 }));
 
 const container = {
@@ -63,7 +62,7 @@ function Home() {
                   <Item
                     style={{
                       background:
-                        "linear-gradient(to right bottom, #222d22, #181818)",
+                        'linear-gradient(to right bottom, #222d22, #181818)',
                     }}
                   >
                     Find Movies
@@ -75,7 +74,7 @@ function Home() {
                   <Item
                     style={{
                       background:
-                        "linear-gradient(to right bottom, #430089, #181818)",
+                        'linear-gradient(to right bottom, #430089, #181818)',
                     }}
                   >
                     Music
@@ -92,7 +91,7 @@ function Home() {
                   <Item
                     style={{
                       background:
-                        "linear-gradient(to left bottom, #181818, #c40491)",
+                        'linear-gradient(to left bottom, #181818, #c40491)',
                     }}
                   >
                     Movies For 2
@@ -109,7 +108,7 @@ function Home() {
                   <Item
                     style={{
                       background:
-                        "linear-gradient(to right bottom, #430089, #fcb045)",
+                        'linear-gradient(to right bottom, #430089, #fcb045)',
                     }}
                   >
                     Our Recommendation

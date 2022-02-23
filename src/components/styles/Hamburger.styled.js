@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const HamburgerStyled = styled.button`
   position: absolute;
@@ -32,21 +32,21 @@ export const HamburgerStyled = styled.button`
     transform-origin: 1px;
 
     :first-child {
-      transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
+      transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
     }
 
     :nth-child(2) {
-      opacity: ${({ open }) => (open ? "0" : "1")};
+      opacity: ${({ open }) => (open ? '0' : '1')};
       /* transform: ${({ open }) =>
-        open ? "translateX(50px)" : "translateX(0)"}; */
+        open ? 'translateX(50px)' : 'translateX(0)'}; */
       transform: ${({ open }) =>
         open
-          ? "translateX(70px)translateY(-15px)rotate(90deg)"
-          : "rotate(0deg)"};
+          ? 'translateX(70px)translateY(-15px)rotate(90deg)'
+          : 'rotate(0deg)'};
     }
 
     :nth-child(3) {
-      transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
+      transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
     }
   }
 `;

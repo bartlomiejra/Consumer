@@ -80,8 +80,10 @@ const Movies = () => {
 
     const findmoviesbygenres = await moviesbygenres.json();
     console.log(findmoviesbygenres.results);
-    setMovies(findmoviesbygenres.results);
-    // setQuery(findmoviesbygenres.results);
+    console.log(moviesbygenres);
+
+    // setMovies(findmoviesbygenres.results);
+    setQuery(findmoviesbygenres.results);
   };
   useEffect(() => {
     const fetchCategory = async () => {
@@ -257,11 +259,11 @@ sx={{
         <Pagination
           count={10}
           color="secondary"
-          classes={{ ul: classes.ul }}
           sx={{ bgcolor: 'grey.900' }} // ...
           classes={{
             toolbar: classes.toolbar,
             caption: classes.caption,
+            ul: classes.ul,
           }}
           className={classes.text}
         />

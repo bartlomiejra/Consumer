@@ -1,65 +1,63 @@
-import React from "react";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import StyledLog from "../components/styles/Log.styled";
+import React from 'react';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+// import StyledLog from '../components/styles/Log.styled';
 // import {pink } from '@material-ui/core/colors';
-import { pink } from "@mui/material/colors";
-import { useState } from "react";
+import { pink } from '@mui/material/colors';
+import { useState } from 'react';
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
-  signInWithEmailAndPassword
-} from "firebase/auth";
-import { makeStyles } from "@material-ui/core/styles";
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
+// import { makeStyles } from '@material-ui/core/styles';
 // import firebase  from '../Firebase/firebase';
 import {
   Grid,
   Box,
   Typography,
   Avatar,
-  CssBaseline,
-  Paper,
+  // CssBaseline,
+  // Paper,
   TextField,
   Checkbox,
   Button,
   FormControlLabel,
   Link,
-} from "@material-ui/core";
-import { auth } from "./Firebase/firebase";
+} from '@material-ui/core';
+import { auth } from './Firebase/firebase';
 
-const styles = (theme) => ({
-  textField: {
-    width: "90%",
-    marginLeft: "auto",
-    marginRight: "auto",
-    paddingBottom: 0,
-    marginTop: 0,
-    fontWeight: 500,
-    color: pink[800],
-  },
-  input: {
-    color: "white",
-  },
-});
-
+// const styles = (theme) => ({
+//   textField: {
+//     width: '90%',
+//     marginLeft: 'auto',
+//     marginRight: 'auto',
+//     paddingBottom: 0,
+//     marginTop: 0,
+//     fontWeight: 500,
+//     color: pink[800],
+//   },
+//   input: {
+//     color: 'white',
+//   },
+// });
 
 function LogIn() {
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const [user, setUser] = useState("");
+  const [registerEmail, setRegisterEmail] = useState('');
+  const [registerPassword, setRegisterPassword] = useState('');
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [user, setUser] = useState('');
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
   const register = async () => {
     try {
-      const user = await createUserWithEmailAndPassword 
-      (
+      const user = await createUserWithEmailAndPassword(
         auth,
         loginEmail,
-        loginPassword
+        loginPassword,
       );
       console.log(user);
     } catch (error) {
@@ -71,7 +69,7 @@ function LogIn() {
       const user = await signInWithEmailAndPassword(
         auth,
         loginEmail,
-        loginPassword
+        loginPassword,
       );
       console.log(user);
     } catch (error) {
@@ -84,29 +82,25 @@ function LogIn() {
   };
   return (
     <>
-      <Grid component="main" sx={{ height: "100vh", alignItems: "center" }}>
+      <Grid component="main" sx={{ height: '100vh', alignItems: 'center' }}>
         <Box
           sx={{
-            padding: "10px",
+            padding: '10px',
             // backgroundColor: '#333333',
             my: 8,
             mx: 4,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box
-            component="form"
-            noValidate
-            sx={{ mt: 1 }}
-          >
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             {/* <StyledLog> */}
 
             <TextField
@@ -134,16 +128,16 @@ function LogIn() {
             />
             {/* </StyledLog> */}
             <FormControlLabel
-              labelStyle={{ color: "white" }}
-              iconStyle={{ fill: "white" }}
+              labelStyle={{ color: 'white' }}
+              iconStyle={{ fill: 'white' }}
               control={
                 <Checkbox
-                  labelStyle={{ color: "white" }}
-                  iconStyle={{ fill: "white" }}
+                  labelStyle={{ color: 'white' }}
+                  iconStyle={{ fill: 'white' }}
                   //  checked={pink}
                   sx={{
                     color: pink[800],
-                    "&.Mui-checked": {
+                    '&.Mui-checked': {
                       color: pink[600],
                     },
                   }}
@@ -183,26 +177,22 @@ function LogIn() {
 
         <Box
           sx={{
-            padding: "10px",
+            padding: '10px',
             // backgroundColor: '#333333',
             my: 8,
             mx: 4,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box
-            component="form"
-            noValidate
-            sx={{ mt: 1 }}
-          >
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             {/* <StyledLog> */}
 
             <TextField
@@ -242,7 +232,7 @@ function LogIn() {
               <Grid item xs></Grid>
               <Grid item>
                 <Link color="secondary" href="#" variant="body2">
-                  {"Do you have an account? Sign in"}
+                  {'Do you have an account? Sign in'}
                 </Link>
               </Grid>
               <Button

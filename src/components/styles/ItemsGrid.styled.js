@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import SearchBar from "material-ui-search-bar";
-import { motion } from "framer-motion";
-import { Card } from "@material-ui/core";
+import styled from 'styled-components';
+import SearchBar from 'material-ui-search-bar';
+import { motion } from 'framer-motion';
+import { Card } from '@material-ui/core';
 
 export const ItemsGrid = styled.div`
   /* background-color: ${({ theme }) => theme.colors.header}; */
@@ -20,12 +20,14 @@ export const Item = styled(motion.Card)`
   padding: 0px;
 
   .detals {
+    padding: 10px 0px 10px 0px;
+
     position: absolute;
     color: white;
     font-size: 1rem;
-    display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    display: flex;
+    justify-content: space-between;
     z-index: 2;
     height: 100%;
     text-decoration: none;
