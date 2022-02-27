@@ -18,10 +18,11 @@ function Nav() {
   const [open, setOpen] = useState(false);
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   // const Header = (props) => {};
   return (
     <AppBar
+      sx={{ p: 1 }}
       style={{
         border: 'none',
         backgroundColor: 'transparent',

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 export const Stylednav = styled.nav`
   display: flex;
   width: 100%;
@@ -43,7 +43,9 @@ justify-content: space-between;
   textDecoration: none;
     color: white;
     fontSize: 20px,;
-    margin-left: 20px;
+    margin-left: 20px
+    ;
+    justifyContent: center;
    
 
 @media(max-width: ${({ theme }) => theme.mobile}){

@@ -9,6 +9,7 @@ const Hamburger = ({ open, setOpen, ...props }) => {
   return (
     <div>
       <HamburgerStyled
+        // sx={{ display: 'flex' }}
         aria-expanded={isExpanded}
         aria-label="Toggle menu"
         open={open}
