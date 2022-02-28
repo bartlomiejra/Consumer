@@ -1,9 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 export const StyledFooter = styled.footer`
   color: #fff;
-  padding: 100px 0 60px;
-  position: sticky;
-  top: 100vh;
+  padding: 20px 0 0px;
+  /* position: sticky; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* top: 50%; */
+  /* left: 50%; */
+  /* min-height: calc(100vh - 10px); */
+
   ul {
     list-style-type: none;
   }

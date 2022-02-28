@@ -5,7 +5,7 @@ import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from './Hamburger/hooks';
 import Menu from './Hamburger/Menu.js';
 import { NavLink } from 'react-router-dom';
-import { AppBar, CssBaseline, useMediaQuery } from '@mui/material';
+import { AppBar, CssBaseline, useMediaQuery, Box } from '@mui/material';
 
 import Hamburger from './Hamburger/Hamburger';
 import Button from '@mui/material/Button';
@@ -44,8 +44,10 @@ function Nav() {
             <NavLink to="/">
               <Logo src="./images/logo2.svg" alt="" />
             </NavLink>
-            <Hamburger open={open} setOpen={setOpen} />
-            <Menu open={open} setOpen={setOpen} />
+            <Box>
+              <Hamburger open={open} setOpen={setOpen} />
+              <Menu open={open} setOpen={setOpen} />
+            </Box>
 
             {/* </Ul> */}
             {/* </Stylednav> */}

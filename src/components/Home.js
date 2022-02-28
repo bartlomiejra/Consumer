@@ -7,8 +7,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
-// import { Movies } from './img/movies.svg';
-// import { Movies } from '../img/movies.svg';
+import { Typography } from '@mui/material';
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -50,7 +49,12 @@ function Home() {
       <div>
         {/* The best media search finder. */}
         <Box ml={3} mr={3} mb={15}>
-          <h1>Top Category </h1>
+          <Typography variant="h5">Top Category </Typography>
+          {/* <Typography>
+            The purpose of this app is to allow you to search for high quality
+            niche media and cultural works. Find great books movies or music
+            albums or just browse through the media lists suggested by us.
+          </Typography> */}
           <motion.div
             className="container"
             variants={container}
@@ -122,11 +126,6 @@ function Home() {
             {/* ))} */}
           </motion.div>
         </Box>
-        <p>
-          The purpose of this app is to allow you to search for high quality
-          niche media and cultural works. Find great books movies or music
-          albums or just browse through the media lists suggested by us.
-        </p>
       </div>
       <Img />
     </Flex>

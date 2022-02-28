@@ -20,7 +20,8 @@ export const Item = styled(motion.Card)`
   padding: 0px;
 
   .detals {
-    padding: 10px 0px 10px 0px;
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
 
     position: absolute;
     color: white;
@@ -48,6 +49,8 @@ export const Img = styled(motion.img)`
   /* z-index: -2 */
   /* position: relative */
   /* width:auto; */
+  /* padding: 5px; */
+  border-radius: 12px;
   /* height:auto; */
   height: 100%;
   width: 100%;

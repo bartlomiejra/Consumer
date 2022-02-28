@@ -56,8 +56,9 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [moviegenres, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [page, setPage] = useState(1);
   const [expanded, setExpanded] = React.useState(false);
+  const [numberOfPages, setNumberOfPages] = useState(1);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -71,10 +72,10 @@ const Movies = () => {
     // console.log(setSelected);
     console.log(selected);
   };
-  useEffect(() => {}, []);
+
   const fetchMoviesbyGenres = async () => {
     const moviesbygenres = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=${selected}&page=1
+      `https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=${selected}&page=${page}
 					`,
     );
 
@@ -82,9 +83,17 @@ const Movies = () => {
     console.log(findmoviesbygenres.results);
     console.log(moviesbygenres);
 
-    // setMovies(findmoviesbygenres.results);
-    setQuery(findmoviesbygenres.results);
+    setMovies(findmoviesbygenres.results);
+    setIsLoading(false);
+    // setNumberOfPages(moviesbygenres.data.total_pages);
+    // setQuery(findmoviesbygenres.results);
   };
+
+  const handleChangePage = (page) => {
+    setPage(page);
+    window.scroll(0, 0);
+  };
+
   useEffect(() => {
     const fetchCategory = async () => {
       const category = await fetch(
@@ -95,12 +104,13 @@ const Movies = () => {
     };
     fetchCategory();
   }, []);
+
   useEffect(() => {
     const fetchItems = async () => {
       let result;
       if (query == '') {
         result = await axios(
-          `https://api.themoviedb.org/3/movie/popular?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=1`,
+          `https://api.themoviedb.org/3/movie/popular?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=${page}`,
         );
       } else {
         result = await axios(
@@ -109,19 +119,24 @@ const Movies = () => {
       }
       setMovies(result.data.results);
       setIsLoading(false);
+      setNumberOfPages(result.data.total_pages);
     };
     const timer = setTimeout(() => {}, 10);
     fetchItems();
     return () => clearTimeout(timer);
-  }, [query]);
+  }, [query, page]);
+
   return (
     <section>
       <Box
         sx={{
+          m: 2,
           justifyContent: 'center',
         }}
       >
-        <Typography variant="h3">Movies</Typography>
+        {/* <Typography variant="h3">Movies</Typography>
+            count={3}
+             */}
         <Typography variant="p">
           {' '}
           Select several genres of movies you are interested in or just use the
@@ -188,6 +203,7 @@ sx={{
         //   p: 1,
         //   m: 1,
         }}  */}
+
       <Grid
         container
         spacing={0}
@@ -206,26 +222,13 @@ sx={{
 
         {!query && (
           <>
-            {/* {isLoading ? skeletonArray.map(item => ( */}
             <Item>
               <Skeleton
                 variant="rectangular"
                 height={525}
                 width={350}
                 animation="wave"
-                i
-                sx={{ bgcolor: 'grey.900' }}
-              />
-            </Item>
-
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                i
-                sx={{ bgcolor: 'grey.900' }}
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
               />
             </Item>
             <Item>
@@ -234,8 +237,7 @@ sx={{
                 height={525}
                 width={350}
                 animation="wave"
-                i
-                sx={{ bgcolor: 'grey.900' }}
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
               />
             </Item>
             <Item>
@@ -243,8 +245,161 @@ sx={{
                 variant="rectangular"
                 height={525}
                 width={350}
-                i
-                sx={{ bgcolor: 'grey.900' }}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              />
+            </Item>
+            <Item>
+              <Skeleton
+                variant="rectangular"
+                height={525}
+                width={350}
+                animation="wave"
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
               />
             </Item>
           </>
@@ -257,9 +412,20 @@ sx={{
 
       <Stack spacing={2}>
         <Pagination
-          count={10}
+          pageNumber={numberOfPages}
+          setPage={setPage}
+          // page={page}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            // minHheight: 'calc(100vh - 10px)',
+          }}
+          count={numberOfPages}
           color="secondary"
-          sx={{ bgcolor: 'grey.900' }} // ...
+          shape="rounded"
+          size="large"
+          onChange={(e) => handleChangePage(e.target.textContent)}
+          // variant="outlined"
           classes={{
             toolbar: classes.toolbar,
             caption: classes.caption,

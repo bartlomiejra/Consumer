@@ -2,13 +2,7 @@ import React from 'react'
 
 function MovieGrid() {
 	return (
-		if (0 == 0)  {
-				
-				(
-							<Spinner />
-							
- )
-} else {
+	
 	
 	movies.map(item => (
 		
@@ -20,8 +14,7 @@ function MovieGrid() {
 
 
 ))
-}
-		)
-}
+	}
+
 
 export default MovieGrid

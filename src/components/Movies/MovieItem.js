@@ -110,48 +110,57 @@ const MovieItem = ({ item }) => {
           >
             <ButtonGroup
               variant="contained"
+              size="large"
               aria-label="outlined primary button group"
             >
               <Button
-                sx={{ borderColor: '#c40491' }}
+                sx={{ borderColor: '#444444' }}
                 variant="contained"
                 size="large"
+                fontSize="1.5rem"
                 style={{
                   border: 'none',
                   color: '#ffffff',
-                  background: '#cd388c',
+                  background: '#444444',
                 }}
               >
                 <FavoriteIcon />
               </Button>
 
               <Link
-                href={`https://duckduckgo.com/?q=${item.title}`}
-                sx={{ textDecoration: 'none' }}
-                // variant="contained"
+                href={`https://duckduckgo.com/?q=${
+                  item.title
+                }${' '}${item.release_date.slice(0, 4)}`}
+                sx={{
+                  textDecoration: 'none',
+                  fontWeight: '900',
+                  fontSize: '1rem',
+                }}
                 size="large"
-                component="button"
+                // component="button"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#fff',
                   background: '#cd388c',
+
+                  padding: '10px',
                   m: 2,
                 }}
                 target="_blank"
-                rel="noreferrer"
+                // rel="noreferrer"
               >
                 More info
               </Link>
               <Button
-                sx={{ borderColor: '#c40491' }}
+                sx={{ borderColor: '#444444' }}
                 variant="contained"
                 size="large"
                 style={{
                   color: '#ffffff',
                   // border-color: '#cd388c'
-                  background: '#cd388c',
+                  background: '#444444',
                 }}
               >
                 <ClearIcon />
