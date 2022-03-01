@@ -8,6 +8,12 @@ import Box from '@mui/material/Box';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Typography } from '@mui/material';
+// import movies from 'img/movies.svg';
+import MoviesSvg from '../img/movies.svg';
+import MusicSvg from '../img/music.svg';
+import MovieFor2Svg from '../img/moviefor2.svg';
+import OurRecommendationSvg from '../img/top.svg';
+
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -19,7 +25,7 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'bottom',
   fontSize: '2.5rem',
   display: 'flex',
-
+  textDecoration: 'none',
   alignItems: 'flex-end',
 }));
 
@@ -58,26 +64,39 @@ function Home() {
           <motion.div
             className="container"
             variants={container}
-            initial="hidden"
-            animate="visible"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            // animate="visible"
           >
             {/* {[0, 1, 2, 3].map((index) => ( */}
             <Grid container spacing={4} px={{ xs: 2, md: 4, lg: 20 }}>
-              <Grid item xs={12} lg={8}>
-                <NavLink key={1} className="item" variants={item} to="/Movies">
+              <Grid item key={0} xs={12} lg={8}>
+                <NavLink className="item" variants={item} to="/Movies">
                   <Item
                     style={{
                       background:
                         'linear-gradient(to right bottom, #222d22, #181818)',
                     }}
                   >
-                    <img src="../img/movies.svg" alt="" />
-                    Find Movies
+                    <Typography sx={{ position: 'absolute' }} variant="h3">
+                      Find Movies
+                    </Typography>
+                    <img
+                      style={{
+                        position: 'relative',
+
+                        height: '100%',
+                        width: '100%',
+                      }}
+                      src={MoviesSvg}
+                      alt=""
+                    />
                   </Item>
                 </NavLink>
               </Grid>
-              <Grid item xs={12} lg={4}>
-                <NavLink key={2} className="item" variants={item} to="/Music">
+              <Grid item key={1} xs={12} lg={4}>
+                <NavLink className="item" variants={item} to="/Music">
                   <Item
                     style={{
                       background:
@@ -85,16 +104,21 @@ function Home() {
                     }}
                   >
                     Music
+                    <img
+                      style={{
+                        position: 'relative',
+                        right: '100px',
+                        height: '100%',
+                        width: '100%',
+                      }}
+                      src={MusicSvg}
+                      alt=""
+                    />
                   </Item>
                 </NavLink>
               </Grid>
-              <Grid item xs={12} lg={4}>
-                <NavLink
-                  key={3}
-                  className="item"
-                  variants={item}
-                  to="/Moviesfor2"
-                >
+              <Grid key={2} item xs={12} lg={4}>
+                <NavLink className="item" variants={item} to="/Moviesfor2">
                   <Item
                     style={{
                       background:
@@ -102,23 +126,40 @@ function Home() {
                     }}
                   >
                     Movies For 2
+                    <img
+                      style={{
+                        position: 'relative',
+                        right: '100px',
+                        height: '100%',
+                        width: '100%',
+                        padding: '10px',
+                      }}
+                      src={MovieFor2Svg}
+                      alt=""
+                    />
                   </Item>
                 </NavLink>
               </Grid>
-              <Grid item xs={12} lg={8}>
-                <NavLink
-                  key={4}
-                  className="item"
-                  variants={item}
-                  to="/Recommendation"
-                >
+              <Grid item xs={12} lg={8} key={3}>
+                <NavLink className="item" variants={item} to="/Recommendation">
                   <Item
                     style={{
                       background:
-                        'linear-gradient(to right bottom, #430089, #fcb045)',
+                        'linear-gradient(to right bottom, #000000, #000abc)',
                     }}
                   >
                     Our Recommendation
+                    <img
+                      style={{
+                        zindex: '-1',
+                        position: 'relative',
+                        right: '100px',
+                        height: '300px',
+                        width: '400px',
+                      }}
+                      src={OurRecommendationSvg}
+                      alt=""
+                    />
                   </Item>
                 </NavLink>
               </Grid>

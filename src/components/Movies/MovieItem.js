@@ -54,6 +54,7 @@ const MovieItem = ({ item }) => {
         />
       )}
       <motion.div
+        whileTap={{ scale: 0.9 }}
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1.2 }}
         animate={{
@@ -64,7 +65,7 @@ const MovieItem = ({ item }) => {
       >
         <motion.h3>{item.title}</motion.h3>
         <Box>
-          <Typography>{item.release_date.slice(0, 4)}</Typography>
+          <motion.Typography>{item.release_date.slice(0, 4)}</motion.Typography>
           <Typography></Typography>
           <Box
             sx={{
