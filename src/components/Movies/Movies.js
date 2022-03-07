@@ -9,7 +9,9 @@ import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse';
 import { Item } from '../styles/ItemsGrid.styled';
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import { motion, AnimatePresence } from 'framer-motion';
 
+// import Stack from '@mui/material/Stack';
 import StyledSearchBar from '../Search';
 import Grid from '@mui/material/Grid';
 import Checkbox from '@mui/material/Checkbox';
@@ -21,9 +23,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
-
 import Button from '@mui/material/Button';
-// import SearchIcon from '@mui/icons-material';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -72,22 +72,24 @@ const Movies = () => {
     // console.log(setSelected);
     console.log(selected);
   };
-
-  const fetchMoviesbyGenres = async () => {
-    const moviesbygenres = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=${selected}&page=${page}
+  useEffect(() => {
+    const fetchMoviesbyGenres = async () => {
+      const moviesbygenres = await fetch(
+        `https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=${selected}&page=${page}
 					`,
-    );
+      );
 
-    const findmoviesbygenres = await moviesbygenres.json();
-    console.log(findmoviesbygenres.results);
-    console.log(moviesbygenres);
+      const findmoviesbygenres = await moviesbygenres.json();
+      console.log(findmoviesbygenres.results);
+      console.log(moviesbygenres);
 
-    setMovies(findmoviesbygenres.results);
-    setIsLoading(false);
-    // setNumberOfPages(moviesbygenres.data.total_pages);
-    // setQuery(findmoviesbygenres.results);
-  };
+      setMovies(findmoviesbygenres.results);
+      setIsLoading(false);
+      // setNumberOfPages(moviesbygenres.data.total_pages);
+      // setQuery(findmoviesbygenres.results);
+    };
+    fetchMoviesbyGenres();
+  }, [selected, page]);
 
   const handleChangePage = (page) => {
     setPage(page);
@@ -106,25 +108,29 @@ const Movies = () => {
   }, []);
 
   useEffect(() => {
-    const fetchItems = async () => {
-      let result;
-      if (query == '') {
-        result = await axios(
-          `https://api.themoviedb.org/3/movie/popular?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=${page}`,
-        );
-      } else {
-        result = await axios(
-          `https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&query=${query}`,
-        );
-      }
-      setMovies(result.data.results);
-      setIsLoading(false);
-      setNumberOfPages(result.data.total_pages);
-    };
-    const timer = setTimeout(() => {}, 10);
-    fetchItems();
-    return () => clearTimeout(timer);
+    const delayDebounceFn = setTimeout(() => {
+      console.log(query);
+      const fetchItems = async () => {
+        let result;
+        if (query == '') {
+          result = await axios(
+            `https://api.themoviedb.org/3/movie/popular?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=${page}`,
+          );
+        } else {
+          result = await axios(
+            `https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&query=${query}`,
+          );
+        }
+        setMovies(result.data.results);
+        setIsLoading(false);
+        setNumberOfPages(result.data.total_pages);
+      };
+      fetchItems();
+    }, 3000);
+    // const timer = setTimeout(() => {}, 10);
+    return () => clearTimeout(delayDebounceFn);
   }, [query, page]);
+  const listS = 20;
 
   return (
     <section>
@@ -177,32 +183,8 @@ const Movies = () => {
               />
             </>
           ))}
-          <Button variant="Container" size="large" color="secondary">
-            Uncheck All
-          </Button>
-          <Button
-            onClick={fetchMoviesbyGenres}
-            variant="contained"
-            size="large"
-            color="secondary"
-          >
-            Search
-          </Button>
         </Collapse>
       </Box>
-      {/* <ItemsGrid> */}
-
-      {/* <Box 
->
-justify="center"
-// sx={12} 
-flexWrap='wrap'
-alignItems= "stretch"
-// display= 'flex'
-sx={{ 
-        //   p: 1,
-        //   m: 1,
-        }}  */}
 
       <Grid
         container
@@ -212,198 +194,79 @@ sx={{
         direction="row"
       >
         {/* <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}> */}
-
         {movies &&
           movies.map((item) => (
             <>
               <MovieItem sm={3} key={item.id} item={item}></MovieItem>
             </>
           ))}
+        {/* {!query && ( */}
+        <>
+          {[...Array(listS)].map((item, index) => (
+            <Item>
+              <Stack
+                variant="rectangular"
+                height={525}
+                width={350}
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+              >
+                <Box className="detals">
+                  <Skeleton
+                    margin="1rem"
+                    variant="rectangular"
+                    height={30}
+                    width={200}
+                    animation="wave"
+                    sx={{ borderRadius: '5px' }}
+                  />
 
-        {!query && (
-          <>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
+                  <Box height={300} margin={0}>
+                    <Skeleton
+                      borderRadius="10px"
+                      width={36.55}
+                      variant="rectangular"
+                      height={19}
+                      animation="wave"
+                      sx={{ marginTop: '5px', borderRadius: '5px' }}
+                    />
+                    <Skeleton
+                      sx={{ marginTop: '5px', borderRadius: '5px' }}
+                      borderRadius="10px"
+                      variant="rectangular"
+                      width={320}
+                      animation="wave"
+                      height={31}
+                    />
+                    <Skeleton
+                      sx={{ marginTop: '5px', borderRadius: '5px' }}
+                      width={330}
+                      height={180}
+                      animation="wave"
+                      variant="rectangular"
+                    />
+                    {/* {//opis} */}
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <Skeleton
+                        width={230}
+                        animation="wave"
+                        sx={{ marginTop: '5px', borderRadius: '5px' }}
+                        height={44}
+                        variant="rectangular"
+                      />
+                    </Box>
+                  </Box>
+                </Box>
+              </Stack>
             </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-            <Item>
-              <Skeleton
-                variant="rectangular"
-                height={525}
-                width={350}
-                animation="wave"
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              />
-            </Item>
-          </>
-        )}
+          ))}
+        </>
+        {/* )} */}
         {/* {movies.isloading &&
   skeletonArray.map((item, index) => (
     <Skeleton key={index} variant="rect" width={200} height={300} />

@@ -37,6 +37,45 @@ const MovieItem = ({ item }) => {
   //   },
   // };
   // const rowSkeletons = 6;
+  const textMotion = {
+    rest: {
+      color: 'grey',
+      x: 0,
+      opacity: 0,
+      transition: {
+        duration: 2,
+        type: 'tween',
+        ease: 'easeIn',
+      },
+    },
+    hover: {
+      color: 'blue',
+      opacity: 1,
+      x: 30,
+      transition: {
+        duration: 0.4,
+        type: 'tween',
+        ease: 'easeOut',
+      },
+    },
+  };
+
+  const slashMotion = {
+    rest: {
+      opacity: 0,
+      ease: 'easeOut',
+      duration: 0.2,
+      type: 'tween',
+    },
+    hover: {
+      opacity: 0.3,
+      transition: {
+        duration: 0.1,
+        type: 'tween',
+        ease: 'easeIn',
+      },
+    },
+  };
 
   return (
     <Item spacing={1}>
@@ -54,19 +93,20 @@ const MovieItem = ({ item }) => {
         />
       )}
       <motion.div
-        whileTap={{ scale: 0.9 }}
+        // initial="rest"
+        // whileHover="hover,
+        // // backgroundColor: 'rgba(0, 0, 0, 0.8)',"
+        // animate="rest "
         initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1.2 }}
+        whileHover={{ opacity: 1 }}
         animate={{
-          x: 0,
           backgroundColor: 'rgba(0, 0, 0, 0.8)',
         }}
         className="detals"
       >
-        <motion.h3>{item.title}</motion.h3>
+        <motion.h3 variants={slashMotion}>{item.title}</motion.h3>
         <Box>
           <motion.Typography>{item.release_date.slice(0, 4)}</motion.Typography>
-          <Typography></Typography>
           <Box
             sx={{
               display: 'flex',

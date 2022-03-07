@@ -1,28 +1,19 @@
 //  eslint-disable react/prop-types
-
 import { ThemeProvider } from 'styled-components';
-// import axios from "axios"
 import Header from './components/Header';
 import GlobalStyles from './components/styles/Global';
-// import content from './content'
 import Footer from './components/Footer';
-// import Movies from './components/Movies/Movies'
 import React from 'react';
-
+import darkScrollbar from '@mui/material/darkScrollbar';
+import CssBaseline from '@mui/material/CssBaseline';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Box } from '@material-ui/core';
-// import firebase from 'firebase/app'
 import 'firebase/firestore';
 import 'firebase/auth';
 import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
-// import {useAuthState} from 'react-fireabse-hooks/auth';
-// import {useCollectionData} from 'react-firebase-hooks/firestore';
-
-// import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
-
 const themes = {
   colors: {
     header: '#ffffff',
@@ -63,6 +54,8 @@ const theme = createTheme({
     },
   },
   overrides: {
+    // body: theme.palette.mode === 'dark' ? darkScrollbar() : null,
+
     MuiButton: {
       root: {
         border: 0,
@@ -180,22 +173,26 @@ const theme = createTheme({
 });
 function App() {
   return (
-    <MuiThemeProvider theme={theme}>
-      <Box
-        m={0}
-        sx={{
-          color: 'white',
-        }}
-      >
-        <ThemeProvider theme={themes}>
-          <>
-            <GlobalStyles />
-            <Header />
-            <Footer />
-          </>
-        </ThemeProvider>
-      </Box>
-    </MuiThemeProvider>
+    <>
+      <CssBaseline enableColorScheme />
+
+      <MuiThemeProvider theme={theme}>
+        <Box
+          m={0}
+          sx={{
+            color: 'white',
+          }}
+        >
+          <ThemeProvider theme={themes}>
+            <>
+              <GlobalStyles />
+              <Header />
+              <Footer />
+            </>
+          </ThemeProvider>
+        </Box>
+      </MuiThemeProvider>
+    </>
   );
 }
 

@@ -14,7 +14,8 @@ const Search = ({ getQuery }) => {
       <StyledSearchBar
         className="search"
         value={text}
-        onChange={(newValue) => onChange(newValue)}
+        // onChange={(newValue) => onChange(newValue)}
+        onChange={(newValue) => getQuery(newValue)}
       />
     </>
   );

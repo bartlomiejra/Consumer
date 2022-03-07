@@ -28,25 +28,6 @@ export default function Header() {
         <Route path="/Moviesfor2" component={Moviesfor2} />
         <Route path="/Recommendation" component={Recommendation} />
         <Route path="/LogIn" component={LogIn} />
-        {/* 
-				</Route>
-					<Button bg='#ff0099' color='#fff'>TV Series</Button>
-				</Route>
-				<Route path="/">
-					<Button bg='#ff0099' color='#fff'>Books</Button>
-				</Route>
-				<Route path="/">
-					<Button bg='#ff0099' color='#fff'>Podcast</Button>
-				</Route>
-				<Route path="/">
-					<Button bg='#ff0099' color='#fff'>Music</Button>
-				</Route>
-				<Route path="/">
-					<Button bg='#ff0099' color='#fff'>Moviesfor2</Button>
-				</Route>
-				<Route path="/">
-					<Button bg='#ff0099' color='#fff'>Our Recommendation</Button>
-				</Route> */}
       </Router>
     </Styledheader>
   );

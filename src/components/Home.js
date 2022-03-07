@@ -109,10 +109,11 @@ function Home() {
             variant="contained"
             sx={{
               color: '#ffffff',
-              // display: 'flex',
+              display: 'flex',
               position: 'absolute',
               bottom: '5px',
               left: '50%',
+              flexDirection: 'column',
 
               transform: 'translateX(-50%)',
               // display: 'block',
@@ -123,6 +124,7 @@ function Home() {
               border: 'none',
             }}
           >
+            <Typography>.scroll down.</Typography>
             <ArrowDownwardIcon
               sx={{
                 display: 'flex',
