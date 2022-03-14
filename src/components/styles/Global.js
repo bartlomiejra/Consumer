@@ -7,7 +7,6 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    /* background: ${({ theme }) => theme.colors.body}; */
     background-Image: url(${background});
     color: white;
     font-family: 'Poppins', sans-serif;

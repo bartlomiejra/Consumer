@@ -57,8 +57,10 @@ const Movies = () => {
   const [moviegenres, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [pageGenres, setPageGenres] = useState(1);
   const [expanded, setExpanded] = React.useState(false);
   const [numberOfPages, setNumberOfPages] = useState(1);
+  const [numberOfPagesGenres, setNumberOfPagesGenres] = useState(1);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -75,7 +77,7 @@ const Movies = () => {
   useEffect(() => {
     const fetchMoviesbyGenres = async () => {
       const moviesbygenres = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=${selected}&page=${page}
+        `https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=${selected}&page=${pageGenres}
 					`,
       );
 
@@ -85,11 +87,16 @@ const Movies = () => {
 
       setMovies(findmoviesbygenres.results);
       setIsLoading(false);
-      // setNumberOfPages(moviesbygenres.data.total_pages);
+      // setNumberOfPagesGenres(moviesbygenres.data.total_pages);
       // setQuery(findmoviesbygenres.results);
     };
     fetchMoviesbyGenres();
-  }, [selected, page]);
+  }, [selected, pageGenres]);
+
+  const handleChangePageGenres = (pageGenres) => {
+    setPage(pageGenres);
+    window.scroll(0, 0);
+  };
 
   const handleChangePage = (page) => {
     setPage(page);
@@ -118,7 +125,7 @@ const Movies = () => {
           );
         } else {
           result = await axios(
-            `https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&query=${query}`,
+            `https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&query=${query}&page=${page}`,
           );
         }
         setMovies(result.data.results);
@@ -185,7 +192,6 @@ const Movies = () => {
           ))}
         </Collapse>
       </Box>
-
       <Grid
         container
         spacing={0}
@@ -272,8 +278,33 @@ const Movies = () => {
     <Skeleton key={index} variant="rect" width={200} height={300} />
 ))} */}
       </Grid>
-
       <Stack spacing={2}>
+        {movies && (
+          <>
+            <Pagination
+              pageNumber={numberOfPagesGenres}
+              setPage={setPageGenres}
+              // page={page}
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                // minHheight: 'calc(100vh - 10px)',
+              }}
+              count={numberOfPagesGenres}
+              color="secondary"
+              shape="rounded"
+              size="large"
+              onChange={(e) => handleChangePageGenres(e.target.textContent)}
+              // variant="outlined"
+              classes={{
+                toolbar: classes.toolbar,
+                caption: classes.caption,
+                ul: classes.ul,
+              }}
+              className={classes.text}
+            />
+          </>
+        )}
         <Pagination
           pageNumber={numberOfPages}
           setPage={setPage}
@@ -296,9 +327,10 @@ const Movies = () => {
           }}
           className={classes.text}
         />
+        {/* } */}
+        {/* } */}
       </Stack>
       {/* </Box> */}
-
       {/* </ItemsGrid> */}
     </section>
   );

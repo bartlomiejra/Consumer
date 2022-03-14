@@ -42,6 +42,10 @@ const MovieItem = ({ item }) => {
       color: 'grey',
       x: 0,
       opacity: 0,
+      animate: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+      },
+
       transition: {
         duration: 2,
         type: 'tween',
@@ -63,11 +67,13 @@ const MovieItem = ({ item }) => {
   const slashMotion = {
     rest: {
       opacity: 0,
+
       ease: 'easeOut',
       duration: 0.2,
       type: 'tween',
     },
     hover: {
+      color: 'blue',
       opacity: 0.3,
       transition: {
         duration: 0.1,
@@ -97,12 +103,14 @@ const MovieItem = ({ item }) => {
         // whileHover="hover,
         // // backgroundColor: 'rgba(0, 0, 0, 0.8)',"
         // animate="rest "
+
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1 }}
         animate={{
           backgroundColor: 'rgba(0, 0, 0, 0.8)',
         }}
         className="detals"
+        variants={textMotion}
       >
         <motion.h3 variants={slashMotion}>{item.title}</motion.h3>
         <Box>
