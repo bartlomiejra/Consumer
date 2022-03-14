@@ -75,26 +75,31 @@ const Movies = () => {
     console.log(selected);
   };
   useEffect(() => {
+    let moviesbygenres;
     const fetchMoviesbyGenres = async () => {
-      const moviesbygenres = await fetch(
+      moviesbygenres = await fetch(
         `https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=${selected}&page=${pageGenres}
 					`,
       );
+      console.log('po kategoriach fecz');
 
-      const findmoviesbygenres = await moviesbygenres.json();
-      console.log(findmoviesbygenres.results);
-      console.log(moviesbygenres);
-
-      setMovies(findmoviesbygenres.results);
-      setIsLoading(false);
       // setNumberOfPagesGenres(moviesbygenres.data.total_pages);
-      // setQuery(findmoviesbygenres.results);
+      const findmoviesbygenres = await moviesbygenres.json();
+      setMovies(findmoviesbygenres.results);
+      console.log(moviesbygenres.data);
+      console.log(findmoviesbygenres.total_pages);
+      setNumberOfPagesGenres(findmoviesbygenres.total_pages);
     };
+    // console.log(findmoviesbygenres.data);
+    console.log(moviesbygenres);
+    setIsLoading(false);
+    // setQuery(findmoviesbygenres.results);
     fetchMoviesbyGenres();
   }, [selected, pageGenres]);
+  // console.log(selected);
 
   const handleChangePageGenres = (pageGenres) => {
-    setPage(pageGenres);
+    setPageGenres(pageGenres);
     window.scroll(0, 0);
   };
 
@@ -117,6 +122,8 @@ const Movies = () => {
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       console.log(query);
+      // setSelected([]);
+      // handleChange([]);
       const fetchItems = async () => {
         let result;
         if (query == '') {
@@ -131,6 +138,7 @@ const Movies = () => {
         setMovies(result.data.results);
         setIsLoading(false);
         setNumberOfPages(result.data.total_pages);
+        console.log('search bar wynik');
       };
       fetchItems();
     }, 3000);
@@ -200,12 +208,11 @@ const Movies = () => {
         direction="row"
       >
         {/* <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}> */}
-        {movies &&
-          movies.map((item) => (
-            <>
-              <MovieItem sm={3} key={item.id} item={item}></MovieItem>
-            </>
-          ))}
+        {movies.map((item) => (
+          <>
+            <MovieItem sm={3} key={item.id} item={item}></MovieItem>
+          </>
+        ))}
         {/* {!query && ( */}
         <>
           {[...Array(listS)].map((item, index) => (
@@ -279,32 +286,33 @@ const Movies = () => {
 ))} */}
       </Grid>
       <Stack spacing={2}>
-        {movies && (
-          <>
-            <Pagination
-              pageNumber={numberOfPagesGenres}
-              setPage={setPageGenres}
-              // page={page}
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                // minHheight: 'calc(100vh - 10px)',
-              }}
-              count={numberOfPagesGenres}
-              color="secondary"
-              shape="rounded"
-              size="large"
-              onChange={(e) => handleChangePageGenres(e.target.textContent)}
-              // variant="outlined"
-              classes={{
-                toolbar: classes.toolbar,
-                caption: classes.caption,
-                ul: classes.ul,
-              }}
-              className={classes.text}
-            />
-          </>
+        {selected ? (
+          0
+        ) : (
+          <Pagination
+            pageNumber={numberOfPagesGenres}
+            setPage={setPageGenres}
+            // page={page}
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              // minHheight: 'calc(100vh - 10px)',
+            }}
+            count={numberOfPagesGenres}
+            color="secondary"
+            shape="rounded"
+            size="large"
+            onChange={(e) => handleChangePageGenres(e.target.textContent)}
+            // variant="outlined"
+            classes={{
+              toolbar: classes.toolbar,
+              caption: classes.caption,
+              ul: classes.ul,
+            }}
+            className={classes.text}
+          />
         )}
+
         <Pagination
           pageNumber={numberOfPages}
           setPage={setPage}
@@ -327,8 +335,6 @@ const Movies = () => {
           }}
           className={classes.text}
         />
-        {/* } */}
-        {/* } */}
       </Stack>
       {/* </Box> */}
       {/* </ItemsGrid> */}

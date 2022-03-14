@@ -12,7 +12,7 @@ export const ItemsGrid = styled.div`
   border-radius: 10px;
   grid-template-columns: auto auto auto;
 `;
-export const Item = styled(motion.Card)`
+export const Item = styled(motion.div)`
   position: relative;
   display: flex;
   width: 350px;
