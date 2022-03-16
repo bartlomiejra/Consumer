@@ -24,7 +24,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
-
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -61,6 +60,7 @@ const Movies = () => {
   const [expanded, setExpanded] = React.useState(false);
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [numberOfPagesGenres, setNumberOfPagesGenres] = useState(1);
+  let selectedCategory = selected.length === 0;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -286,8 +286,29 @@ const Movies = () => {
 ))} */}
       </Grid>
       <Stack spacing={2}>
-        {selected ? (
-          0
+        {selectedCategory ? (
+          <Pagination
+            pageNumber={numberOfPages}
+            setPage={setPage}
+            // page={page}
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              // minHheight: 'calc(100vh - 10px)',
+            }}
+            count={numberOfPages}
+            color="secondary"
+            shape="rounded"
+            size="large"
+            onChange={(e) => handleChangePage(e.target.textContent)}
+            // variant="outlined"
+            classes={{
+              toolbar: classes.toolbar,
+              caption: classes.caption,
+              ul: classes.ul,
+            }}
+            className={classes.text}
+          />
         ) : (
           <Pagination
             pageNumber={numberOfPagesGenres}
@@ -312,29 +333,6 @@ const Movies = () => {
             className={classes.text}
           />
         )}
-
-        <Pagination
-          pageNumber={numberOfPages}
-          setPage={setPage}
-          // page={page}
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            // minHheight: 'calc(100vh - 10px)',
-          }}
-          count={numberOfPages}
-          color="secondary"
-          shape="rounded"
-          size="large"
-          onChange={(e) => handleChangePage(e.target.textContent)}
-          // variant="outlined"
-          classes={{
-            toolbar: classes.toolbar,
-            caption: classes.caption,
-            ul: classes.ul,
-          }}
-          className={classes.text}
-        />
       </Stack>
       {/* </Box> */}
       {/* </ItemsGrid> */}
