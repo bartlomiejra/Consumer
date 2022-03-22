@@ -97,7 +97,6 @@ const Movies = () => {
     fetchMoviesbyGenres();
   }, [selected, pageGenres]);
   // console.log(selected);
-
   const handleChangePageGenres = (pageGenres) => {
     setPageGenres(pageGenres);
     window.scroll(0, 0);
@@ -110,11 +109,13 @@ const Movies = () => {
 
   useEffect(() => {
     const fetchCategory = async () => {
-      const category = await fetch(
+      let category = await fetch(
         `https://api.themoviedb.org/3/genre/movie/list?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US`,
       );
       const moviegenres = await category.json();
       setItems(moviegenres.genres);
+
+      console.log(moviegenres.genres);
     };
     fetchCategory();
   }, []);
@@ -142,7 +143,6 @@ const Movies = () => {
       };
       fetchItems();
     }, 3000);
-    // const timer = setTimeout(() => {}, 10);
     return () => clearTimeout(delayDebounceFn);
   }, [query, page]);
   const listS = 20;
