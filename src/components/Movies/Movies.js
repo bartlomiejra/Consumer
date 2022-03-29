@@ -10,7 +10,8 @@ import Collapse from '@mui/material/Collapse';
 import { Item } from '../styles/ItemsGrid.styled';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import Modal from './Modal';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import Stack from '@mui/material/Stack';
 import StyledSearchBar from '../Search';
 import Grid from '@mui/material/Grid';
@@ -34,7 +35,9 @@ const ExpandMore = styled((props) => {
     duration: theme.transitions.duration.shortest,
   }),
 }));
-const Movies = () => {
+const Movies = ({ match }) => {
+  let { id } = match.params;
+
   // 	const useStyles=makeStyles((theme)=>({
   // text:{
   //     color:"#ffffff"
@@ -207,10 +210,14 @@ const Movies = () => {
         justifyContent="space-around"
         direction="row"
       >
+        {/* <Modal Item={id} /> */}
         {/* <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}> */}
         {movies.map((item) => (
           <>
-            <MovieItem sm={3} key={item.id} item={item}></MovieItem>
+            <Router>
+              <Route path={['/:id', '/']} component={MovieItem} />
+              {/* <MovieItem sm={3} key={item.id} item={item}></MovieItem> */}
+            </Router>
           </>
         ))}
         {/* {!query && ( */}

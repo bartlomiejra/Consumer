@@ -1,15 +1,28 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
-
-const Modal = ({ isToggled, children }) => {
+import { ModalStyled } from '../styles/ItemsGrid.styled';
+const Modal = ({ id }) => {
   return (
     <AnimatePresence>
-      {isToggled && (
-        <>
-          <button>Close</button>
-          {children}
-        </>
-      )}
+      {/* {isToggled && ( */}
+      <>
+        <ModalStyled>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, transition: { duration: 0.15 } }}
+            transition={{ duration: 0.2, delay: 0.15 }}
+            style={{ pointerEvents: 'auto' }}
+            className="overlay"
+          >
+            {id}
+            <motion.div initial={{ y: 50 }} animate={{ y: 0 }} exit={{ y: 30 }}>
+              <button>X</button>
+            </motion.div>
+          </motion.div>
+        </ModalStyled>
+      </>
+      {/* )} */}
     </AnimatePresence>
   );
 };

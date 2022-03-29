@@ -68,3 +68,18 @@ export const StyledSearchBar = styled(SearchBar)`
 
   /* border-radius: 10px; */
 `;
+
+export const ModalStyled = styled(motion.div)`
+  z-index: 10;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  will-change: opacity;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  /* height: 90%; */
+  max-width: 990px;
+  margin: 10px;
+`;
