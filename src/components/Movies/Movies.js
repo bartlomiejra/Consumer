@@ -63,6 +63,8 @@ const Movies = ({ match }) => {
   const [expanded, setExpanded] = React.useState(false);
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [numberOfPagesGenres, setNumberOfPagesGenres] = useState(1);
+  const [selectedId, setSelectedId] = useState(null);
+
   let selectedCategory = selected.length === 0;
 
   const handleExpandClick = () => {
@@ -149,6 +151,7 @@ const Movies = ({ match }) => {
     return () => clearTimeout(delayDebounceFn);
   }, [query, page]);
   const listS = 20;
+  const [modal, setModal] = useState(0);
 
   return (
     <section>
@@ -210,14 +213,20 @@ const Movies = ({ match }) => {
         justifyContent="space-around"
         direction="row"
       >
-        {/* <Modal Item={id} /> */}
+        {selectedId && <Modal Item={selectedId} />}
+
         {/* <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}> */}
         {movies.map((item) => (
           <>
-            <Router>
-              <Route path={['/:id', '/']} component={MovieItem} />
-              {/* <MovieItem sm={3} key={item.id} item={item}></MovieItem> */}
-            </Router>
+          {modal}
+            <MovieItem
+              changeModal={(modal) => setModal(modal)}
+              sm={3}
+              key={item.id}
+              item={item}
+
+              // onClick={() => setSelectedId(1)}
+            ></MovieItem>
           </>
         ))}
         {/* {!query && ( */}

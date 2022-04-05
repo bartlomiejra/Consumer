@@ -22,11 +22,10 @@ import Link from '@mui/material/Link';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ClearIcon from '@mui/icons-material/Clear';
 
-const MovieItem = ({ item }) => {
+const MovieItem = ({ setSelectedId, item }) => {
   const [value, setValue] = useState(0);
   const [isToggled, setToggled] = useState(1);
   const [isOpenModal, setOpenModal] = useState(1);
-  const [selectedId, setSelectedId] = useState(null);
 
   const textMotion = {
     rest: {
@@ -73,7 +72,10 @@ const MovieItem = ({ item }) => {
       },
     },
   };
-
+  const handleModal = () => {
+    setOpenModal(item.id);
+    console.log(isOpenModal);
+  };
   return (
     <AnimatePresence>
       {/* <Modal isToggled={isToggled}>
@@ -81,7 +83,8 @@ const MovieItem = ({ item }) => {
 
       {isToggled && (
         <Item
-          onClick={() => setSelectedId(item.id)}
+          // onClick={(event) =>
+          // onClick={handleModal}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
@@ -102,11 +105,6 @@ const MovieItem = ({ item }) => {
             />
           )}
           <motion.div
-            // initial="rest"
-            // whileHover="hover,
-            // // backgroundColor: 'rgba(0, 0, 0, 0.8)',"
-            // animate="rest "
-
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 1 }}
             animate={{
@@ -115,7 +113,8 @@ const MovieItem = ({ item }) => {
             className="detals"
             variants={textMotion}
           >
-            {item.id}
+            <Button>X</Button>
+            {/* {item.id} */}
             <motion.h3 variants={slashMotion}>{item.title}</motion.h3>
             <Box>
               <motion.Typography>
