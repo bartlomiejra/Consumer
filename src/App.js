@@ -198,7 +198,7 @@ function App() {
   return (
     <>
       <ScrollBar styles={{ ...darkScrollbar() }} />
-
+      {console.log('eloasd')}
       <CssBaseline enableColorScheme />
 
       <MuiThemeProvider theme={theme}>
