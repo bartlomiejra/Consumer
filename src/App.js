@@ -13,6 +13,7 @@ import '@fontsource/roboto/700.css';
 import { Box } from '@material-ui/core';
 import 'firebase/firestore';
 import 'firebase/auth';
+
 import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
 
 const theme = createTheme({

@@ -1,7 +1,7 @@
 /* eslint react/prop-types: 0 */
 
 import React, { useState } from 'react';
-import { StyledSearchBar } from '.././components/styles/ItemsGrid.styled';
+import { StyledSearchBar } from './styles/ItemsGrid.styled';
 
 const Search = ({ getQuery }) => {
   const [text, setText] = useState('');
