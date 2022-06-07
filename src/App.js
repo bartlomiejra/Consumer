@@ -1,4 +1,3 @@
-//  eslint-disable react/prop-types
 import Header from './components/Header';
 import GlobalStyles from './components/styles/Global';
 import Footer from './components/Footer';
@@ -6,15 +5,14 @@ import React from 'react';
 import darkScrollbar from '@mui/material/darkScrollbar';
 import ScrollBar from '@mui/material/GlobalStyles';
 import CssBaseline from '@mui/material/CssBaseline';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import { Box } from '@material-ui/core';
+// import '@fontsource/roboto/300.css';
+// import '@fontsource/roboto/400.css';
+// import '@fontsource/roboto/500.css';
+// import '@fontsource/roboto/700.css';
+// import { Box } from '@material-ui/core';
 import 'firebase/firestore';
 import 'firebase/auth';
-
-import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
@@ -202,7 +200,7 @@ function App() {
       {console.log('eloasd')}
       <CssBaseline enableColorScheme />
 
-      <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         <Box
           m={0}
           sx={{
@@ -215,7 +213,7 @@ function App() {
             <Footer />
           </>
         </Box>
-      </MuiThemeProvider>
+      </ThemeProvider>
     </>
   );
 }
