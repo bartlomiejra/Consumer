@@ -9,7 +9,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 // import '@fontsource/roboto/400.css';
 // import '@fontsource/roboto/500.css';
 // import '@fontsource/roboto/700.css';
-// import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import 'firebase/firestore';
 import 'firebase/auth';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
@@ -193,9 +193,11 @@ const theme = createTheme({
     },
   }}
 />;
+
 function App() {
   return (
     <>
+      {console.log('ok')}
       <ScrollBar styles={{ ...darkScrollbar() }} />
       {console.log('eloasd')}
       <CssBaseline enableColorScheme />

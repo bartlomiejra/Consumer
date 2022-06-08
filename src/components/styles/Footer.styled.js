@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const StyledFooter = styled.footer`
   color: #fff;
   padding: 20px 0 0px;

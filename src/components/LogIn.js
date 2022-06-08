@@ -1,5 +1,5 @@
 import React from 'react';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 // import StyledLog from '../components/styles/Log.styled';
 // import {pink } from '@material-ui/core/colors';
 import { pink } from '@mui/material/colors';
@@ -10,21 +10,18 @@ import {
   signOut,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-// import { makeStyles } from '@material-ui/core/styles';
-// import firebase  from '../Firebase/firebase';
+import { makeStyles } from '@mui/material/styles';
 import {
   Grid,
   Box,
   Typography,
   Avatar,
-  // CssBaseline,
-  // Paper,
   TextField,
   Checkbox,
   Button,
   FormControlLabel,
   Link,
-} from '@material-ui/core';
+} from '@mui/material';
 import { auth } from './Firebase/firebase';
 
 // const styles = (theme) => ({

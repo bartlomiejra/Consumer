@@ -1,7 +1,7 @@
 /* eslint react/prop-types: 0 */
 
 //  eslint-disable jsx-a11y/no-autofocus
-// import { CardContent, Grid } from '@material-ui/core';
+import { CardContent, Grid } from '@mui/material';
 import React, { useState } from 'react';
 import { Item, Img } from '../styles/ItemsGrid.styled';
 import { motion, AnimatePresence } from 'framer-motion';

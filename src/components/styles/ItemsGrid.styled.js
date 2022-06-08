@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import SearchBar from 'material-ui-search-bar';
 import { motion } from 'framer-motion';
-import { Card } from '@material-ui/core';
+import { Card } from '@mui/material';
 
 export const ItemsGrid = styled.div`
   /* background-color: ${({ theme }) => theme.colors.header}; */

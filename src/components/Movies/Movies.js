@@ -8,7 +8,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse';
 import { Item } from '../styles/ItemsGrid.styled';
-import makeStyles from '@material-ui/core/styles/makeStyles';
+import makeStyles from '@mui/material/styles/makeStyles';
 import { motion, AnimatePresence } from 'framer-motion';
 import Modal from './Modal';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -19,7 +19,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { pink } from '@mui/material/colors';
 import Box from '@mui/material/Box';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { styled } from '@mui/material/styles';
@@ -218,7 +218,7 @@ const Movies = ({ match }) => {
         {/* <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}> */}
         {movies.map((item) => (
           <>
-          {modal}
+            {modal}
             <MovieItem
               changeModal={(modal) => setModal(modal)}
               sm={3}
