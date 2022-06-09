@@ -203,18 +203,18 @@ function App() {
       <CssBaseline enableColorScheme />
 
       <ThemeProvider theme={theme}>
-        <Box
+        {/* <Box
           m={0}
           sx={{
             color: 'white',
           }}
-        >
-          <>
-            <GlobalStyles />
-            <Header />
-            <Footer />
-          </>
-        </Box>
+        > */}
+        <>
+          <GlobalStyles />
+          <Header />
+          <Footer />
+        </>
+        {/* </Box> */}
       </ThemeProvider>
     </>
   );

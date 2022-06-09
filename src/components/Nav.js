@@ -10,7 +10,7 @@ import { AppBar, CssBaseline, useMediaQuery, Box } from '@mui/material';
 import Hamburger from './Hamburger/Hamburger';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
-// import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 function Nav() {
   const node = useRef();
