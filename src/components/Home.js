@@ -157,122 +157,122 @@ function Home() {
             </Typography>
             <Grid container spacing={4} px={{ xs: 2, md: 4, lg: 20 }}>
               <Grid item key={0} xs={12} lg={8}>
-                <NavLink className="item" variants={item} to="/Movies">
-                  <Item
-                    style={{
-                      background:
-                        'linear-gradient(to right bottom, #222d22, #181818)',
+                {/* <NavLink className="item" variants={item} to="/Movies"> */}
+                <Item
+                  style={{
+                    background:
+                      'linear-gradient(to right bottom, #222d22, #181818)',
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      position: 'absolute',
+                      zIndex: '3',
                     }}
+                    variant="h4"
                   >
-                    <Typography
-                      sx={{
-                        position: 'absolute',
-                        zIndex: '3',
-                      }}
-                      variant="h4"
-                    >
-                      Find Movies
-                    </Typography>
-                    <img
-                      style={{
-                        position: 'relative',
+                    Find Movies
+                  </Typography>
+                  <img
+                    style={{
+                      position: 'relative',
 
-                        height: '100%',
-                        width: '100%',
-                      }}
-                      src={MoviesSvg}
-                      alt=""
-                    />
-                  </Item>
-                </NavLink>
+                      height: '100%',
+                      width: '100%',
+                    }}
+                    src={MoviesSvg}
+                    alt=""
+                  />
+                </Item>
+                {/* </NavLink> */}
               </Grid>
               <Grid item key={1} xs={12} lg={4}>
-                <NavLink className="item" variants={item} to="/Music">
-                  <Item
-                    style={{
-                      background:
-                        'linear-gradient(to right bottom, #430089, #181818)',
-                    }}
+                {/* <NavLink className="item" variants={item} to="/Music"> */}
+
+                <Item
+                  style={{
+                    background:
+                      'linear-gradient(to right bottom, #430089, #181818)',
+                  }}
+                >
+                  <Typography
+                    sx={{ position: 'absolute', zIndex: '3' }}
+                    variant="h4"
                   >
-                    <Typography
-                      sx={{ position: 'absolute', zIndex: '3' }}
-                      variant="h4"
-                    >
-                      Music
-                    </Typography>
-                    <img
-                      style={{
-                        position: 'relative',
-                        height: '100%',
-                        width: '100%',
-                      }}
-                      src={MusicSvg}
-                      alt=""
-                    />
-                  </Item>
-                </NavLink>
+                    Music
+                  </Typography>
+                  <img
+                    style={{
+                      position: 'relative',
+                      height: '100%',
+                      width: '100%',
+                    }}
+                    src={MusicSvg}
+                    alt=""
+                  />
+                </Item>
+                {/* </NavLink> */}
               </Grid>
               <Grid key={2} item xs={12} lg={4}>
-                <NavLink className="item" variants={item} to="/Moviesfor2">
-                  <Item
-                    style={{
-                      background:
-                        'linear-gradient(to left bottom, #fdfdfd, #444444)',
-                    }}
+                {/* <NavLink className="item" variants={item} to="/Moviesfor2"> */}
+                <Item
+                  style={{
+                    background:
+                      'linear-gradient(to left bottom, #fdfdfd, #444444)',
+                  }}
+                >
+                  <Typography
+                    sx={{ position: 'absolute', zIndex: '3' }}
+                    variant="h4"
                   >
-                    <Typography
-                      sx={{ position: 'absolute', zIndex: '3' }}
-                      variant="h4"
-                    >
-                      Movies For 2
-                    </Typography>
-                    <img
-                      style={{
-                        position: 'relative',
-                        rotate: '120deg',
-                        transform: 'rotate(10deg)',
+                    Movies For 2
+                  </Typography>
+                  <img
+                    style={{
+                      position: 'relative',
+                      rotate: '120deg',
+                      transform: 'rotate(10deg)',
 
-                        // right: '125px',
-                        top: '-22px',
-                        height: '100%',
-                        width: '100%',
-                        padding: '10px',
-                      }}
-                      src={MovieFor2Svg}
-                      alt=""
-                    />
-                  </Item>
-                </NavLink>
+                      // right: '125px',
+                      top: '-22px',
+                      height: '100%',
+                      width: '100%',
+                      padding: '10px',
+                    }}
+                    src={MovieFor2Svg}
+                    alt=""
+                  />
+                </Item>
+                {/* </NavLink> */}
               </Grid>
               <Grid item xs={12} lg={8} key={3}>
-                <NavLink className="item " variants={item} to="/Recommendation">
-                  <Item
-                    style={{
-                      background:
-                        'linear-gradient(to right bottom,  #444abc, #000000)',
-                    }}
+                {/* <NavLink className="item " variants={item} to="/Recommendation"> */}
+                <Item
+                  style={{
+                    background:
+                      'linear-gradient(to right bottom,  #444abc, #000000)',
+                  }}
+                >
+                  <Typography
+                    sx={{ position: 'absolute', zIndex: '3' }}
+                    variant="h4"
                   >
-                    <Typography
-                      sx={{ position: 'absolute', zIndex: '3' }}
-                      variant="h4"
-                    >
-                      Our Recommendation
-                    </Typography>
-                    <img
-                      style={{
-                        position: 'relative',
-                        // right: '200px',
-                        height: '100%',
-                        width: '100%',
-                      }}
-                      src={OurRecommendationSvg}
-                      alt=""
-                    />
-                  </Item>
-                </NavLink>
+                    Our Recommendation
+                  </Typography>
+                  <img
+                    style={{
+                      position: 'relative',
+                      // right: '200px',
+                      height: '100%',
+                      width: '100%',
+                    }}
+                    src={OurRecommendationSvg}
+                    alt=""
+                  />
+                </Item>
+                {/* </NavLink> */}
               </Grid>
             </Grid>
-            {/* ))} */}
           </motion.div>
         </Box>
       </div>

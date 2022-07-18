@@ -4,8 +4,14 @@ import { Stylednav, Ul } from './styles/Nav.styled';
 import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from './Hamburger/hooks';
 import Menu from './Hamburger/Menu.js';
-import { NavLink } from 'react-router-dom';
-import { AppBar, CssBaseline, useMediaQuery, Box } from '@mui/material';
+import { Routes, Route, Link, NavLink } from 'react-router-dom';
+import {
+  AppBar,
+  CssBaseline,
+  useMediaQuery,
+  Box,
+  Typography,
+} from '@mui/material';
 
 import Hamburger from './Hamburger/Hamburger';
 import Button from '@mui/material/Button';
@@ -34,56 +40,36 @@ function Nav() {
       {isMobile ? (
         <>
           <Stylednav>
-            {/* <Typography variant="h4"> */}
-
-            {/* <Stylednav> */}
-            {/* <Ul> */}
-            {/* <Li> */}
-            {/* <Box sx={{   justifyContent: 'space-between' }}> */}
-
-            <NavLink to="/">
-              <Logo src="./images/logo2.svg" alt="" />
-            </NavLink>
-            <Box>
-              <Hamburger open={open} setOpen={setOpen} />
-              <Menu open={open} setOpen={setOpen} />
-            </Box>
-
-            {/* </Ul> */}
-            {/* </Stylednav> */}
-            {/* </Box> */}
-            {/* </Typography> */}
+            <Typography variant="h4">
+              <Stylednav>
+                <Ul>
+                  <Box sx={{ justifyContent: 'space-between' }}>
+                    <NavLink to="/">
+                      <Logo src="./images/logo2.svg" alt="" />
+                    </NavLink>
+                    <Hamburger open={open} setOpen={setOpen} />
+                    <Menu open={open} setOpen={setOpen} />
+                  </Box>
+                </Ul>
+              </Stylednav>
+            </Typography>
           </Stylednav>
         </>
       ) : (
         <>
           <Stylednav>
-            <NavLink to="/">
-              <Logo src="./images/logo2.svg" alt="" />
-            </NavLink>
-            <Ul>
-              <NavLink activeStyle={{ color: '#c40491' }} to="/Movies">
-                <div>Movie</div>
-              </NavLink>
-
-              <NavLink activeStyle={{ color: '#c40491' }} to="/Tvseries">
-                TV Series
-              </NavLink>
-
-              <NavLink activeStyle={{ color: '#c40491' }} to="/Books">
-                Books
-              </NavLink>
-              <NavLink activeStyle={{ color: '#c40491' }} to="/Music">
-                Music
-              </NavLink>
-              <NavLink activeStyle={{ color: '#c40491' }} to="/Moviesfor2">
-                Moviefor2
-              </NavLink>
-              <NavLink activeStyle={{ color: '#c40491' }} to="/Recommendation">
-                Our Recommendation
-              </NavLink>
-            </Ul>
-            <NavLink activeStyle={{ color: '#c40491' }} to="/LogIn">
+            <Logo src="./images/logo2.svg" alt="" />
+            {/* <NavLink to="/">
+            </NavLink> */}
+            {/* <Ul>
+               <NavLink to="Movies">Movie</NavLink>
+              <NavLink to="/Tvseries">TV Series</NavLink>
+              <NavLink to="/Books">Books</NavLink>
+              <NavLink to="/Music">Music</NavLink>
+              <NavLink to="/Moviesfor2">Moviefor2</NavLink>
+              <NavLink to="/Recommendation">Our Recommendation</NavLink>
+            </Ul> */}
+            {/* <NavLink to="/LogIn">
               <Button
                 sx={{ borderColor: '#c40491' }}
                 variant="outlined"
@@ -95,7 +81,7 @@ function Nav() {
               >
                 LogIn
               </Button>
-            </NavLink>
+            </NavLink> */}
           </Stylednav>
         </>
       )}

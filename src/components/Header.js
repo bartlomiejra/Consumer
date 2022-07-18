@@ -18,20 +18,21 @@ export default function Header() {
   return (
     <Styledheader>
       <p>Hi</p>
-      {/* <Nav /> */}
+      <Nav />
       <Router>
         <Routes>
-          <Route path="/" exact component={Home} />
-          <Route path="/Movies" component={Movies} />
-          <Route path="/Tvseries" component={Tvseries} />
-          <Route path="/Books" component={Books} />
-          <Route path="/Podcast" component={Podcast} />
-          <Route path="/Music" component={Music} />
-          <Route path="/Moviesfor2" component={Moviesfor2} />
-          <Route path="/Recommendation" component={Recommendation} />
+          <Route path="/Home" exact element={Home} />
+          <Route path="/Movies" element={Movies} />
+          <Route path="/Tvseries" element={Tvseries} />
+          <Route path="/Books" element={Books} />
+          <Route path="/Podcast" element={Podcast} />
+          <Route path="/Music" element={Music} />
+          <Route path="/Moviesfor2" element={Moviesfor2} />
+          <Route path="/Recommendation" element={Recommendation} />
           <Route path="/LogIn" component={LogIn} />
         </Routes>
       </Router>
+      <Home />
     </Styledheader>
   );
 }
