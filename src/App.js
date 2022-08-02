@@ -13,7 +13,7 @@ import { Box } from '@mui/material';
 import 'firebase/firestore';
 import 'firebase/auth';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-
+import { BrowserRouter } from 'react-router-dom';
 const theme = createTheme({
   palette: {
     type: 'dark',
@@ -197,25 +197,27 @@ const theme = createTheme({
 function App() {
   return (
     <>
-      {console.log('ok')}
-      <ScrollBar styles={{ ...darkScrollbar() }} />
-      {console.log('eloasd')}
-      <CssBaseline enableColorScheme />
+      <BrowserRouter>
+        {console.log('ok')}
+        <ScrollBar styles={{ ...darkScrollbar() }} />
+        {console.log('eloasd')}
+        <CssBaseline enableColorScheme />
 
-      <ThemeProvider theme={theme}>
-        {/* <Box
+        <ThemeProvider theme={theme}>
+          {/* <Box
           m={0}
           sx={{
             color: 'white',
           }}
         > */}
-        <>
-          <GlobalStyles />
-          <Header />
-          <Footer />
-        </>
-        {/* </Box> */}
-      </ThemeProvider>
+          <>
+            <GlobalStyles />
+            <Header />
+            <Footer />
+          </>
+          {/* </Box> */}
+        </ThemeProvider>
+      </BrowserRouter>
     </>
   );
 }

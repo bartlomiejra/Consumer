@@ -8,7 +8,9 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse';
 import { Item } from '../styles/ItemsGrid.styled';
-import makeStyles from '@mui/material/styles/makeStyles';
+// import makeStyles from '@mui/styles';
+import { makeStyles } from '@mui/styles';
+
 import { motion, AnimatePresence } from 'framer-motion';
 import Modal from './Modal';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -36,7 +38,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 const Movies = ({ match }) => {
-  let { id } = match.params;
+  // let { id } = match.params;
 
   // 	const useStyles=makeStyles((theme)=>({
   // text:{
@@ -161,9 +163,6 @@ const Movies = ({ match }) => {
           justifyContent: 'center',
         }}
       >
-        {/* <Typography variant="h3">Movies</Typography>
-            count={3}
-             */}
         <Typography variant="p">
           {' '}
           Select several genres of movies you are interested in or just use the
@@ -215,7 +214,6 @@ const Movies = ({ match }) => {
       >
         {selectedId && <Modal Item={selectedId} />}
 
-        {/* <Grid mt="5" md={{ flexGrow: 1 }} container spacing={2}> */}
         {movies.map((item) => (
           <>
             {modal}
@@ -224,12 +222,9 @@ const Movies = ({ match }) => {
               sm={3}
               key={item.id}
               item={item}
-
-              // onClick={() => setSelectedId(1)}
             ></MovieItem>
           </>
         ))}
-        {/* {!query && ( */}
         <>
           {[...Array(listS)].map((item, index) => (
             <Item>
@@ -237,7 +232,7 @@ const Movies = ({ match }) => {
                 variant="rectangular"
                 height={525}
                 width={350}
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+                // sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
               >
                 <Box className="detals">
                   <Skeleton
@@ -246,34 +241,33 @@ const Movies = ({ match }) => {
                     height={30}
                     width={200}
                     animation="wave"
-                    sx={{ borderRadius: '5px' }}
+                    // sx={{ borderRadius: '5px' }}
                   />
 
                   <Box height={300} margin={0}>
                     <Skeleton
-                      borderRadius="10px"
+                      // borderRadius="10px"
                       width={36.55}
                       variant="rectangular"
                       height={19}
                       animation="wave"
-                      sx={{ marginTop: '5px', borderRadius: '5px' }}
+                      // sx={{ marginTop: '5px', borderRadius: '5px' }}
                     />
                     <Skeleton
-                      sx={{ marginTop: '5px', borderRadius: '5px' }}
-                      borderRadius="10px"
+                      // sx={{ marginTop: '5px', borderRadius: '5px' }}
+                      // borderRadius="10px"
                       variant="rectangular"
                       width={320}
                       animation="wave"
                       height={31}
                     />
                     <Skeleton
-                      sx={{ marginTop: '5px', borderRadius: '5px' }}
+                      // sx={{ marginTop: '5px', borderRadius: '5px' }}
                       width={330}
                       height={180}
                       animation="wave"
                       variant="rectangular"
                     />
-                    {/* {//opis} */}
                     <Box
                       sx={{
                         display: 'flex',
@@ -284,7 +278,7 @@ const Movies = ({ match }) => {
                       <Skeleton
                         width={230}
                         animation="wave"
-                        sx={{ marginTop: '5px', borderRadius: '5px' }}
+                        // sx={{ marginTop: '5px', borderRadius: '5px' }}
                         height={44}
                         variant="rectangular"
                       />
@@ -304,7 +298,7 @@ const Movies = ({ match }) => {
       <Stack spacing={2}>
         {selectedCategory ? (
           <Pagination
-            pageNumber={numberOfPages}
+            pagenumber={numberOfPages}
             setPage={setPage}
             // page={page}
             sx={{
@@ -327,7 +321,7 @@ const Movies = ({ match }) => {
           />
         ) : (
           <Pagination
-            pageNumber={numberOfPagesGenres}
+            pagenumber={numberOfPagesGenres}
             setPage={setPageGenres}
             // page={page}
             sx={{

@@ -12,27 +12,24 @@ import Home from './Home';
 import Music from './Music';
 import Recommendation from './Recommendation';
 import LogIn from './LogIn';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 export default function Header() {
   return (
     <Styledheader>
-      <p>Hi</p>
       <Nav />
-      <Router>
-        <Routes>
-          <Route path="/Home" exact element={Home} />
-          <Route path="/Movies" element={Movies} />
-          <Route path="/Tvseries" element={Tvseries} />
-          <Route path="/Books" element={Books} />
-          <Route path="/Podcast" element={Podcast} />
-          <Route path="/Music" element={Music} />
-          <Route path="/Moviesfor2" element={Moviesfor2} />
-          <Route path="/Recommendation" element={Recommendation} />
-          <Route path="/LogIn" component={LogIn} />
-        </Routes>
-      </Router>
-      <Home />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/Movies" element={<Movies />} />
+        <Route path="/Tvseries" element={Tvseries} />
+        <Route path="/Books" element={<Books />} />
+        <Route path="/Podcast" element={Podcast} />
+        <Route path="/Music" element={Music} />
+        <Route path="/Moviesfor2" element={Moviesfor2} />
+        <Route path="/Recommendation" element={Recommendation} />
+        <Route path="/LogIn" component={LogIn} />
+      </Routes>
+      {/* <Home /> */}
     </Styledheader>
   );
 }

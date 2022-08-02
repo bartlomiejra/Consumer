@@ -5,6 +5,7 @@ import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from './Hamburger/hooks';
 import Menu from './Hamburger/Menu.js';
 import { Routes, Route, Link, NavLink } from 'react-router-dom';
+
 import {
   AppBar,
   CssBaseline,
@@ -58,18 +59,18 @@ function Nav() {
       ) : (
         <>
           <Stylednav>
-            <Logo src="./images/logo2.svg" alt="" />
-            {/* <NavLink to="/">
-            </NavLink> */}
-            {/* <Ul>
-               <NavLink to="Movies">Movie</NavLink>
+            <NavLink to="/">
+              <Logo src="./images/logo2.svg" alt="" />
+            </NavLink>
+            <Ul>
+              <NavLink to="Movies">Movie</NavLink>
               <NavLink to="/Tvseries">TV Series</NavLink>
               <NavLink to="/Books">Books</NavLink>
               <NavLink to="/Music">Music</NavLink>
               <NavLink to="/Moviesfor2">Moviefor2</NavLink>
               <NavLink to="/Recommendation">Our Recommendation</NavLink>
-            </Ul> */}
-            {/* <NavLink to="/LogIn">
+            </Ul>
+            <NavLink to="/LogIn">
               <Button
                 sx={{ borderColor: '#c40491' }}
                 variant="outlined"
@@ -81,7 +82,7 @@ function Nav() {
               >
                 LogIn
               </Button>
-            </NavLink> */}
+            </NavLink>
           </Stylednav>
         </>
       )}
