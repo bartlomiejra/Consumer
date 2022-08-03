@@ -11,7 +11,6 @@ import { Item } from '../styles/ItemsGrid.styled';
 // import makeStyles from '@mui/styles';
 import { makeStyles } from '@mui/styles';
 
-import { motion, AnimatePresence } from 'framer-motion';
 import Modal from './Modal';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import Stack from '@mui/material/Stack';
@@ -299,7 +298,7 @@ const Movies = ({ match }) => {
         {selectedCategory ? (
           <Pagination
             pagenumber={numberOfPages}
-            setPage={setPage}
+            // setPage={setPage}
             // page={page}
             sx={{
               display: 'flex',
