@@ -39,21 +39,22 @@ const ExpandMore = styled((props) => {
 const Movies = ({ match }) => {
   // let { id } = match.params;
 
-  // 	const useStyles=makeStyles((theme)=>({
-  // text:{
-  //     color:"#ffffff"
-  // }
+  // const useStyles = makeStyles((theme) => ({
+  //
   // }));
 
-  const useStyles = makeStyles(() => ({
-    ul: {
-      '& .MuiPaginationItem-root': {
-        color: '#fff',
-      },
-    },
-  }));
+  // const useStyles = makeStyles(() => ({
+  //   ul: {
+  //     '& .MuiPaginationItem-root': {
+  //       color: '#fff',
+  //     },
+  //   },
+  //   text: {
+  //     color: '#ffffff',
+  //   },
+  // }));
 
-  const classes = useStyles();
+  // const classes = useStyles();
   const [selected, setSelected] = useState([]);
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
@@ -173,7 +174,7 @@ const Movies = ({ match }) => {
         />
         Category
         <ExpandMore
-          color="secondary"
+          // color="secondary"
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
@@ -294,7 +295,7 @@ const Movies = ({ match }) => {
     <Skeleton key={index} variant="rect" width={200} height={300} />
 ))} */}
       </Grid>
-      <Stack spacing={2}>
+      {/* <Stack spacing={2}>
         {selectedCategory ? (
           <Pagination
             pagenumber={numberOfPages}
@@ -342,7 +343,7 @@ const Movies = ({ match }) => {
             className={classes.text}
           />
         )}
-      </Stack>
+      </Stack> */}
       {/* </Box> */}
       {/* </ItemsGrid> */}
     </section>
