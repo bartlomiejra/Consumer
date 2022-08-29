@@ -43,16 +43,16 @@ const Movies = ({ match }) => {
   //
   // }));
 
-  // const useStyles = makeStyles(() => ({
-  //   ul: {
-  //     '& .MuiPaginationItem-root': {
-  //       color: '#fff',
-  //     },
-  //   },
-  //   text: {
-  //     color: '#ffffff',
-  //   },
-  // }));
+  const useStyles = makeStyles(() => ({
+    ul: {
+      '& .MuiPaginationItem-root': {
+        color: '#fff',
+      },
+    },
+    text: {
+      color: '#ffffff',
+    },
+  }));
 
   // const classes = useStyles();
   const [selected, setSelected] = useState([]);
@@ -216,7 +216,6 @@ const Movies = ({ match }) => {
 
         {movies.map((item) => (
           <>
-            {modal}
             <MovieItem
               changeModal={(modal) => setModal(modal)}
               sm={3}
@@ -232,7 +231,7 @@ const Movies = ({ match }) => {
                 variant="rectangular"
                 height={525}
                 width={350}
-                // sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
+                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
               >
                 <Box className="detals">
                   <Skeleton
@@ -246,23 +245,23 @@ const Movies = ({ match }) => {
 
                   <Box height={300} margin={0}>
                     <Skeleton
-                      // borderRadius="10px"
+                      borderRadius="10px"
                       width={36.55}
                       variant="rectangular"
                       height={19}
                       animation="wave"
-                      // sx={{ marginTop: '5px', borderRadius: '5px' }}
+                      sx={{ marginTop: '5px', borderRadius: '5px' }}
                     />
                     <Skeleton
-                      // sx={{ marginTop: '5px', borderRadius: '5px' }}
-                      // borderRadius="10px"
+                      sx={{ marginTop: '5px', borderRadius: '5px' }}
+                      borderRadius="10px"
                       variant="rectangular"
                       width={320}
                       animation="wave"
                       height={31}
                     />
                     <Skeleton
-                      // sx={{ marginTop: '5px', borderRadius: '5px' }}
+                      sx={{ marginTop: '5px', borderRadius: '5px' }}
                       width={330}
                       height={180}
                       animation="wave"
@@ -278,7 +277,7 @@ const Movies = ({ match }) => {
                       <Skeleton
                         width={230}
                         animation="wave"
-                        // sx={{ marginTop: '5px', borderRadius: '5px' }}
+                        sx={{ marginTop: '5px', borderRadius: '5px' }}
                         height={44}
                         variant="rectangular"
                       />
@@ -295,7 +294,7 @@ const Movies = ({ match }) => {
     <Skeleton key={index} variant="rect" width={200} height={300} />
 ))} */}
       </Grid>
-      {/* <Stack spacing={2}>
+      <Stack spacing={2}>
         {selectedCategory ? (
           <Pagination
             pagenumber={numberOfPages}
@@ -313,11 +312,11 @@ const Movies = ({ match }) => {
             onChange={(e) => handleChangePage(e.target.textContent)}
             // variant="outlined"
             classes={{
-              toolbar: classes.toolbar,
-              caption: classes.caption,
-              ul: classes.ul,
+              toolbar: useStyles.toolbar,
+              // caption: useStyles.caption,
+              // ul: classes.ul,
             }}
-            className={classes.text}
+            // className={classes.text}
           />
         ) : (
           <Pagination
@@ -335,15 +334,18 @@ const Movies = ({ match }) => {
             size="large"
             onChange={(e) => handleChangePageGenres(e.target.textContent)}
             // variant="outlined"
-            classes={{
-              toolbar: classes.toolbar,
-              caption: classes.caption,
-              ul: classes.ul,
-            }}
-            className={classes.text}
+            classes={
+              {
+                // toolbar: classes.toolbar,
+                // caption: classes.caption,
+                // ul: classes.ul,
+              }
+            }
+            // className={classes.text}
           />
         )}
-      </Stack> */}
+      </Stack>{' '}
+      */}
       {/* </Box> */}
       {/* </ItemsGrid> */}
     </section>
