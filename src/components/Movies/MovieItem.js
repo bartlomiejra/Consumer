@@ -74,7 +74,7 @@ const MovieItem = ({ setSelectedId, item }) => {
   };
   const handleModal = () => {
     setOpenModal(item.id);
-    console.log(isOpenModal);
+    // console.log(isOpenModal);
   };
   return (
     <AnimatePresence>
@@ -120,7 +120,7 @@ const MovieItem = ({ setSelectedId, item }) => {
               <motion.Typography>
                 {item.release_date.slice(0, 4)}
               </motion.Typography>
-              {console.log(item)}
+              {/* {console.log(item)} */}
               <Box
                 sx={{
                   display: 'flex',
@@ -231,7 +231,7 @@ const MovieItem = ({ setSelectedId, item }) => {
               </Box>
             </Box>
           </motion.div>
-          {console.log(setSelectedId)}
+          {/* {console.log(setSelectedId)} */}
           {/* console.log(item) */}
         </Item>
       )}

@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
+import { theme } from '../../assets/styles/theme';
 export const StyledMenu = styled.nav`
   display: flex;
   /* transform: translateX(-100%); */
-  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(110%)")};
+  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(110%)')};
 
   flex-direction: column;
   background: ${({ theme }) => theme.primaryLight};
@@ -19,6 +20,7 @@ export const StyledMenu = styled.nav`
   width: 100%;
   z-index: 20;
   justify-content: center;
+  color: ${({ theme }) => theme.persianGreen};
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;
