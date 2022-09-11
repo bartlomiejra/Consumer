@@ -3,11 +3,11 @@
 //  eslint-disable jsx-a11y/no-autofocus
 import { CardContent, Grid } from '@mui/material';
 import React, { useState } from 'react';
-import { Item, Img } from '../styles/ItemsGrid.styled';
+import { Item, Img } from '../../styles/ItemsGrid.styled';
 import { motion, AnimatePresence } from 'framer-motion';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import Modal from './Modal.js';
+import Modal from '../Movies/Modal.js.js';
 
 import {
   Button,

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Flex } from './styles/Flex.styled';
-import { Img } from './styles/Flex.styled';
+import { Flex } from '../../styles/Flex.styled';
+import { Img } from '../../styles/Flex.styled';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';

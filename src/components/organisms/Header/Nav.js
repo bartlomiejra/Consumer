@@ -1,9 +1,9 @@
-import { Logo } from './styles/Heder.styled';
-import { Stylednav, Ul } from './styles/Nav.styled';
+import { Logo } from './Heder.styled';
+import { Stylednav, Ul } from '../../styles/Nav.styled';
 // import { StyledMenu } from './styles/Menu.styled';
 import React, { useState, useRef } from 'react';
-import { useOnClickOutside } from './Hamburger/hooks';
-import Menu from './Hamburger/Menu.js';
+import { useOnClickOutside } from '../../molecules/Hamburger/hooks';
+import Menu from '../../molecules/Hamburger/Menu.js';
 import { Routes, Route, Link, NavLink } from 'react-router-dom';
 
 import {
@@ -14,7 +14,7 @@ import {
   Typography,
 } from '@mui/material';
 
-import Hamburger from './Hamburger/Hamburger';
+import Hamburger from '../../molecules/Hamburger/Hamburger';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';

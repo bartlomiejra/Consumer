@@ -1,4 +1,4 @@
-import MovieItem from './MovieItem';
+import MovieItem from '../../molecules/MovieItem/MovieItem';
 import React, { useState, useEffect } from 'react';
 // import Spinner  from '../styles/Spinner'
 import axios from 'axios';
@@ -7,14 +7,14 @@ import Skeleton from '@mui/material/Skeleton';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse';
-import { Item } from '../styles/ItemsGrid.styled';
+import { Item } from '../../styles/ItemsGrid.styled';
 // import makeStyles from '@mui/styles';
 import { makeStyles } from '@mui/styles';
 
-import Modal from './Modal';
+import Modal from '../../molecules/Movies/Modal';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import Stack from '@mui/material/Stack';
-import StyledSearchBar from '../Search';
+import StyledSearchBar from '../../atoms/Search';
 import Grid from '@mui/material/Grid';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';

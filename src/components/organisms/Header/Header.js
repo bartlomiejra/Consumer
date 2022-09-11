@@ -1,17 +1,17 @@
-import { Styledheader, Logo, Image } from './styles/Heder.styled';
+import { Styledheader, Logo, Image } from './Heder.styled';
 import React from 'react';
 
 // import { Button } from "./styles/Button.styled";
-import Movies from './Movies/Movies';
+import Movies from '../../templates/Movies/Movies';
 import Nav from './Nav';
-import Books from './Books';
-import Podcast from './Podcast';
-import Moviesfor2 from './Moviesfor2';
-import Tvseries from './Tvseries';
-import Home from './Home';
-import Music from './Music';
-import Recommendation from './Recommendation';
-import LogIn from './LogIn';
+import Books from '../../templates/Books/Books';
+import Podcast from '../../templates/Podcast/Podcast';
+import Moviesfor2 from '../../templates/Moviesfor2/Moviesfor2';
+import Tvseries from '../../templates/TvSeries/Tvseries';
+import Home from '../../templates/Home/Home';
+import Music from '../../templates/Music/Music';
+import Recommendation from '../../Recommendation';
+import LogIn from '../../LogIn';
 import { Routes, Route } from 'react-router-dom';
 
 export default function Header() {
