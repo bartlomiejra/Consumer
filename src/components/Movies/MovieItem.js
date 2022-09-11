@@ -117,9 +117,7 @@ const MovieItem = ({ setSelectedId, item }) => {
             {/* {item.id} */}
             <motion.h3 variants={slashMotion}>{item.title}</motion.h3>
             <Box>
-              <motion.Typography>
-                {item.release_date.slice(0, 4)}
-              </motion.Typography>
+              <Typography>{item.release_date.slice(0, 4)}</Typography>
               {/* {console.log(item)} */}
               <Box
                 sx={{

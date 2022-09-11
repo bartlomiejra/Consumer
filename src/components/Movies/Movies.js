@@ -88,17 +88,13 @@ const Movies = ({ match }) => {
         `https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=${selected}&page=${pageGenres}
 					`,
       );
-      console.log('po kategoriach fecz');
 
       // setNumberOfPagesGenres(moviesbygenres.data.total_pages);
       const findmoviesbygenres = await moviesbygenres.json();
       setMovies(findmoviesbygenres.results);
-      console.log(moviesbygenres.data);
-      console.log(findmoviesbygenres.total_pages);
       setNumberOfPagesGenres(findmoviesbygenres.total_pages);
     };
     // console.log(findmoviesbygenres.data);
-    console.log(moviesbygenres);
     setIsLoading(false);
     // setQuery(findmoviesbygenres.results);
     fetchMoviesbyGenres();
@@ -122,14 +118,14 @@ const Movies = ({ match }) => {
       const moviegenres = await category.json();
       setItems(moviegenres.genres);
 
-      console.log(moviegenres.genres);
+      // console.log(moviegenres.genres);
     };
     fetchCategory();
   }, []);
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      console.log(query);
+      // console.log(query);
       // setSelected([]);
       // handleChange([]);
       const fetchItems = async () => {
@@ -146,10 +142,10 @@ const Movies = ({ match }) => {
         setMovies(result.data.results);
         setIsLoading(false);
         setNumberOfPages(result.data.total_pages);
-        console.log('search bar wynik');
+        // console.log('search bar wynik');
       };
       fetchItems();
-    }, 3000);
+    }, 1000);
     return () => clearTimeout(delayDebounceFn);
   }, [query, page]);
   const listS = 20;
@@ -174,7 +170,7 @@ const Movies = ({ match }) => {
         />
         Category
         <ExpandMore
-          // color="secondary"
+          color="secondary"
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
@@ -225,8 +221,8 @@ const Movies = ({ match }) => {
           </>
         ))}
         <>
-          {[...Array(listS)].map((item, index) => (
-            <Item>
+          {/* {[...Array(listS)].map((item, index) => (
+            <Item key={index.id}>
               <Stack
                 variant="rectangular"
                 height={525}
@@ -245,7 +241,7 @@ const Movies = ({ match }) => {
 
                   <Box height={300} margin={0}>
                     <Skeleton
-                      borderRadius="10px"
+                      // borderRadius="10px"
                       width={36.55}
                       variant="rectangular"
                       height={19}
@@ -254,7 +250,7 @@ const Movies = ({ match }) => {
                     />
                     <Skeleton
                       sx={{ marginTop: '5px', borderRadius: '5px' }}
-                      borderRadius="10px"
+                      // borderRadius="10px"
                       variant="rectangular"
                       width={320}
                       animation="wave"
@@ -286,13 +282,13 @@ const Movies = ({ match }) => {
                 </Box>
               </Stack>
             </Item>
-          ))}
+          ))} */}
         </>
         {/* )} */}
-        {/* {movies.isloading &&
-  skeletonArray.map((item, index) => (
-    <Skeleton key={index} variant="rect" width={200} height={300} />
-))} */}
+        {movies.isloading &&
+          listS.map((item, index) => (
+            <Skeleton key={index} variant="rect" width={200} height={300} />
+          ))}
       </Grid>
       <Stack spacing={2}>
         {selectedCategory ? (
@@ -345,7 +341,6 @@ const Movies = ({ match }) => {
           />
         )}
       </Stack>{' '}
-      */}
       {/* </Box> */}
       {/* </ItemsGrid> */}
     </section>

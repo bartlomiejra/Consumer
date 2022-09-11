@@ -15,7 +15,6 @@ import 'firebase/auth';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter } from 'react-router-dom';
 import { MUItheme } from './assets/styles/MUItheme';
-import { theme } from './assets/styles/theme';
 <GlobalStyles
   styles={{
     '*::-webkit-scrollbar': {
@@ -45,14 +44,12 @@ function App() {
             color: 'white',
           }}
         > */}
-          <ThemeProvider theme={theme}>
-            <>
-              <GlobalStyles />
-              <Header />
-              <Footer />
-            </>
-            {/* </Box> */}
-          </ThemeProvider>
+          <>
+            <GlobalStyles />
+            <Header />
+            <Footer />
+          </>
+          {/* </Box> */}
         </ThemeProvider>
       </BrowserRouter>
     </>

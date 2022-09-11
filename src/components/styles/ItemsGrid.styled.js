@@ -32,6 +32,7 @@ export const Item = styled(motion.div)`
     z-index: 2;
     height: 100%;
     text-decoration: none;
+    text-overflow: auto;
   }
 
   .pagination {

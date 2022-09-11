@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { theme } from '../../assets/styles/theme';
 export const StyledMenu = styled.nav`
   display: flex;
   /* transform: translateX(-100%); */

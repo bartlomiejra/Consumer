@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
+// import (isToggled) from './MovieItem.js';
 import React from 'react';
 import { ModalStyled } from '../styles/ItemsGrid.styled';
 const Modal = ({ id }) => {
