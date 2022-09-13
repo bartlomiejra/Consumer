@@ -7,25 +7,19 @@ import Skeleton from '@mui/material/Skeleton';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse';
-import { Item } from '../../styles/ItemsGrid.styled';
-// import makeStyles from '@mui/styles';
 import { makeStyles } from '@mui/styles';
-
-import Modal from '../../molecules/Movies/Modal';
+import Modal from '../../molecules/Modal/Modal';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import Stack from '@mui/material/Stack';
-import StyledSearchBar from '../../atoms/Search';
+import StyledSearchBar from '../../atoms/Search/Search';
 import Grid from '@mui/material/Grid';
-import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { pink } from '@mui/material/colors';
 import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Link from '@mui/material/Link';
-import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
-import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -148,7 +142,9 @@ const Movies = ({ match }) => {
     }, 1000);
     return () => clearTimeout(delayDebounceFn);
   }, [query, page]);
+
   const listS = 20;
+
   const [modal, setModal] = useState(0);
 
   return (
@@ -188,6 +184,7 @@ const Movies = ({ match }) => {
                     value={item.id}
                     sx={{
                       color: pink[800],
+                      fontSize: 20,
                       '&.Mui-checked': {
                         color: pink[600],
                       },

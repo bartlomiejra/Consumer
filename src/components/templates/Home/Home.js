@@ -9,11 +9,11 @@ import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Typography } from '@mui/material';
 // import movies from 'img/movies.svg';
-import MoviesSvg from '../img/movies.svg';
-import MusicSvg from '../img/music.svg';
-import MovieFor2Svg from '../img/moviefor2.svg';
-import OurRecommendationSvg from '../img/top.svg';
-import HomeSvg from '../img/homesvg.svg';
+import MoviesSvg from '../../../assets/img/movies.svg';
+import MusicSvg from '../../../assets/img/music.svg';
+import MovieFor2Svg from '../../../assets/img/moviefor2.svg';
+import OurRecommendationSvg from '../../../assets/img/top.svg';
+import HomeSvg from '../../../assets/img/homesvg.svg';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Button from '@mui/material/Button';
 

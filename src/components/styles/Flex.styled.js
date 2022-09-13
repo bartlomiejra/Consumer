@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import homesvg from "../../img/homesvg.svg";
+import styled from 'styled-components';
+import homesvg from '../../assets/img/homesvg.svg';
 export const Flex = styled.div`
   /* display: flex; */
   align-items: center;

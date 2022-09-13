@@ -1,7 +1,7 @@
 // Menu.js
 import React from 'react';
 import { bool } from 'prop-types';
-import { StyledMenu } from '../styles/Menu.styled';
+import { StyledMenu } from './Menu.styled';
 import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 

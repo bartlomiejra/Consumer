@@ -1,8 +1,8 @@
 import { Box, Typography } from '@material-ui/core';
 import { pink } from '@mui/material/colors';
 import React from 'react';
-import Search from '../../atoms/Search';
-import { StyledSearchBar } from '../../styles/ItemsGrid.styled';
+import Search from '../../atoms/Search/Search';
+import { StyledSearchBar } from '../../molecules/ItemsGrid/ItemsGrid.styled';
 
 function Tvseries() {
   return (

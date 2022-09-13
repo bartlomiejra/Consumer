@@ -1,5 +1,5 @@
-import { Logo } from './Heder.styled';
-import { Stylednav, Ul } from '../../styles/Nav.styled';
+// import { Logo } from '../../organisms/Header/Header.styled';
+import * as NavStyled from './Nav.styled';
 // import { StyledMenu } from './styles/Menu.styled';
 import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from '../../molecules/Hamburger/hooks';
@@ -40,36 +40,42 @@ function Nav() {
       {/* <Toolbar> */}
       {isMobile ? (
         <>
-          <Stylednav>
+          <NavStyled.Stylednav>
             <Typography variant="h4">
-              <Stylednav>
-                <Ul>
+              <NavStyled.Stylednav>
+                <NavStyled.Ul>
                   <Box sx={{ justifyContent: 'space-between' }}>
                     <NavLink to="/">
-                      <Logo src="./images/logo2.svg" alt="" />
+                      <NavStyled.Logo
+                        src="../../../assets/img/logo.svg"
+                        alt="mp"
+                      />
                     </NavLink>
                     <Hamburger open={open} setOpen={setOpen} />
                     <Menu open={open} setOpen={setOpen} />
                   </Box>
-                </Ul>
-              </Stylednav>
+                </NavStyled.Ul>
+              </NavStyled.Stylednav>
             </Typography>
-          </Stylednav>
+          </NavStyled.Stylednav>
         </>
       ) : (
         <>
-          <Stylednav>
+          <NavStyled.Stylednav>
             <NavLink to="/">
-              <Logo src="./images/logo2.svg" alt="" />
+              <NavStyled.Logo
+                src="../../assets/img/logo.svg"
+                alt="Consumer Logo"
+              />
             </NavLink>
-            <Ul>
+            <NavStyled.Ul>
               <NavLink to="Movies">Movie</NavLink>
               <NavLink to="/Tvseries">TV Series</NavLink>
               <NavLink to="/Books">Books</NavLink>
               <NavLink to="/Music">Music</NavLink>
               <NavLink to="/Moviesfor2">Moviefor2</NavLink>
               <NavLink to="/Recommendation">Our Recommendation</NavLink>
-            </Ul>
+            </NavStyled.Ul>
             <NavLink to="/LogIn">
               <Button
                 sx={{ borderColor: '#c40491' }}
@@ -83,7 +89,7 @@ function Nav() {
                 LogIn
               </Button>
             </NavLink>
-          </Stylednav>
+          </NavStyled.Stylednav>
         </>
       )}
       {/* </Toolbar> */}

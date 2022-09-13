@@ -1,6 +1,7 @@
 import React from 'react';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 // import StyledLog from '../components/styles/Log.styled';
+
 // import {pink } from '@material-ui/core/colors';
 import { pink } from '@mui/material/colors';
 import { useState } from 'react';
@@ -22,7 +23,8 @@ import {
   FormControlLabel,
   Link,
 } from '@mui/material';
-import { auth } from './Firebase/firebase';
+// import { auth } from '../../components/firebase/firebase';
+import { auth } from '../../Firebase/firebase';
 
 // const styles = (theme) => ({
 //   textField: {
