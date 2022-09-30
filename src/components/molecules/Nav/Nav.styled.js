@@ -15,7 +15,6 @@ export const Stylednav = styled.nav`
 
   a {
     text-decoration: none;
-    color: inherit;
     margin: 10px;
     font-size: 1rem;
   }
@@ -74,6 +73,5 @@ export const Ul = styled.ul`
 export const Logo = styled.img`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     margin-bottom: 40px;
-    background-color: red;
   }
 `;

@@ -8,6 +8,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse';
 import { makeStyles } from '@mui/styles';
+
 import Modal from '../../molecules/Modal/Modal';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import StyledSearchBar from '../../atoms/Search/Search';
@@ -37,16 +38,7 @@ const Movies = ({ match }) => {
   //
   // }));
 
-  const useStyles = makeStyles(() => ({
-    ul: {
-      '& .MuiPaginationItem-root': {
-        color: '#fff',
-      },
-    },
-    text: {
-      color: '#ffffff',
-    },
-  }));
+  const useStyles = makeStyles(() => ({}));
 
   // const classes = useStyles();
   const [selected, setSelected] = useState([]);
@@ -219,7 +211,8 @@ const Movies = ({ match }) => {
         ))}
         <>
           {/* {[...Array(listS)].map((item, index) => (
-            <Item key={index.id}>
+            <MovieItem key={index.id}>
+
               <Stack
                 variant="rectangular"
                 height={525}
@@ -278,7 +271,7 @@ const Movies = ({ match }) => {
                   </Box>
                 </Box>
               </Stack>
-            </Item>
+            </MovieItem>
           ))} */}
         </>
         {/* )} */}

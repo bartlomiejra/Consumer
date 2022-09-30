@@ -17,7 +17,7 @@ import HomeSvg from '../../../assets/img/homesvg.svg';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Button from '@mui/material/Button';
 
-const Item = styled(Paper)(({ theme }) => ({
+export const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
   border: '2px solid #333333',

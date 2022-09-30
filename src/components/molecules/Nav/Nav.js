@@ -5,7 +5,7 @@ import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from '../../molecules/Hamburger/hooks';
 import Menu from '../../molecules/Hamburger/Menu.js';
 import { Routes, Route, Link, NavLink } from 'react-router-dom';
-
+import consumerLogo from '../../../assets/img/consumerLogo.svg';
 import {
   AppBar,
   CssBaseline,
@@ -13,20 +13,18 @@ import {
   Box,
   Typography,
 } from '@mui/material';
-
 import Hamburger from '../../molecules/Hamburger/Hamburger';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
-
 function Nav() {
   const node = useRef();
   useOnClickOutside(node, () => setOpen(false));
   const [open, setOpen] = useState(false);
-
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
-  // const Header = (props) => {};
+  let activeClassName = 'underline';
+
   return (
     <AppBar
       sx={{ p: 1 }}
@@ -46,10 +44,7 @@ function Nav() {
                 <NavStyled.Ul>
                   <Box sx={{ justifyContent: 'space-between' }}>
                     <NavLink to="/">
-                      <NavStyled.Logo
-                        src="../../../assets/img/logo.svg"
-                        alt="mp"
-                      />
+                      <NavStyled.Logo src={consumerLogo} alt="mp" />
                     </NavLink>
                     <Hamburger open={open} setOpen={setOpen} />
                     <Menu open={open} setOpen={setOpen} />
@@ -63,13 +58,18 @@ function Nav() {
         <>
           <NavStyled.Stylednav>
             <NavLink to="/">
-              <NavStyled.Logo
-                src="../../assets/img/logo.svg"
-                alt="Consumer Logo"
-              />
+              <NavStyled.Logo />
+              <NavStyled.Logo src={consumerLogo} alt="mp" />
             </NavLink>
             <NavStyled.Ul>
-              <NavLink to="Movies">Movie</NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? activeClassName : undefined
+                }
+                to="Movies"
+              >
+                Movie
+              </NavLink>
               <NavLink to="/Tvseries">TV Series</NavLink>
               <NavLink to="/Books">Books</NavLink>
               <NavLink to="/Music">Music</NavLink>

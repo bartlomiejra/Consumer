@@ -35,6 +35,7 @@ const Menu = ({ open, ...props }) => {
   //     opacity: 1,
   //   },
   // };
+
   return (
     <StyledMenu
       tabIndex={tabIndex}
@@ -43,36 +44,24 @@ const Menu = ({ open, ...props }) => {
       {...props}
     >
       <AnimatePresence arria-hidden={!isHidden}>
-        <motion.div
-          //  initial={{ scale: 0 }}
-          transition={
-            {
-              //  type: "spring",
-              //  stiffness: 860,
-              //  damping: 20,
-              //  duration: 10
-            }
-          }
-          // animate={{ rotate: 580, scale: 3 }}
-        >
-          <NavLink
-            aria-hidden="true"
-            activeStyle={{ color: '#c40491' }}
-            to="/Movies"
-            tabIndex={tabIndex}
-          >
-            Movies
-          </NavLink>
-        </motion.div>
         <NavLink
           aria-hidden="true"
           activeStyle={{ color: '#c40491' }}
+          to="/Movies"
+          tabIndex={tabIndex}
+          // className={({ isActive }) => (isActive ? activeClassName : undefined)}
+        >
+          Movies
+        </NavLink>
+        <NavLink
+          aria-hidden="true"
+          // className={({ isActive }) => (isActive ? activeClassName : undefined)}
+          end
           to="/Tvseries"
           tabIndex={tabIndex}
         >
           TV Series
         </NavLink>
-
         <NavLink
           aria-hidden="true"
           activeStyle={{ color: '#c40491' }}
@@ -81,35 +70,16 @@ const Menu = ({ open, ...props }) => {
         >
           Books
         </NavLink>
-        <NavLink
-          aria-hidden="true"
-          activeStyle={{ color: '#c40491' }}
-          to="/Music"
-        >
+        <NavLink aria-hidden="true" to="/Music">
           Music
         </NavLink>
-        <NavLink
-          aria-hidden="true"
-          tabIndex={tabIndex}
-          activeStyle={{ color: '#c40491' }}
-          to="/Moviesfor2"
-        >
+        <NavLink aria-hidden="true" tabIndex={tabIndex} to="/Moviesfor2">
           Movies for Two
         </NavLink>
-        <NavLink
-          aria-hidden="true"
-          tabIndex={tabIndex}
-          activeStyle={{ color: '#c40491' }}
-          to="/Recommendation"
-        >
+        <NavLink aria-hidden="true" tabIndex={tabIndex} to="/Recommendation">
           Our Recommendation
         </NavLink>
-        <NavLink
-          aria-hidden="true"
-          tabIndex={tabIndex}
-          activeStyle={{ color: '#c40491' }}
-          to="/LogIn"
-        >
+        <NavLink aria-hidden="true" tabIndex={tabIndex} to="/LogIn">
           LogIn
         </NavLink>
       </AnimatePresence>

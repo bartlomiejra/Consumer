@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import SearchBar from 'material-ui-search-bar';
 import { motion } from 'framer-motion';
-import { Card } from '@mui/material';
 
 export const ItemsGrid = styled.div`
   /* background-color: ${({ theme }) => theme.colors.header}; */
@@ -16,13 +15,13 @@ export const Item = styled(motion.div)`
   position: relative;
   display: flex;
   width: 350px;
+
   margin-bottom: 10px;
   padding: 0px;
 
   .detals {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
-
     position: absolute;
     color: white;
     font-size: 1rem;
@@ -67,6 +66,7 @@ export const StyledSearchBar = styled(SearchBar)`
   /* max-width: 800px; */
   border-radius: 0px;
 
+  color: white;
   /* border-radius: 10px; */
 `;
 

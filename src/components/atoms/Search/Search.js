@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { StyledSearchBar } from '../../molecules/ItemsGrid/ItemsGrid.styled';
+// import SearchBar from 'material-ui-search-bar';
+import { TextField } from '@material-ui/core';
 
 const Search = ({ getQuery }) => {
   const [text, setText] = useState('');
@@ -9,14 +11,19 @@ const Search = ({ getQuery }) => {
     setText(q);
     getQuery(q);
   };
+
   return (
     <>
-      <StyledSearchBar
-        className="search"
-        value={text}
+      <TextField
+        // label="Outlined secondary"
+        color="secondary"
+        focused
+        // className="search"
+        // value={text}
         // onChange={(newValue) => onChange(newValue)}
         onChange={(newValue) => getQuery(newValue)}
       />
+      {console.log(text)}
     </>
   );
 };
