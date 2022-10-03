@@ -24,7 +24,6 @@ function Nav() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   let activeClassName = 'underline';
-
   return (
     <AppBar
       sx={{ p: 1 }}
@@ -70,6 +69,7 @@ function Nav() {
               >
                 Movie
               </NavLink>
+
               <NavLink to="/Tvseries">TV Series</NavLink>
               <NavLink to="/Books">Books</NavLink>
               <NavLink to="/Music">Music</NavLink>
@@ -82,8 +82,8 @@ function Nav() {
                 variant="outlined"
                 size="large"
                 style={{
-                  color: '#CD388C'
-                  //  border-color: '#cd388c'
+                  color: '#CD388C',
+                  borderColor: '#c40491',
                 }}
               >
                 LogIn

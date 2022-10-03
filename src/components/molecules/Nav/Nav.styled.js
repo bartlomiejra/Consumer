@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const Stylednav = styled.nav`
   display: flex;
   width: 100%;
@@ -17,6 +18,7 @@ export const Stylednav = styled.nav`
     text-decoration: none;
     margin: 10px;
     font-size: 1rem;
+    color: white;
   }
 `;
 
@@ -67,6 +69,7 @@ export const Ul = styled.ul`
     flex-direction: column;
 
     font-size: 1rem;
+    color: #45faaa;
   }
 `;
 

@@ -6,15 +6,32 @@ export const MUItheme = createTheme({
     primary: {
       main: '#8a0940',
       light: '#ffffff',
+      contrastText: '#fff',
+      dark: '#002884',
     },
     secondary: {
       main: '#3f061c',
+      light: '#ffffff',
+      contrastText: '#fff',
+      dark: '#002884',
     },
     text: {
       primary: '#fff9f9',
       secondary: '#f1efef',
       disabled: 'rgba(251,248,248,0.38)',
       hint: 'rgba(239,234,234,0.38)',
+    },
+    MuiInputBase: {
+      input: {
+        background: '#dd7711',
+        padding: 10,
+      },
+    },
+    input: {
+      main: '#fff9f9',
+    },
+    textfield: {
+      color: '#fff9f9',
     },
     background: {
       default: '#000000',
