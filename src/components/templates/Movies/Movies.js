@@ -111,7 +111,7 @@ const Movies = ({ match }) => {
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      // console.log(query);
+      console.log(query);
       // setSelected([]);
       // handleChange([]);
       const fetchItems = async () => {
@@ -120,15 +120,18 @@ const Movies = ({ match }) => {
           result = await axios(
             `https://api.themoviedb.org/3/movie/popular?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=${page}`,
           );
+          console.log(result.data.results);
         } else {
           result = await axios(
             `https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&query=${query}&page=${page}`,
           );
+          console.log(result.data.results);
+          console.log(query);
         }
         setMovies(result.data.results);
         setIsLoading(false);
         setNumberOfPages(result.data.total_pages);
-        // console.log('search bar wynik');
+        console.log('search bar wynik');
       };
       fetchItems();
     }, 1000);

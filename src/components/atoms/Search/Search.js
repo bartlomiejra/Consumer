@@ -1,9 +1,6 @@
-/* eslint react/prop-types: 0 */
 import InputBase from '@mui/material/InputBase';
 
 import React, { useState } from 'react';
-import { StyledSearchBar } from '../../molecules/ItemsGrid/ItemsGrid.styled';
-// import SearchBar from 'material-ui-search-bar';
 import { TextField } from '@material-ui/core';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
@@ -60,22 +57,19 @@ const Search = ({ getQuery }) => {
   return (
     <>
       <SearchBar
+        onChange={(newValue) => getQuery(newValue)}
+        type="text"
+        value={text}
         id="standard-basic"
         variant="standard"
-        // label="Outlined secondary"
         color="secondary"
-        // focused
-        value={text}
-        onChange={(newValue) => getQuery(newValue)}
-        // onChange={onChange}
+        placeholder="Search…"
+        // inputprops={{ 'aria-label': 'search' }}
       >
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
-        <StyledInputBase
-          placeholder="Search…"
-          inputProps={{ 'aria-label': 'search' }}
-        />
+        <StyledInputBase />
       </SearchBar>
     </>
   );
