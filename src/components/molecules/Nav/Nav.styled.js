@@ -10,7 +10,6 @@ export const Stylednav = styled.nav`
     /* justify-content: space-around; */
     justify-content: center;
     list-style-type: none;
-    margin: 0px;
     font-weight: 700;
   }
 
