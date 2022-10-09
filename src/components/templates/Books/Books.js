@@ -1,15 +1,49 @@
 import TablePaginationActions from '@material-ui/core/TablePagination/TablePaginationActions';
-import { Box, Pagination } from '@mui/material';
+import { Box, Grid, Pagination } from '@mui/material';
 import React from 'react';
 import { Typography } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { pink } from '@mui/material/colors';
 import StyledSearchBar from '../../atoms/Search/Search';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
+import MovieItem from '../../molecules/MovieItem/MovieItem';
+import BookItem from '../../molecules/BookItem/BookItem';
 
 function Books() {
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState([]);
+  const [page, setPage] = useState(1);
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      console.log(query);
+      // setSelected([]);
+      // handleChange([]);
+      const fetchItems = async () => {
+        let result;
+        if (query == '') {
+          result = await axios(
+            `https://www.googleapis.com/books/v1/volumes?q=${query}:keyes&key=AIzaSyBmcicaOqljtfLOj9n6mWOJRJTfe9Vj1SI`,
+          );
+          console.log(result.data.items);
+        } else {
+          result = await axios(
+            `https://www.googleapis.com/books/v1/volumes?q=${query}:keyes&key=AIzaSyBmcicaOqljtfLOj9n6mWOJRJTfe9Vj1SI`,
+          );
+          console.log(result.data.items);
+          console.log(query);
+        }
+        setBooks(result.data.items);
+        // setIsLoading(false);
+        // setNumberOfPages(result.data.total_pages);
+        console.log('search bar wynik');
+      };
+      fetchItems();
+    }, 1000);
+    return () => clearTimeout(delayDebounceFn);
+  }, [query, page]);
 
   let selectedCategory = selected.length === 0;
 
@@ -31,59 +65,27 @@ function Books() {
           getQuery={(q) => setQuery(q)}
         />
       </Box>
-      <Stack spacing={2}>
-        {selectedCategory ? (
-          <Pagination
-            // pagenumber={numberOfPages}
-            // setPage={setPage}
-            // page={page}
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              // minHheight: 'calc(100vh - 10px)',
-            }}
-            // count={numberOfPages}
-            color="secondary"
-            shape="rounded"
-            size="large"
-            // onChange={(e) => handleChangePage(e.target.textContent)}
-            // variant="outlined"
-            classes={
-              {
-                // toolbar: useStyles.toolbar,
-                // caption: useStyles.caption,
-                // ul: classes.ul,
-              }
-            }
-            // className={classes.text}
-          />
-        ) : (
-          <Pagination
-            // pagenumber={numberOfPagesGenres}
-            // setPage={setPageGenres}
-            // page={page}
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              // minHheight: 'calc(100vh - 10px)',
-            }}
-            // count={numberOfPagesGenres}
-            color="secondary"
-            shape="rounded"
-            size="large"
-            // onChange={(e) => handleChangePageGenres(e.target.textContent)}
-            // variant="outlined"
-            classes={
-              {
-                // toolbar: classes.toolbar,
-                // caption: classes.caption,
-                // ul: classes.ul,
-              }
-            }
-            // className={classes.text}
-          />
-        )}
-      </Stack>{' '}
+      <Stack spacing={2}></Stack>{' '}
+      <Grid
+        container
+        spacing={0}
+        alignItems="center"
+        justifyContent="space-around"
+        direction="row"
+      >
+        {books.map((item) => (
+          <BookItem
+            // changeModal={(modal) => setModal(modal)}
+            sm={3}
+            key={item.id}
+            item={item}
+          >
+            {console.log(item.volumeInfo.description)}
+            <Typography variant="p"> OK </Typography>
+            {/* <MovieItem sm={3} key={item.id} item={item}></MovieItem> */}
+          </BookItem>
+        ))}
+      </Grid>
     </>
   );
 }
