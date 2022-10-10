@@ -150,7 +150,6 @@ const BookItem = ({ setSelectedId, item }) => {
               </Box>
               <Typography>{item.volumeInfo.description}</Typography>
               {/* <Typography>{moviegenres}</Typography> */}
-              {/* {console.log(moviegenres)} */}
 
               <Box
                 sx={{
