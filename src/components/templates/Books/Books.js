@@ -15,6 +15,7 @@ function Books() {
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(1);
   const [books, setBooks] = useState([]);
+  const BOOKS_API_KEY = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
@@ -25,12 +26,12 @@ function Books() {
         let result;
         if (query == '') {
           result = await axios(
-            `https://www.googleapis.com/books/v1/volumes?q=${query}:keyes&key=AIzaSyBmcicaOqljtfLOj9n6mWOJRJTfe9Vj1SI`,
+            `https://www.googleapis.com/books/v1/volumes?q=${query}:keyes&key=${BOOKS_API_KEY}`,
           );
           console.log(result.data.items);
         } else {
           result = await axios(
-            `https://www.googleapis.com/books/v1/volumes?q=${query}:keyes&key=AIzaSyBmcicaOqljtfLOj9n6mWOJRJTfe9Vj1SI`,
+            `https://www.googleapis.com/books/v1/volumes?q=${query}:keyes&key=${BOOKS_API_KEY}`,
           );
           console.log(result.data.items);
           console.log(query);
@@ -44,11 +45,10 @@ function Books() {
     }, 1000);
     return () => clearTimeout(delayDebounceFn);
   }, [query, page]);
-
   let selectedCategory = selected.length === 0;
-
   return (
     <>
+      {console.log(process.env.REACT_APP_API_KEY)}
       <Box
         sx={{
           m: 2,

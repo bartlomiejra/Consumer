@@ -91,8 +91,8 @@ const BookItem = ({ setSelectedId, item }) => {
           <Img
             src={item.volumeInfo.imageLinks.thumbnail}
             // alt={item.title}
-            height="750px"
-            width="500px"
+            // height="750px"
+            // width="500px"
             // width="500px"
             // alt={item.title}
           />
@@ -107,14 +107,12 @@ const BookItem = ({ setSelectedId, item }) => {
             variants={textMotion}
           >
             <Button>X</Button>
-            {item.volumeInfo.title}
             {console.log(item.volumeInfo)}
             <motion.h3 variants={slashMotion}>
               {item.volumeInfo.title}
             </motion.h3>
             <Box>
               <Typography>{item.volumeInfo.publishedDate}</Typography>
-              {/* {console.log(item)} */}
               <Box
                 sx={{
                   display: 'flex',
@@ -150,7 +148,7 @@ const BookItem = ({ setSelectedId, item }) => {
                   {/* {item.vote_average} */}
                 </Typography>
               </Box>
-              {/* <Typography>{item.overview}</Typography> */}
+              <Typography>{item.volumeInfo.description}</Typography>
               {/* <Typography>{moviegenres}</Typography> */}
               {/* {console.log(moviegenres)} */}
 

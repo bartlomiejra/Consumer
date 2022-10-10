@@ -30,6 +30,7 @@ export const Item = styled(motion.div)`
     justify-content: space-between;
     z-index: 2;
     height: 100%;
+    width: 100%;
     text-decoration: none;
     text-overflow: auto;
   }

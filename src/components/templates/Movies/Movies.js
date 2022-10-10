@@ -52,6 +52,7 @@ const Movies = ({ match }) => {
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [numberOfPagesGenres, setNumberOfPagesGenres] = useState(1);
   const [selectedId, setSelectedId] = useState(null);
+  const MOVIES_API_KEY = process.env.REACT_APP_API_KEY2;
 
   let selectedCategory = selected.length === 0;
 
@@ -71,7 +72,7 @@ const Movies = ({ match }) => {
     let moviesbygenres;
     const fetchMoviesbyGenres = async () => {
       moviesbygenres = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&with_genres=${selected}&page=${pageGenres}
+        `https://api.themoviedb.org/3/discover/movie?api_key=${MOVIES_API_KEY}&with_genres=${selected}&page=${pageGenres}
 					`,
       );
 
@@ -99,7 +100,7 @@ const Movies = ({ match }) => {
   useEffect(() => {
     const fetchCategory = async () => {
       let category = await fetch(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US`,
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=${MOVIES_API_KEY}&language=en-US`,
       );
       const moviegenres = await category.json();
       setItems(moviegenres.genres);
@@ -108,7 +109,6 @@ const Movies = ({ match }) => {
     };
     fetchCategory();
   }, []);
-
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       console.log(query);
@@ -118,12 +118,12 @@ const Movies = ({ match }) => {
         let result;
         if (query == '') {
           result = await axios(
-            `https://api.themoviedb.org/3/movie/popular?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&page=${page}`,
+            `https://api.themoviedb.org/3/movie/popular?api_key=${MOVIES_API_KEY}&language=en-US&page=${page}`,
           );
           console.log(result.data.results);
         } else {
           result = await axios(
-            `https://api.themoviedb.org/3/search/movie?api_key=f0b539c0e3a06d06f8301d709f2fdf86&language=en-US&query=${query}&page=${page}`,
+            `https://api.themoviedb.org/3/search/movie?api_key=${MOVIES_API_KEY}&language=en-US&query=${query}&page=${page}`,
           );
           console.log(result.data.results);
           console.log(query);
