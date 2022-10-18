@@ -21,6 +21,7 @@ import { Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
 import Checkbox from '@mui/material/Checkbox';
+import SkeletonItem from '../../molecules/SkeletonItem/SkeletonItem';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -111,9 +112,6 @@ const Movies = ({ match }) => {
   }, []);
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      console.log(query);
-      // setSelected([]);
-      // handleChange([]);
       const fetchItems = async () => {
         let result;
         if (query == '') {
@@ -126,13 +124,14 @@ const Movies = ({ match }) => {
             `https://api.themoviedb.org/3/search/movie?api_key=${MOVIES_API_KEY}&language=en-US&query=${query}&page=${page}`,
           );
           console.log(result.data.results);
-          console.log(query);
         }
+
         setMovies(result.data.results);
         setIsLoading(false);
         setNumberOfPages(result.data.total_pages);
         console.log('search bar wynik');
       };
+
       fetchItems();
     }, 1000);
     return () => clearTimeout(delayDebounceFn);
@@ -213,75 +212,11 @@ const Movies = ({ match }) => {
           </>
         ))}
         <>
-          {/* {[...Array(listS)].map((item, index) => (
-            <MovieItem key={index.id}>
-
-              <Stack
-                variant="rectangular"
-                height={525}
-                width={350}
-                sx={{ bgcolor: 'grey.900', borderRadius: '10px' }}
-              >
-                <Box className="detals">
-                  <Skeleton
-                    margin="1rem"
-                    variant="rectangular"
-                    height={30}
-                    width={200}
-                    animation="wave"
-                    // sx={{ borderRadius: '5px' }}
-                  />
-
-                  <Box height={300} margin={0}>
-                    <Skeleton
-                      // borderRadius="10px"
-                      width={36.55}
-                      variant="rectangular"
-                      height={19}
-                      animation="wave"
-                      sx={{ marginTop: '5px', borderRadius: '5px' }}
-                    />
-                    <Skeleton
-                      sx={{ marginTop: '5px', borderRadius: '5px' }}
-                      // borderRadius="10px"
-                      variant="rectangular"
-                      width={320}
-                      animation="wave"
-                      height={31}
-                    />
-                    <Skeleton
-                      sx={{ marginTop: '5px', borderRadius: '5px' }}
-                      width={330}
-                      height={180}
-                      animation="wave"
-                      variant="rectangular"
-                    />
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <Skeleton
-                        width={230}
-                        animation="wave"
-                        sx={{ marginTop: '5px', borderRadius: '5px' }}
-                        height={44}
-                        variant="rectangular"
-                      />
-                    </Box>
-                  </Box>
-                </Box>
-              </Stack>
-            </MovieItem>
-          ))} */}
-        </>
-        {/* )} */}
-        {movies.isloading &&
-          listS.map((item, index) => (
-            <Skeleton key={index} variant="rect" width={200} height={300} />
+          {/* {movies.isLoading ? ( */}
+          {[...Array(listS)].map((item, index) => (
+            <SkeletonItem key={index} />
           ))}
+        </>
       </Grid>
       <Stack spacing={2}>
         {selectedCategory ? (

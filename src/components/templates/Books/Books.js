@@ -21,22 +21,22 @@ function Books() {
     const delayDebounceFn = setTimeout(() => {
       console.log(query);
       // setSelected([]);
-      // handleChange([]);
       const fetchItems = async () => {
         let result;
         if (query == '') {
-          result = await axios(
-            `https://www.googleapis.com/books/v1/volumes?q=${query}:keyes&key=${BOOKS_API_KEY}`,
+          result = await axios.get(
+            `http://openlibrary.org/search.json?title=rings
+`,
           );
-          console.log(result.data.items);
+          console.log(result.data.docs);
         } else {
           result = await axios(
-            `https://www.googleapis.com/books/v1/volumes?q=${query}:keyes&key=${BOOKS_API_KEY}`,
+            `http://openlibrary.org/search.json?title=${query}`,
           );
-          console.log(result.data.items);
+          console.log(result.data.docs);
           console.log(query);
         }
-        setBooks(result.data.items);
+        setBooks(result.data.docs);
         // setIsLoading(false);
         // setNumberOfPages(result.data.total_pages);
         console.log('search bar wynik');
@@ -65,7 +65,7 @@ function Books() {
           getQuery={(q) => setQuery(q)}
         />
       </Box>
-      <Stack spacing={2}></Stack>{' '}
+      {/* <Stack spacing={2}></Stack>{' '} */}
       <Grid
         container
         spacing={0}
@@ -74,16 +74,14 @@ function Books() {
         direction="row"
       >
         {books.map((item) => (
-          <BookItem
-            // changeModal={(modal) => setModal(modal)}
-            sm={3}
-            key={item.id}
-            item={item}
-          >
-            {console.log(item.volumeInfo.description)}
-            <Typography variant="p"> OK </Typography>
-            {/* <MovieItem sm={3} key={item.id} item={item}></MovieItem> */}
-          </BookItem>
+          <>
+            <BookItem
+              // changeModal={(modal) => setModal(modal)}
+              sm={3}
+              key={item.id}
+              item={item}
+            />
+          </>
         ))}
       </Grid>
     </>

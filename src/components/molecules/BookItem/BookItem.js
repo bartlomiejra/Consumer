@@ -89,12 +89,18 @@ const BookItem = ({ setSelectedId, item }) => {
           spacing={1}
         >
           <Img
-            src={item.volumeInfo.imageLinks.thumbnail}
+            // src={item.volumeInfo.imageLinks.thumbnail}
             // alt={item.title}
             // height="750px"
             // width="500px"
             // width="500px"
-            // alt={item.title}
+            // alt={item.title}"OL27448W
+            height="750px"
+            width="500px"
+            src={`https://covers.openlibrary.org/b/id/
+            ${item.key.replace('/works/', '')}
+            -L.jpg`}
+            // scr={covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : coverImg,}
           />
 
           <motion.div
@@ -106,13 +112,17 @@ const BookItem = ({ setSelectedId, item }) => {
             className="detals"
             variants={textMotion}
           >
-            <Button>X</Button>
-            {console.log(item.volumeInfo)}
-            <motion.h3 variants={slashMotion}>
-              {item.volumeInfo.title}
-            </motion.h3>
+            {/* <Button>X</Button> */}
+            {/* {console.log(item.volumeInfo)} */}
+            <motion.h3 variants={slashMotion}>{item.title}</motion.h3>
             <Box>
-              <Typography>{item.volumeInfo.publishedDate}</Typography>
+              <Typography>Autor: {item.author_name}</Typography>
+              <Typography>Autor: {item.key}</Typography>
+              <Typography>
+                https://covers.openlibrary.org/b/id/
+                {item.key.replace('/works/', '')}
+                -L.jpg
+              </Typography>
               <Box
                 sx={{
                   display: 'flex',
@@ -123,7 +133,7 @@ const BookItem = ({ setSelectedId, item }) => {
                 {/* <Typography>{item.genre_names}</Typography> */}
                 <Rating
                   name="simple-controlled"
-                  value={item.volumeInfo.averageRating}
+                  // value={item.volumeInfo.averageRating}
                   max={10}
                   precision={0.5}
                   sx={{ borderColor: '#f5f5f5', color: '#c40491' }}
@@ -148,9 +158,13 @@ const BookItem = ({ setSelectedId, item }) => {
                   {/* {item.vote_average} */}
                 </Typography>
               </Box>
-              <Typography>{item.volumeInfo.description}</Typography>
+              <Typography
+                sx={{
+                  overflowY: 'scroll',
+                  maxHeight: '200px',
+                }}
+              ></Typography>
               {/* <Typography>{moviegenres}</Typography> */}
-
               <Box
                 sx={{
                   display: 'flex',
@@ -181,7 +195,7 @@ const BookItem = ({ setSelectedId, item }) => {
                   </Button>
 
                   <Link
-                    href={item.volumeInfo.previewLink}
+                    // href={item.volumeInfo.previewLink}
                     sx={{
                       textDecoration: 'none',
                       fontWeight: '900',
