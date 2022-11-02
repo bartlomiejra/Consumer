@@ -25,6 +25,17 @@ const BookItem = ({ setSelectedId, item }) => {
   const [isToggled, setToggled] = useState(1);
   const [isOpenModal, setOpenModal] = useState(1);
 
+  let image;
+
+  function handlerimage() {
+    if (item.isbn !== undefined) {
+      image = item.isbn[0];
+    } else {
+      image = '1';
+    }
+  }
+  handlerimage();
+
   const textMotion = {
     rest: {
       color: 'grey',
@@ -88,21 +99,39 @@ const BookItem = ({ setSelectedId, item }) => {
           transition={{ duration: 0.3 }}
           exit={{ x: -300, opacity: 0 }}
           spacing={1}
+          height="750px"
+          width="500px"
+          sx={{ bgcolor: 'Red' }}
         >
-          <Img
-            // src={item.volumeInfo.imageLinks.thumbnail}
-            // alt={item.title}
-            // height="750px"
-            // width="500px"
-            // width="500px"
-            // alt={item.title}"OL27448W
-            height="750px"
-            width="500px"
-            src={`https://covers.openlibrary.org/b/id/
-            ${item.key.replace('/works/', '')}
-            -L.jpg`}
-            // scr={covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : coverImg,}
-          />
+          {/* {console.log(image)} */}
+          {image == '1' ? (
+            <Img
+              // alt={item.title}
+              height="750px"
+              width="500px"
+              border="1px"
+              // width="500px"
+              // alt={item.title}"OL27448W
+
+              src="https://www.hachetteschools.co.uk/wp-content/uploads/2018/07/missingbook.png"
+
+              // scr={covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : coverImg,}
+            />
+          ) : (
+            <Img
+              // src={item.volumeInfo.imageLinks.thumbnail}
+              // alt={item.title}
+              // height="750px"
+              // width="500px"
+              // width="500px"
+              // alt={item.title}"OL27448W
+              height="750px"
+              width="500px"
+              src={`https://covers.openlibrary.org/b/isbn/
+                ${image}-L.jpg`}
+              // scr={covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : coverImg,}
+            />
+          )}
 
           <motion.div
             initial={{ opacity: 0 }}
@@ -115,15 +144,12 @@ const BookItem = ({ setSelectedId, item }) => {
           >
             {/* <Button>X</Button> */}
             {/* {console.log(item.volumeInfo)} */}
-            <motion.h3 variants={slashMotion}>{item.title}</motion.h3>
             <Box>
+              <motion.h3 variants={slashMotion}>{item.title}</motion.h3>
               <Typography>Autor: {item.author_name}</Typography>
-              <Typography>Autor: {item.key}</Typography>
-              <Typography>
-                https://covers.openlibrary.org/b/id/
-                {item.key.replace('/works/', '')}
-                -L.jpg
-              </Typography>
+
+              <Typography>Description: {item.first_sentence}</Typography>
+              <Typography>Publish: {image.first_publish_year}</Typography>
               <Box
                 sx={{
                   display: 'flex',
@@ -176,6 +202,7 @@ const BookItem = ({ setSelectedId, item }) => {
                   },
                 }}
               >
+                {/* {console.log(image)} */}
                 <ButtonGroup
                   variant="contained"
                   size="large"

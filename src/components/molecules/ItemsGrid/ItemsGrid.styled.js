@@ -18,6 +18,7 @@ export const Item = styled(motion.div)`
 
   margin-bottom: 10px;
   padding: 0px;
+  border: 5px white;
 
   .detals {
     padding: 10px 5px 10px 5px;
@@ -55,6 +56,7 @@ export const Img = styled(motion.img)`
   /* height:auto; */
   height: 100%;
   width: 100%;
+  min-height: 520px;
 `;
 // export const StyledSearchBar = styled(SearchBar)`
 //   margin: 0 auto;

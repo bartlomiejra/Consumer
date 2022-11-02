@@ -22,6 +22,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
 import Checkbox from '@mui/material/Checkbox';
 import SkeletonItem from '../../molecules/SkeletonItem/SkeletonItem';
+import NoResults from '../../molecules/NoResults/NoResults';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -195,9 +196,12 @@ const Movies = ({ match }) => {
       <Grid
         container
         spacing={0}
-        alignItems="center"
+        alignItems="flex-start"
         justifyContent="space-around"
         direction="row"
+        minHeight={800}
+
+        // align-items: flex-start;
       >
         {selectedId && <Modal Item={selectedId} />}
 
@@ -211,12 +215,17 @@ const Movies = ({ match }) => {
             ></MovieItem>
           </>
         ))}
+        {console.log(movies)}
         <>
-          {/* {movies.isLoading ? ( */}
-          {[...Array(listS)].map((item, index) => (
-            <SkeletonItem key={index} />
-          ))}
+          {isLoading && (
+            <>
+              {[...Array(listS)].map((item, index) => (
+                <SkeletonItem key={index} />
+              ))}
+            </>
+          )}
         </>
+        {!isLoading && movies.length === 0 && <NoResults />}
       </Grid>
       <Stack spacing={2}>
         {selectedCategory ? (

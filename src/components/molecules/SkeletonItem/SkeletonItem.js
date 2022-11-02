@@ -17,17 +17,35 @@ const SkeletonItem = () => {
           display: 'flex',
         }}
       >
-        <Box spacing={2} sx={{ marginBottom: '8px' }} className="detals">
+        <Box
+          spacing={2}
+          height={500}
+          sx={{ marginBottom: '8px' }}
+          className="detals"
+        >
+          {/* display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+  justify-content: space-between; */}
           <Skeleton
             margin="2rem"
             variant="rectangular"
             height={30}
             width={200}
             animation="wave"
-            // sx={{ borderRadius: '5px' }}
+            sx={{ borderRadius: '5px' }}
           />
-
-          <Box height={300} margin={0}>
+          <Box
+            height={470}
+            margin={0}
+            clasName="detals"
+            sx={{
+              display: 'flex',
+              alignContent: 'space-around',
+              flexDirection: 'column',
+              justifyContent: 'flex-end',
+            }}
+          >
             <Skeleton
               // borderRadius="10px"
               width={36.55}

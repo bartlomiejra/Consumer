@@ -113,7 +113,7 @@ const MovieItem = ({ setSelectedId, item }) => {
             className="detals"
             variants={textMotion}
           >
-            <Button>X</Button>
+            {/* <Button>X</Button> */}
             {/* {item.id} */}
             <motion.h3 variants={slashMotion}>{item.title}</motion.h3>
             <Box>

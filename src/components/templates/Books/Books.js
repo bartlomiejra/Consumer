@@ -25,7 +25,7 @@ function Books() {
         let result;
         if (query == '') {
           result = await axios.get(
-            `http://openlibrary.org/search.json?title=rings
+            `http://openlibrary.org/search.json?title=ring&limit=20
 `,
           );
           console.log(result.data.docs);
