@@ -57,8 +57,12 @@ function Nav() {
         <>
           <NavStyled.Stylednav>
             <NavLink to="/">
-              <NavStyled.Logo />
-              <NavStyled.Logo src={consumerLogo} alt="mp" />
+              <NavStyled.Logo
+                src={consumerLogo}
+                alt="consumerLogo"
+                height="50px"
+                width="150px"
+              />
             </NavLink>
             <NavStyled.Ul>
               <NavLink

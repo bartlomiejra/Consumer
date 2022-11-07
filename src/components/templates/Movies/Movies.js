@@ -129,6 +129,7 @@ const Movies = ({ match }) => {
 
         setMovies(result.data.results);
         setIsLoading(false);
+        console.log(result);
         setNumberOfPages(result.data.total_pages);
         console.log('search bar wynik');
       };
@@ -156,7 +157,7 @@ const Movies = ({ match }) => {
           search.{' '}
         </Typography>
         <StyledSearchBar
-          sx={{ color: pink[800] }}
+          sx={{ color: pink[100] }}
           getQuery={(q) => setQuery(q)}
         />
         Category
@@ -236,7 +237,7 @@ const Movies = ({ match }) => {
             sx={{
               display: 'flex',
               justifyContent: 'center',
-              // minHheight: 'calc(100vh - 10px)',
+              minHheight: 'calc(100vh - 10px)',
             }}
             count={numberOfPages}
             color="secondary"

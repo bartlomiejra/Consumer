@@ -209,6 +209,7 @@ const BookItem = ({ setSelectedId, item }) => {
                   aria-label="outlined primary button group"
                 >
                   <Button
+                    aria-label="Favorite"
                     sx={{ borderColor: '#444444' }}
                     variant="contained"
                     size="large"
@@ -221,7 +222,6 @@ const BookItem = ({ setSelectedId, item }) => {
                   >
                     <FavoriteIcon />
                   </Button>
-
                   <Link
                     // href={item.volumeInfo.previewLink}
                     sx={{
@@ -246,6 +246,7 @@ const BookItem = ({ setSelectedId, item }) => {
                     More info
                   </Link>
                   <Button
+                    aria-label="Clear"
                     onClick={() => setToggled(!isToggled)}
                     sx={{ borderColor: '#444444' }}
                     variant="contained"

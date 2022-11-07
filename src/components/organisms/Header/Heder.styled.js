@@ -14,10 +14,9 @@ export const Logo = styled.img`
 `;
 
 export const Image = styled.img`
-  /* width: 375px; */
   /* margin-left: 40px; */
   background-color: transparent;
-  @media (max-width: ${({ theme }) => theme.bottom}) {
+  background-color @media (max-width: ${({ theme }) => theme.bottom}) {
     margin: 40px 0 30px;
   }
 `;

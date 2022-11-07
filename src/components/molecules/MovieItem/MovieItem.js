@@ -21,6 +21,7 @@ import Link from '@mui/material/Link';
 
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ClearIcon from '@mui/icons-material/Clear';
+import { Description } from '@material-ui/icons';
 
 const MovieItem = ({ setSelectedId, item }) => {
   const [value, setValue] = useState(0);
@@ -74,7 +75,6 @@ const MovieItem = ({ setSelectedId, item }) => {
   };
   const handleModal = () => {
     setOpenModal(item.id);
-    // console.log(isOpenModal);
   };
   return (
     <AnimatePresence>
@@ -83,8 +83,6 @@ const MovieItem = ({ setSelectedId, item }) => {
 
       {isToggled && (
         <Item
-          // onClick={(event) =>
-          // onClick={handleModal}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
@@ -93,11 +91,13 @@ const MovieItem = ({ setSelectedId, item }) => {
         >
           {item.poster_path ? (
             <Img
+              fetchpriority="high"
               src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
               alt={item.title}
             />
           ) : (
             <Img
+              fetchpriority="high"
               src={`https://www.movienewz.com/wp-content/uploads/2014/07/poster-holder.jpg`}
               height="750px"
               width="500px"
@@ -116,8 +116,8 @@ const MovieItem = ({ setSelectedId, item }) => {
             {/* <Button>X</Button> */}
             {/* {item.id} */}
             <motion.h3 variants={slashMotion}>{item.title}</motion.h3>
-            <Box>
-              <Typography>{item.release_date.slice(0, 4)}</Typography>
+            <>
+              {item.release_date.slice(0, 4)}
               {/* {console.log(item)} */}
               <Box
                 sx={{
@@ -126,7 +126,7 @@ const MovieItem = ({ setSelectedId, item }) => {
                   alignItems: 'center',
                 }}
               >
-                <Typography>{item.genre_names}</Typography>
+                {item.genre_names}
                 <Rating
                   name="simple-controlled"
                   value={item.vote_average}
@@ -154,7 +154,7 @@ const MovieItem = ({ setSelectedId, item }) => {
                   {item.vote_average}
                 </Typography>
               </Box>
-              <Typography>{item.overview}</Typography>
+              {item.overview}
               {/* <Typography>{moviegenres}</Typography> */}
               {/* {console.log(moviegenres)} */}
 
@@ -174,6 +174,7 @@ const MovieItem = ({ setSelectedId, item }) => {
                   aria-label="outlined primary button group"
                 >
                   <Button
+                    aria-label="Favorite"
                     sx={{ borderColor: '#444444' }}
                     variant="contained"
                     size="large"
@@ -188,6 +189,7 @@ const MovieItem = ({ setSelectedId, item }) => {
                   </Button>
 
                   <Link
+                    Description="MoreInfo"
                     href={`https://duckduckgo.com/?q=${
                       item.title
                     }${' '}${item.release_date.slice(0, 4)}`}
@@ -213,6 +215,7 @@ const MovieItem = ({ setSelectedId, item }) => {
                     More info
                   </Link>
                   <Button
+                    aria-label="Clear"
                     onClick={() => setToggled(!isToggled)}
                     sx={{ borderColor: '#444444' }}
                     variant="contained"
@@ -227,7 +230,7 @@ const MovieItem = ({ setSelectedId, item }) => {
                   </Button>
                 </ButtonGroup>
               </Box>
-            </Box>
+            </>
           </motion.div>
           {/* {console.log(setSelectedId)} */}
           {/* console.log(item) */}
