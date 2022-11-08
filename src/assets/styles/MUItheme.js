@@ -10,7 +10,7 @@ export const MUItheme = createTheme({
       dark: '#002884',
     },
     secondary: {
-      main: '#3f061c',
+      main: '#888',
       light: '#ffffff',
       contrastText: '#fff',
       dark: '#002884',
@@ -108,7 +108,7 @@ export const MUItheme = createTheme({
         borderRadius: 13,
         border: '1px solid #bdbdbd',
         backgroundColor: '#fafafa',
-        opacity: 1,
+        sfpacity: 1,
         transition:
           'background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
       },

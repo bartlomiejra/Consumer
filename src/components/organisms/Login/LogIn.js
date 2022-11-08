@@ -24,7 +24,7 @@ import {
   Link,
 } from '@mui/material';
 // import { auth } from '../../components/firebase/firebase';
-import { auth } from '../../Firebase/firebase';
+import { auth } from '../../../Firebase/firebase';
 
 // const styles = (theme) => ({
 //   textField: {

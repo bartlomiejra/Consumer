@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 // import Spinner  from '../styles/Spinner'
 import axios from 'axios';
 // import Search from '../Search'
-import Skeleton from '@mui/material/Skeleton';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse';
 import { makeStyles } from '@mui/styles';
+import Slider from '@mui/material/Slider';
 
 import Modal from '../../molecules/Modal/Modal';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -21,8 +21,10 @@ import { Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
 import Checkbox from '@mui/material/Checkbox';
-import SkeletonItem from '../../molecules/SkeletonItem/SkeletonItem';
+import SkeletonItem from '../../molecules/NoResults/SkeletonItem/SkeletonItem';
 import NoResults from '../../molecules/NoResults/NoResults';
+import YearsRange from '../../molecules/YearsRange/YearsRange';
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -159,6 +161,7 @@ const Movies = ({ match }) => {
         <StyledSearchBar
           sx={{ color: pink[100] }}
           getQuery={(q) => setQuery(q)}
+          // onChange={handleChange}
         />
         Category
         <ExpandMore
@@ -192,6 +195,19 @@ const Movies = ({ match }) => {
               />
             </>
           ))}
+          {/* <YearsSlider /> */}
+          {/* <YearPicker /> */}
+          {/* <LocalizationProvider>
+            <Grid item xs={12} md={6}>
+              <YearPicker
+                date=2022
+                minDate={1920}
+                maxDate={02}
+                onChange={(newDate) => setDate(newDate)}
+              />
+            </Grid>
+          </LocalizationProvider> */}
+          <YearsRange />
         </Collapse>
       </Box>
       <Grid
@@ -226,7 +242,7 @@ const Movies = ({ match }) => {
             </>
           )}
         </>
-        {!isLoading && movies.length === 0 && <NoResults />}
+        {/* {!isLoading && movies.length === 0 && <NoResults />} */}
       </Grid>
       <Stack spacing={2}>
         {selectedCategory ? (

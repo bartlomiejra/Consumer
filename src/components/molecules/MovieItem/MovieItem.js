@@ -1,7 +1,7 @@
 /* eslint react/prop-types: 0 */
 
 //  eslint-disable jsx-a11y/no-autofocus
-import { CardContent, Grid } from '@mui/material';
+import { Divider, Stack, styled } from '@mui/material';
 import React, { useState } from 'react';
 import { Item, Img } from '../ItemsGrid/ItemsGrid.styled';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,24 +9,47 @@ import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import Modal from '../../molecules/Modal/Modal';
 
-import {
-  Button,
-  Card,
-  ButtonGroup,
-  Box,
-  Typography,
-  Rating,
-} from '@mui/material';
+import Paper from '@mui/material/Paper';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { Button, ButtonGroup, Box, Typography, Rating } from '@mui/material';
 import Link from '@mui/material/Link';
 
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ClearIcon from '@mui/icons-material/Clear';
-import { Description } from '@material-ui/icons';
+const GenreItem = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#f12392',
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  fontSize: 10,
+}));
 
-const MovieItem = ({ setSelectedId, item }) => {
-  const [value, setValue] = useState(0);
+const MovieItem = ({ setSelectedId, item, poster_path }) => {
   const [isToggled, setToggled] = useState(1);
   const [isOpenModal, setOpenModal] = useState(1);
+  let set;
+  const MoviesGenres = {
+    genres: [
+      { id: 28, name: 'Action' },
+      { id: 12, name: 'Adventure' },
+      { id: 16, name: 'Animation' },
+      { id: 35, name: 'Comedy' },
+      { id: 80, name: 'Crime' },
+      { id: 99, name: 'Documentary' },
+      { id: 18, name: 'Drama' },
+      { id: 10751, name: 'Family' },
+      { id: 14, name: 'Fantasy' },
+      { id: 36, name: 'History' },
+      { id: 27, name: 'Horror' },
+      { id: 10402, name: 'Music' },
+      { id: 9648, name: 'Mystery' },
+      { id: 10749, name: 'Romance' },
+      { id: 878, name: 'Science Fiction' },
+      { id: 10770, name: 'TV Movie' },
+      { id: 53, name: 'Thriller' },
+      { id: 10752, name: 'War' },
+      { id: 37, name: 'Western' },
+    ],
+  };
 
   const textMotion = {
     rest: {
@@ -54,7 +77,7 @@ const MovieItem = ({ setSelectedId, item }) => {
       },
     },
   };
-
+  let arr;
   const slashMotion = {
     rest: {
       opacity: 0,
@@ -76,6 +99,9 @@ const MovieItem = ({ setSelectedId, item }) => {
   const handleModal = () => {
     setOpenModal(item.id);
   };
+  set = new Set(item.genre_ids);
+  arr = MoviesGenres.genres.filter((ite) => set.has(ite.id));
+
   return (
     <AnimatePresence>
       {/* <Modal isToggled={isToggled}>
@@ -115,10 +141,22 @@ const MovieItem = ({ setSelectedId, item }) => {
           >
             {/* <Button>X</Button> */}
             {/* {item.id} */}
+
             <motion.h3 variants={slashMotion}>{item.title}</motion.h3>
-            <>
+
+            <Box>
               {item.release_date.slice(0, 4)}
               {/* {console.log(item)} */}
+
+              <Stack
+                direction="row"
+                spacing={2}
+                divider={<Divider orientation="vertical" flexItem />}
+              >
+                {arr.slice(0, 4).map((item, index) => {
+                  return <GenreItem>{item.name}</GenreItem>;
+                })}
+              </Stack>
               <Box
                 sx={{
                   display: 'flex',
@@ -144,6 +182,7 @@ const MovieItem = ({ setSelectedId, item }) => {
                     />
                   }
                 />
+
                 <Typography
                   sx={{
                     color: '#d40491',
@@ -154,10 +193,27 @@ const MovieItem = ({ setSelectedId, item }) => {
                   {item.vote_average}
                 </Typography>
               </Box>
+              <Link
+                href={`https://www.justwatch.com/ca/movie/${item.title.replaceAll(
+                  ' ',
+                  '-',
+                )}`}
+                target="_blank"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: '#fbc500',
+                  color: '#000',
+                  textDecoration: 'none',
+                  padding: '8px',
+                  borderRadius: '10px',
+                  m: 2,
+                }}
+              >
+                <PlayArrowIcon /> JustWatch{' '}
+              </Link>
               {item.overview}
-              {/* <Typography>{moviegenres}</Typography> */}
-              {/* {console.log(moviegenres)} */}
-
               <Box
                 sx={{
                   display: 'flex',
@@ -189,7 +245,7 @@ const MovieItem = ({ setSelectedId, item }) => {
                   </Button>
 
                   <Link
-                    Description="MoreInfo"
+                    description="MoreInfo"
                     href={`https://duckduckgo.com/?q=${
                       item.title
                     }${' '}${item.release_date.slice(0, 4)}`}
@@ -230,10 +286,8 @@ const MovieItem = ({ setSelectedId, item }) => {
                   </Button>
                 </ButtonGroup>
               </Box>
-            </>
+            </Box>
           </motion.div>
-          {/* {console.log(setSelectedId)} */}
-          {/* console.log(item) */}
         </Item>
       )}
     </AnimatePresence>

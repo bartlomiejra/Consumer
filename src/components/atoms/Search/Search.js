@@ -48,7 +48,7 @@ const SearchBar = styled('div')(({ theme }) => ({
 }));
 
 const Search = ({ getQuery }) => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState('hugo');
   const onChange = (q) => {
     setText(q);
     getQuery(q);
@@ -60,7 +60,6 @@ const Search = ({ getQuery }) => {
         onChange={(newValue) => getQuery(newValue)}
         type="text"
         value={text}
-        id="standard-basic"
         variant="standard"
         color="secondary"
         placeholder="Search…"

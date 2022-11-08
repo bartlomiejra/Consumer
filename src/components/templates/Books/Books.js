@@ -9,11 +9,14 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import MovieItem from '../../molecules/MovieItem/MovieItem';
 import BookItem from '../../molecules/BookItem/BookItem';
+import SkeletonItem from '../../molecules/NoResults/SkeletonItem/SkeletonItem';
 
 function Books() {
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
+
   const [books, setBooks] = useState([]);
   const BOOKS_API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -37,6 +40,8 @@ function Books() {
           console.log(query);
         }
         setBooks(result.data.docs);
+        setIsLoading(false);
+
         // setIsLoading(false);
         // setNumberOfPages(result.data.total_pages);
         console.log('search bar wynik');
@@ -46,6 +51,8 @@ function Books() {
     return () => clearTimeout(delayDebounceFn);
   }, [query, page]);
   let selectedCategory = selected.length === 0;
+  const listS = 20;
+
   return (
     <>
       {console.log(process.env.REACT_APP_API_KEY)}
@@ -75,14 +82,25 @@ function Books() {
       >
         {books.map((item) => (
           <>
-            <BookItem
-              // changeModal={(modal) => setModal(modal)}
-              sm={3}
-              key={item.id}
-              item={item}
-            />
+            <>
+              <BookItem
+                // changeModal={(modal) => setModal(modal)}
+                sm={3}
+                key={item.id}
+                item={item}
+              />
+            </>
           </>
         ))}
+        <>
+          {isLoading && (
+            <>
+              {[...Array(listS)].map((item, index) => (
+                <SkeletonItem key={index} />
+              ))}
+            </>
+          )}
+        </>
       </Grid>
     </>
   );
