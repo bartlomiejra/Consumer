@@ -108,8 +108,6 @@ const Movies = ({ match }) => {
       );
       const moviegenres = await category.json();
       setItems(moviegenres.genres);
-
-      // console.log(moviegenres.genres);
     };
     fetchCategory();
   }, []);
