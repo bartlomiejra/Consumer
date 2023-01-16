@@ -24,7 +24,6 @@ import {
   Link,
 } from '@mui/material';
 // import { auth } from '../../components/firebase/firebase';
-import { auth } from '../../../Firebase/firebase';
 
 // const styles = (theme) => ({
 //   textField: {
@@ -42,43 +41,43 @@ import { auth } from '../../../Firebase/firebase';
 // });
 
 function LogIn() {
-  const [registerEmail, setRegisterEmail] = useState('');
-  const [registerPassword, setRegisterPassword] = useState('');
-  const [loginEmail, setLoginEmail] = useState('');
-  const [loginPassword, setLoginPassword] = useState('');
-  const [user, setUser] = useState('');
+  // const [registerEmail, setRegisterEmail] = useState('');
+  // const [registerPassword, setRegisterPassword] = useState('');
+  // const [loginEmail, setLoginEmail] = useState('');
+  // const [loginPassword, setLoginPassword] = useState('');
+  // const [user, setUser] = useState('');
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-  const register = async () => {
-    try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword,
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-  const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword,
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  // onAuthStateChanged(auth, (currentUser) => {
+  //   setUser(currentUser);
+  // });
+  // const register = async () => {
+  //   try {
+  //     const user = await createUserWithEmailAndPassword(
+  //       auth,
+  //       loginEmail,
+  //       loginPassword,
+  //     );
+  //     console.log(user);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
+  // const login = async () => {
+  //   try {
+  //     const user = await signInWithEmailAndPassword(
+  //       auth,
+  //       loginEmail,
+  //       loginPassword,
+  //     );
+  //     console.log(user);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
 
-  const logout = async () => {
-    await signOut(auth);
-  };
+  // const logout = async () => {
+  //   await signOut(auth);
+  // };
   return (
     <>
       <Grid component="main" sx={{ height: '100vh', alignItems: 'center' }}>
@@ -103,7 +102,7 @@ function LogIn() {
             {/* <StyledLog> */}
 
             <TextField
-              onChange={(e) => setLoginEmail(e.target.value)}
+              // onChange={(e) => setLoginEmail(e.target.value)}
               margin="normal"
               required
               fullWidth
@@ -114,7 +113,7 @@ function LogIn() {
               variant="outlined"
             />
             <TextField
-              onChange={(e) => setLoginPassword(e.target.value)}
+              // onChange={(e) => setLoginPassword(e.target.value)}
               variant="outlined"
               margin="normal"
               required
@@ -150,7 +149,7 @@ function LogIn() {
               color="secondary"
               fullWidth
               variant="contained"
-              onClick={login}
+              // onClick={login}
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
@@ -195,7 +194,7 @@ function LogIn() {
             {/* <StyledLog> */}
 
             <TextField
-              onChange={(e) => setRegisterEmail(e.target.value)}
+              // onChange={(e) => setRegisterEmail(e.target.value)}
               margin="normal"
               required
               fullWidth
@@ -206,7 +205,7 @@ function LogIn() {
               variant="outlined"
             />
             <TextField
-              onChange={(e) => setRegisterPassword(e.target.value)}
+              // onChange={(e) => setRegisterPassword(e.target.value)}
               variant="outlined"
               margin="normal"
               required
@@ -220,7 +219,7 @@ function LogIn() {
 
             <Button
               color="secondary"
-              onClick={register}
+              // onClick={register}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
@@ -242,8 +241,8 @@ function LogIn() {
               >
                 Sing up with Google
               </Button>
-              Log as: {user?.email}
-              <button onClick={logout}>Logout</button>
+              {/* Log as: {user?.email} */}
+              {/* <button onClick={logout}>Logout</button> */}
             </Grid>
           </Box>
         </Box>
