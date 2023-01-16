@@ -102,6 +102,12 @@ const BookItem = ({ setSelectedId, item }) => {
           height="750px"
           width="500px"
           sx={{ bgcolor: 'Red' }}
+          onError={(e) =>
+            (e.target.onerror = null)(
+              (e.target.src =
+                'https://authors.bookfunnel.com/wp-content/uploads/2017/02/Soothing_Clouds.jpg'),
+            )
+          }
         >
           {/* {console.log(image)} */}
           {image == '1' ? (
@@ -112,8 +118,9 @@ const BookItem = ({ setSelectedId, item }) => {
               border="1px"
               // width="500px"
               // alt={item.title}"OL27448W
-
               src="https://www.hachetteschools.co.uk/wp-content/uploads/2018/07/missingbook.png"
+              onerror="https://authors.bookfunnel.com/wp-content/uploads/2017/02/Soothing_Clouds.jpg
+this.src='alternative.jpg';"
 
               // scr={covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : coverImg,}
             />
