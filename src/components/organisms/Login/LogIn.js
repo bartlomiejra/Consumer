@@ -5,12 +5,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 // import {pink } from '@material-ui/core/colors';
 import { pink } from '@mui/material/colors';
 import { useState } from 'react';
-import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-  signInWithEmailAndPassword,
-} from 'firebase/auth';
+
 import { makeStyles } from '@mui/material/styles';
 import {
   Grid,
