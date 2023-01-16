@@ -10,8 +10,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 // import '@fontsource/roboto/500.css';
 // import '@fontsource/roboto/700.css';
 import { Box } from '@mui/material';
-import 'firebase/firestore';
-import 'firebase/auth';
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter } from 'react-router-dom';
 import { MUItheme } from './assets/styles/MUItheme';
