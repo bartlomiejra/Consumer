@@ -9,7 +9,6 @@
     "@mkyy/mui-search-bar": "^0.5.2",
     "@mui/icons-material": "^5.8.3",
     "@mui/material": "^5.8.2",
-    "@mui/styles": "^5.8.0",
     "@mui/x-data-grid": "^5.17.10",
     "@mui/x-date-pickers-pro": "^5.0.7",
     "@testing-library/jest-dom": "^5.16.4",
