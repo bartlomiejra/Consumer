@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import AnimatedCharacters from './AnimatedCharacters';
-import { Box, Grid } from '@material-ui/core';
 import GlobalStyles from '../../styles/Global';
 import { ResultsStyled } from './NoResults.styled';
 

@@ -38,7 +38,7 @@ const SkeletonItem = () => {
           <Box
             height={470}
             margin={0}
-            clasName="detals"
+            className="detals"
             sx={{
               display: 'flex',
               alignContent: 'space-around',

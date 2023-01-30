@@ -1,4 +1,3 @@
-import TablePaginationActions from '@material-ui/core/TablePagination/TablePaginationActions';
 import { Box, Grid, Pagination } from '@mui/material';
 import React from 'react';
 import { Typography } from '@mui/material';
