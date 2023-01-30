@@ -126,7 +126,7 @@ this.src='alternative.jpg';"
             />
           ) : (
             <Img
-              // src={item.volumeInfo.imageLinks.thumbnail}
+              // src={item.volumeInfo.imageLinks.thumbnailii}
               // alt={item.title}
               // height="750px"
               // width="500px"
