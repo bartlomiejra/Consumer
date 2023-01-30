@@ -156,11 +156,6 @@ const Movies = ({ match }) => {
           Select several genres of movies you are interested in or just use the
           search.{' '}
         </Typography>
-        <StyledSearchBar
-          sx={{ color: pink[100] }}
-          getQuery={(q) => setQuery(q)}
-          // onChange={handleChange}
-        />
         Category
         <ExpandMore
           color="secondary"

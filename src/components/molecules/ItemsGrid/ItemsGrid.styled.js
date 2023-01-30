@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import SearchBar from 'material-ui-search-bar';
+// import SearchBar from '@mkyy/mui-search-bar';
+
 import { motion } from 'framer-motion';
 
 export const ItemsGrid = styled.div`
@@ -64,14 +65,14 @@ export const Img = styled(motion.img)`
 //   background-color: red;
 // `;
 export const Moviedetals = styled.div``;
-export const StyledSearchBar = styled(SearchBar)`
-  margin: 0 auto;
-  /* max-width: 800px; */
-  border-radius: 0px;
+// export const StyledSearchBar = styled(SearchBar)`
+//   margin: 0 auto;
+//   /* max-width: 800px; */
+//   border-radius: 0px;
 
-  color: white;
-  /* border-radius: 10px; */
-`;
+//   color: white;
+//   /* border-radius: 10px; */
+// `;
 
 export const ModalStyled = styled(motion.div)`
   z-index: 10;

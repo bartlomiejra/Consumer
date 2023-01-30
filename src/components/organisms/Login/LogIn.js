@@ -2,7 +2,6 @@ import React from 'react';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 // import StyledLog from '../components/styles/Log.styled';
 
-// import {pink } from '@material-ui/core/colors';
 import { pink } from '@mui/material/colors';
 import { useState } from 'react';
 

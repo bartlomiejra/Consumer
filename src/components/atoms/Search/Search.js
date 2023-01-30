@@ -1,7 +1,8 @@
 import InputBase from '@mui/material/InputBase';
+import SearchBars from '@mkyy/mui-search-bar';
+import { pink } from '@mui/material/colors';
 
 import React, { useState } from 'react';
-import { TextField } from '@material-ui/core';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -48,7 +49,7 @@ const SearchBar = styled('div')(({ theme }) => ({
 }));
 
 const Search = ({ getQuery }) => {
-  const [text, setText] = useState('hugo');
+  const [text, setText] = useState('');
   const onChange = (q) => {
     setText(q);
     getQuery(q);
@@ -56,20 +57,15 @@ const Search = ({ getQuery }) => {
 
   return (
     <>
-      <SearchBar
+      <SearchBars
         onChange={(newValue) => getQuery(newValue)}
         type="text"
         value={text}
         variant="standard"
         color="secondary"
         placeholder="Search…"
-        // inputprops={{ 'aria-label': 'search' }}
-      >
-        <SearchIconWrapper>
-          <SearchIcon />
-        </SearchIconWrapper>
-        <StyledInputBase />
-      </SearchBar>
+        sx={{ color: pink[100] }}
+      />
     </>
   );
 };

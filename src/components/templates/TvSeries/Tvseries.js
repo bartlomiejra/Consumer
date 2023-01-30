@@ -1,8 +1,9 @@
-import { Box, Typography } from '@material-ui/core';
 import { pink } from '@mui/material/colors';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
 import React from 'react';
 import Search from '../../atoms/Search/Search';
-import { StyledSearchBar } from '../../molecules/ItemsGrid/ItemsGrid.styled';
 
 function Tvseries() {
   return (
@@ -18,10 +19,6 @@ function Tvseries() {
           Select several genres of movies you are interested in or just use the
           search.{' '}
         </Typography>
-        <StyledSearchBar
-          sx={{ color: pink[800] }}
-          // getQuery={(q) => setQuery(q)}
-        />
         Category
         {/* <ExpandMore
           color="secondary"
