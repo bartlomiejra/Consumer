@@ -6,7 +6,7 @@ import axios from 'axios';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse';
-import { makeStyles } from '@mui/styles';
+// import { makeStyles } from '@mui/styles';
 import Slider from '@mui/material/Slider';
 
 import Modal from '../../molecules/Modal/Modal';
@@ -42,7 +42,7 @@ const Movies = ({ match }) => {
   //
   // }));
 
-  const useStyles = makeStyles(() => ({}));
+  // const useStyles = makeStyles(() => ({}));
 
   // const classes = useStyles();
   const [selected, setSelected] = useState([]);
@@ -254,11 +254,13 @@ const Movies = ({ match }) => {
             size="large"
             onChange={(e) => handleChangePage(e.target.textContent)}
             // variant="outlined"
-            classes={{
-              toolbar: useStyles.toolbar,
-              // caption: useStyles.caption,
-              // ul: classes.ul,
-            }}
+            classes={
+              {
+                // toolbar: useStyles.toolbar,
+                // caption: useStyles.caption,
+                // ul: classes.ul,
+              }
+            }
             // className={classes.text}
           />
         ) : (
