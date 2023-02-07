@@ -155,6 +155,10 @@ const Movies = ({ match }) => {
           {' '}
           Select several genres of movies you are interested in or just use the
           search.{' '}
+          <StyledSearchBar
+            sx={{ color: pink[800] }}
+            getQuery={(q) => setQuery(q)}
+          />
         </Typography>
         Category
         <ExpandMore

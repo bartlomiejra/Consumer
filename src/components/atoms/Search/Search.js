@@ -1,10 +1,13 @@
 import InputBase from '@mui/material/InputBase';
 import SearchBars from '@mkyy/mui-search-bar';
 import { pink } from '@mui/material/colors';
+import Mui5search from 'mui5-search';
 
 import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
+import { Input, InputLabel } from '@mui/material';
+import { InputOutlined } from '@mui/icons-material';
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -50,24 +53,12 @@ const SearchBar = styled('div')(({ theme }) => ({
 
 const Search = ({ getQuery }) => {
   const [text, setText] = useState('');
-  const onChange = (q) => {
-    setText(q);
-    getQuery(q);
-  };
+  // const onChange = (q) => {
+  //   setText(q);
+  //   getQuery(q);
+  // };
 
-  return (
-    <>
-      <SearchBars
-        onChange={(newValue) => getQuery(newValue)}
-        type="text"
-        value={text}
-        variant="standard"
-        color="secondary"
-        placeholder="Search…"
-        sx={{ color: pink[100] }}
-      />
-    </>
-  );
+  return <Input />;
 };
 
 export default Search;
