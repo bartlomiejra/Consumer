@@ -114,7 +114,7 @@ const MovieItem = ({ setSelectedId, item, poster_path }) => {
           transition={{ duration: 0.3 }}
           exit={{ x: -300, opacity: 0 }}
           spacing={1}
-          style={{ position: 'relative' }}
+          style={{ position: 'relative', zIndex: '2' }}
         >
           {item.poster_path ? (
             <Img
