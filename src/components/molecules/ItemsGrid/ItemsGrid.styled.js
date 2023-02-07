@@ -19,7 +19,7 @@ export const Item = styled(motion.div)`
 
   margin-bottom: 10px;
   padding: 0px;
-  border: 20px white;
+  border: 5px white;
 
   .detals {
     padding: 10px 5px 10px 5px;
