@@ -21,18 +21,43 @@ export const MUItheme = createTheme({
       disabled: 'rgba(251,248,248,0.38)',
       hint: 'rgba(239,234,234,0.38)',
     },
+    MuiFormLabel: {
+      input: {
+        color: '#fff',
+        background: '#123',
+      },
+    },
+    MuiFormControl: {
+      input: {
+        color: '#fff',
+        background: '#123',
+      },
+    },
+    MuiInputLabel: {
+      input: {
+        color: '#fff',
+        background: '#123',
+      },
+    },
     MuiInputBase: {
       input: {
         background: '#dd7711',
         padding: 10,
+        color: '#red',
       },
     },
+
     input: {
       main: '#fff9f9',
+      backgroundColor: '#fff',
+      background: '#fff',
     },
     textfield: {
       color: '#fff9f9',
+      backgroundColor: '#fff',
+      background: '#fff',
     },
+
     background: {
       default: '#000000',
       paper: '#333333',

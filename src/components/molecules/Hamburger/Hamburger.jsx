@@ -1,6 +1,6 @@
 import React from 'react';
 // import { GiHamburgerMenu } from "react-icons/gi";
-import { HamburgerStyled } from './Hamburger.styled.js';
+import { HamburgerStyled } from './Hamburger.styled.jsx';
 import { bool, func } from 'prop-types';
 
 const Hamburger = ({ open, setOpen, ...props }) => {

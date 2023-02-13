@@ -151,14 +151,14 @@ const Movies = ({ match }) => {
           justifyContent: 'center',
         }}
       >
+        <StyledSearchBar
+          // sx={{ color: pink[800] }}
+          getQuery={(q) => setQuery(q)}
+        />
         <Typography variant="p">
           {' '}
           Select several genres of movies you are interested in or just use the
           search.{' '}
-          <StyledSearchBar
-            sx={{ color: pink[800] }}
-            getQuery={(q) => setQuery(q)}
-          />
         </Typography>
         Category
         <ExpandMore

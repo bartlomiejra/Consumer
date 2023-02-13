@@ -3,7 +3,7 @@ import * as NavStyled from './Nav.styled';
 // import { StyledMenu } from './styles/Menu.styled';
 import React, { useState, useRef } from 'react';
 import { useOnClickOutside } from '../../molecules/Hamburger/hooks';
-import Menu from '../../molecules/Hamburger/Menu.js';
+import Menu from '../../molecules/Hamburger/Menu.jsx';
 import { Routes, Route, Link, NavLink } from 'react-router-dom';
 import consumerLogo from '../../../assets/img/consumerLogo.svg';
 import {

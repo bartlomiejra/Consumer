@@ -48,7 +48,7 @@ export const Item = styled(motion.div)`
   }
 `;
 export const Img = styled(motion.img)`
-  position: absolute;
+  /* position:absolute; */
   /* z-index: -2 */
   /* position: relative */
   /* width:auto; */

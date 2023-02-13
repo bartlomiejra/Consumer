@@ -1,39 +1,55 @@
-import { CardContent, Grid } from '@mui/material';
+/* eslint react/prop-types: 0 */
+
+//  eslint-disable jsx-a11y/no-autofocus
+import { Divider, Stack, styled } from '@mui/material';
 import React, { useState } from 'react';
 import { Item, Img } from '../ItemsGrid/ItemsGrid.styled';
 import { motion, AnimatePresence } from 'framer-motion';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import Modal from '../../molecules/Modal/Modal';
+import Modal from '../Modal/Modal';
 
-import {
-  Button,
-  Card,
-  ButtonGroup,
-  Box,
-  Typography,
-  Rating,
-} from '@mui/material';
+import Paper from '@mui/material/Paper';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { Button, ButtonGroup, Box, Typography, Rating } from '@mui/material';
 import Link from '@mui/material/Link';
 
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ClearIcon from '@mui/icons-material/Clear';
+const GenreItem = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#f12392',
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  fontSize: 10,
+}));
 
-const BookItem = ({ setSelectedId, item }) => {
-  const [value, setValue] = useState(0);
+const MovieItem = ({ setSelectedId, item, poster_path }) => {
   const [isToggled, setToggled] = useState(1);
   const [isOpenModal, setOpenModal] = useState(1);
-
-  let image;
-
-  function handlerimage() {
-    if (item.isbn !== undefined) {
-      image = item.isbn[0];
-    } else {
-      image = '1';
-    }
-  }
-  handlerimage();
+  let set;
+  const MoviesGenres = {
+    genres: [
+      { id: 28, name: 'Action' },
+      { id: 12, name: 'Adventure' },
+      { id: 16, name: 'Animation' },
+      { id: 35, name: 'Comedy' },
+      { id: 80, name: 'Crime' },
+      { id: 99, name: 'Documentary' },
+      { id: 18, name: 'Drama' },
+      { id: 10751, name: 'Family' },
+      { id: 14, name: 'Fantasy' },
+      { id: 36, name: 'History' },
+      { id: 27, name: 'Horror' },
+      { id: 10402, name: 'Music' },
+      { id: 9648, name: 'Mystery' },
+      { id: 10749, name: 'Romance' },
+      { id: 878, name: 'Science Fiction' },
+      { id: 10770, name: 'TV Movie' },
+      { id: 53, name: 'Thriller' },
+      { id: 10752, name: 'War' },
+      { id: 37, name: 'Western' },
+    ],
+  };
 
   const textMotion = {
     rest: {
@@ -61,7 +77,7 @@ const BookItem = ({ setSelectedId, item }) => {
       },
     },
   };
-
+  let arr;
   const slashMotion = {
     rest: {
       opacity: 0,
@@ -82,8 +98,10 @@ const BookItem = ({ setSelectedId, item }) => {
   };
   const handleModal = () => {
     setOpenModal(item.id);
-    // console.log(isOpenModal);
   };
+  set = new Set(item.genre_ids);
+  arr = MoviesGenres.genres.filter((ite) => set.has(ite.id));
+
   return (
     <AnimatePresence>
       {/* <Modal isToggled={isToggled}>
@@ -91,54 +109,27 @@ const BookItem = ({ setSelectedId, item }) => {
 
       {isToggled && (
         <Item
-          // onClick={(event) =>
-          // onClick={handleModal}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
           exit={{ x: -300, opacity: 0 }}
           spacing={1}
-          height="750px"
-          width="500px"
-          sx={{ bgcolor: 'Red' }}
-          onError={(e) =>
-            (e.target.onerror = null)(
-              (e.target.src =
-                'https://authors.bookfunnel.com/wp-content/uploads/2017/02/Soothing_Clouds.jpg'),
-            )
-          }
         >
-          {/* {console.log(image)} */}
-          {image == '1' ? (
+          {item.poster_path ? (
             <Img
-              // alt={item.title}
-              height="750px"
-              width="500px"
-              border="1px"
-              // width="500px"
-              // alt={item.title}"OL27448W
-              src="https://www.hachetteschools.co.uk/wp-content/uploads/2018/07/missingbook.png"
-              onerror="https://authors.bookfunnel.com/wp-content/uploads/2017/02/Soothing_Clouds.jpg
-this.src='alternative.jpg';"
-
-              // scr={covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : coverImg,}
+              fetchpriority="high"
+              src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+              alt={item.title}
             />
           ) : (
             <Img
-              // src={item.volumeInfo.imageLinks.thumbnailii}
-              // alt={item.title}
-              // height="750px"
-              // width="500px"
-              // width="500px"
-              // alt={item.title}"OL27448W
+              fetchpriority="high"
+              src={`https://www.movienewz.com/wp-content/uploads/2014/07/poster-holder.jpg`}
               height="750px"
               width="500px"
-              src={`https://covers.openlibrary.org/b/isbn/
-                ${image}-L.jpg`}
-              // scr={covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : coverImg,}
+              alt={item.title}
             />
           )}
-
           <motion.div
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 1 }}
@@ -147,15 +138,26 @@ this.src='alternative.jpg';"
             }}
             className="detals"
             variants={textMotion}
+            style={{ position: 'absolute' }}
           >
             {/* <Button>X</Button> */}
-            {/* {console.log(item.volumeInfo)} */}
-            <Box>
-              <motion.h3 variants={slashMotion}>{item.title}</motion.h3>
-              <Typography>Autor: {item.author_name}</Typography>
+            {/* {item.id} */}
 
-              <Typography>Description: {item.first_sentence}</Typography>
-              <Typography>Publish: {image.first_publish_year}</Typography>
+            <motion.h3 variants={slashMotion}>{item.title}</motion.h3>
+
+            <Box>
+              {item.release_date.slice(0, 4)}
+              {/* {console.log(item)} */}
+
+              <Stack
+                direction="row"
+                spacing={2}
+                divider={<Divider orientation="vertical" flexItem />}
+              >
+                {arr.slice(0, 4).map((item, index) => {
+                  return <GenreItem>{item.name}</GenreItem>;
+                })}
+              </Stack>
               <Box
                 sx={{
                   display: 'flex',
@@ -163,10 +165,10 @@ this.src='alternative.jpg';"
                   alignItems: 'center',
                 }}
               >
-                {/* <Typography>{item.genre_names}</Typography> */}
+                {item.genre_names}
                 <Rating
                   name="simple-controlled"
-                  // value={item.volumeInfo.averageRating}
+                  value={item.vote_average}
                   max={10}
                   precision={0.5}
                   sx={{ borderColor: '#f5f5f5', color: '#c40491' }}
@@ -181,6 +183,7 @@ this.src='alternative.jpg';"
                     />
                   }
                 />
+
                 <Typography
                   sx={{
                     color: '#d40491',
@@ -188,16 +191,30 @@ this.src='alternative.jpg';"
                     fontSize: '1.3rem',
                   }}
                 >
-                  {/* {item.vote_average} */}
+                  {item.vote_average}
                 </Typography>
               </Box>
-              <Typography
-                sx={{
-                  overflowY: 'scroll',
-                  maxHeight: '200px',
+              <Link
+                href={`https://www.justwatch.com/ca/movie/${item.title.replaceAll(
+                  ' ',
+                  '-',
+                )}`}
+                target="_blank"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: '#fbc500',
+                  color: '#000',
+                  textDecoration: 'none',
+                  padding: '8px',
+                  borderRadius: '10px',
+                  m: 2,
                 }}
-              ></Typography>
-              {/* <Typography>{moviegenres}</Typography> */}
+              >
+                <PlayArrowIcon /> JustWatch{' '}
+              </Link>
+              {item.overview}
               <Box
                 sx={{
                   display: 'flex',
@@ -208,7 +225,6 @@ this.src='alternative.jpg';"
                   },
                 }}
               >
-                {/* {console.log(image)} */}
                 <ButtonGroup
                   variant="contained"
                   size="large"
@@ -228,8 +244,12 @@ this.src='alternative.jpg';"
                   >
                     <FavoriteIcon />
                   </Button>
+
                   <Link
-                    // href={item.volumeInfo.previewLink}
+                    description="MoreInfo"
+                    href={`https://duckduckgo.com/?q=${
+                      item.title
+                    }${' '}${item.release_date.slice(0, 4)}`}
                     sx={{
                       textDecoration: 'none',
                       fontWeight: '900',
@@ -269,12 +289,10 @@ this.src='alternative.jpg';"
               </Box>
             </Box>
           </motion.div>
-          {/* {console.log(setSelectedId)} */}
-          {/* console.log(item) */}
         </Item>
       )}
     </AnimatePresence>
   );
 };
 
-export default BookItem;
+export default MovieItem;

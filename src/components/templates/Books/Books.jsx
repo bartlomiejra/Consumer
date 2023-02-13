@@ -67,7 +67,7 @@ function Books() {
           search.{' '}
         </Typography>
         <StyledSearchBar
-          sx={{ color: pink[800] }}
+          // sx={{ color: pink[800] }}
           getQuery={(q) => setQuery(q)}
         />
       </Box>
