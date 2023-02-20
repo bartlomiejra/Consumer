@@ -17,8 +17,7 @@ function Books() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [books, setBooks] = useState([]);
-  const BOOKS_API_KEY = process.env.REACT_APP_API_KEY;
-
+  const BOOKS_API_KEY = import.meta.env.REACT_APP_NAME
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       console.log(query);
@@ -54,7 +53,7 @@ function Books() {
 
   return (
     <>
-      {console.log(process.env.REACT_APP_API_KEY)}
+      {console.log(import.meta.env.REACT_APP_NAME2)}
       <Box
         sx={{
           m: 2,

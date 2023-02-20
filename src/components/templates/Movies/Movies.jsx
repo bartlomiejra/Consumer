@@ -56,7 +56,7 @@ const Movies = ({ match }) => {
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [numberOfPagesGenres, setNumberOfPagesGenres] = useState(1);
   const [selectedId, setSelectedId] = useState(null);
-  const MOVIES_API_KEY = process.env.REACT_APP_API_KEY2;
+  const MOVIES_API_KEY = import.meta.env.REACT_APP_NAME2;
 
   let selectedCategory = selected.length === 0;
 
