@@ -26,9 +26,12 @@ function Books() {
         let result;
         if (query == '') {
           result = await axios.get(
-            `http://openlibrary.org/search.json?title=ring&limit=20
-`,
-          );
+            'http://openlibrary.org/search.json?title=ring&limit=20', {
+              headers: {
+    'Authorization': import.meta.env.REACT_APP_NAME2
+  }
+
+                  }          );
           console.log(result.data.docs);
         } else {
           result = await axios(
