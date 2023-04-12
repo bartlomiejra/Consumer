@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 export const HamburgerStyled = styled.button`
-  position: absolute;
-  /* top: 5%; */
   right: 2rem;
   margin: 10px;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-around;

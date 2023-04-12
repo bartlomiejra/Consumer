@@ -84,20 +84,20 @@ function Books() {
               <BookItem
                 // changeModal={(modal) => setModal(modal)}
                 sm={3}
-                key={item.id}
+                key={item._version_}
                 item={item}
               />
             </>
           </>
         ))}
         <>
-          {isLoading && (
+          {/* {isLoading && (
             <>
               {[...Array(listS)].map((item, index) => (
                 <SkeletonItem key={index} />
               ))}
             </>
-          )}
+          )} */}
         </>
       </Grid>
     </>

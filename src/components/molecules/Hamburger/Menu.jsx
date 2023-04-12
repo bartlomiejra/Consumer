@@ -45,8 +45,10 @@ const Menu = ({ open, ...props }) => {
     >
       <AnimatePresence arria-hidden={!isHidden}>
         <NavLink
+                key="Movies"
+
           aria-hidden="true"
-          activeStyle={{ color: '#c40491' }}
+          // activeStyle={{ color: '#c40491' }}
           to="/Movies"
           tabIndex={tabIndex}
           // className={({ isActive }) => (isActive ? activeClassName : undefined)}
@@ -57,29 +59,39 @@ const Menu = ({ open, ...props }) => {
           aria-hidden="true"
           // className={({ isActive }) => (isActive ? activeClassName : undefined)}
           end
+          key="Tvseries"
+
           to="/Tvseries"
           tabIndex={tabIndex}
         >
           TV Series
         </NavLink>
         <NavLink
+                key="Books"
+
           aria-hidden="true"
-          activeStyle={{ color: '#c40491' }}
+          // activeStyle={{ color: '#c40491' }}
           to="/Books"
           tabIndex={tabIndex}
         >
           Books
         </NavLink>
-        <NavLink aria-hidden="true" to="/Music">
+        <NavLink 
+        key="Music"
+        aria-hidden="true" to="/Music">
           Music
         </NavLink>
-        <NavLink aria-hidden="true" tabIndex={tabIndex} to="/Moviesfor2">
+        <NavLink aria-hidden="true" tabIndex={tabIndex}
+        key="Moviesfor2" to="/Moviesfor2">
           Movies for Two
         </NavLink>
-        <NavLink aria-hidden="true" tabIndex={tabIndex} to="/Recommendation">
+        <NavLink aria-hidden="true" tabIndex={tabIndex} 
+        key="Recommendation"
+        to="/Recommendation">
           Our Recommendation
         </NavLink>
-        <NavLink aria-hidden="true" tabIndex={tabIndex} to="/LogIn">
+        <NavLink
+        key="login" aria-hidden="true" tabIndex={tabIndex} to="/LogIn">
           LogIn
         </NavLink>
       </AnimatePresence>

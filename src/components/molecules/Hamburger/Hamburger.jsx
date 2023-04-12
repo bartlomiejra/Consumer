@@ -7,7 +7,7 @@ const Hamburger = ({ open, setOpen, ...props }) => {
   const isExpanded = open ? true : false;
 
   return (
-    <div>
+    <>
       <HamburgerStyled
         // sx={{ display: 'flex' }}
         aria-expanded={isExpanded}
@@ -21,7 +21,7 @@ const Hamburger = ({ open, setOpen, ...props }) => {
         <span />
         <span />
       </HamburgerStyled>
-    </div>
+    </>
   );
 };
 Hamburger.propTypes = {

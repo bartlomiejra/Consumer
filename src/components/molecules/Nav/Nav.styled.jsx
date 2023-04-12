@@ -5,6 +5,9 @@ export const Stylednav = styled.nav`
   width: 100%;
   text-decoration: none;
   justify-content: space-between;
+  border: none;
+  backgroundColor: Transparent;
+  boxShoadow: none;
 
   ul {
     /* justify-content: space-around; */
@@ -56,8 +59,8 @@ justify-content: space-between;
 
 export const Ul = styled.ul`
   display: flex;
-  /* /* justify-content: space-around; */
-  align-items: center;
+   justify-content: space-around; 
+  
   width: 100%;
   padding: 0px;
 

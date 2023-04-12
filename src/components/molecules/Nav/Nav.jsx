@@ -25,37 +25,32 @@ function Nav() {
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   let activeClassName = 'underline';
   return (
-    <AppBar
-      sx={{ p: 1 }}
-      style={{
-        border: 'none',
-        backgroundColor: 'transparent',
-      }}
+    <NavStyled.Stylednav
+     
       position="static"
     >
+      
       <CssBaseline />
       {/* <Toolbar> */}
       {isMobile ? (
         <>
-          <NavStyled.Stylednav>
-            <Typography variant="h4">
-              <NavStyled.Stylednav>
-                <NavStyled.Ul>
-                  <Box sx={{ justifyContent: 'space-between' }}>
+          
+              {/* <NavStyled.Stylednav> */}
+                  
                     <NavLink to="/">
-                      <NavStyled.Logo src={consumerLogo} alt="mp" />
+                      <NavStyled.Logo src={consumerLogo} alt="consumerLogo"
+                height="50px"
+                width="150px"  />
                     </NavLink>
                     <Hamburger open={open} setOpen={setOpen} />
+                  
                     <Menu open={open} setOpen={setOpen} />
-                  </Box>
-                </NavStyled.Ul>
-              </NavStyled.Stylednav>
-            </Typography>
-          </NavStyled.Stylednav>
+              {/* </NavStyled.Stylednav> */}
+          {/* // </NavStyled.Stylednav> */}
         </>
       ) : (
         <>
-          <NavStyled.Stylednav>
+          {/* <NavStyled.Stylednav> */}
             <NavLink to="/">
               <NavStyled.Logo
                 src={consumerLogo}
@@ -93,11 +88,11 @@ function Nav() {
                 LogIn
               </Button>
             </NavLink>
-          </NavStyled.Stylednav>
+          {/* </NavStyled.Stylednav> */}
         </>
       )}
       {/* </Toolbar> */}
-    </AppBar>
+    </NavStyled.Stylednav>
   );
 }
 

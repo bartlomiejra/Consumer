@@ -70,7 +70,7 @@ const Movies = ({ match }) => {
       checked ? [...prev, value] : prev.filter((val) => val !== value),
     );
     // console.log(setSelected);
-    console.log(selected);
+    // console.log(selected);
   };
   useEffect(() => {
     let moviesbygenres;
@@ -119,7 +119,7 @@ const Movies = ({ match }) => {
           result = await axios(
             `https://api.themoviedb.org/3/movie/popular?api_key=${MOVIES_API_KEY}&language=en-US&page=${page}`,
           );
-          console.log(result.data.results);
+          // console.log(result.data.results);
         } else {
           result = await axios(
             `https://api.themoviedb.org/3/search/movie?api_key=${MOVIES_API_KEY}&language=en-US&query=${query}&page=${page}`,
@@ -129,9 +129,9 @@ const Movies = ({ match }) => {
 
         setMovies(result.data.results);
         setIsLoading(false);
-        console.log(result);
+        // console.log(result);
         setNumberOfPages(result.data.total_pages);
-        console.log('search bar wynik');
+        // console.log('search bar wynik');
       };
 
       fetchItems();
@@ -146,6 +146,7 @@ const Movies = ({ match }) => {
   return (
     <section>
       <Box
+      key="box"
         sx={{
           m: 2,
           justifyContent: 'center',
@@ -176,7 +177,7 @@ const Movies = ({ match }) => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    key={item.id}
+                    key={"checkbox" + item.id}
                     value={item.id}
                     sx={{
                       color: pink[800],
@@ -204,10 +205,10 @@ const Movies = ({ match }) => {
               />
             </Grid>
           </LocalizationProvider> */}
-          <YearsRange />
         </Collapse>
       </Box>
       <Grid
+      key="grid"
         container
         spacing={0}
         alignItems="flex-start"
@@ -224,24 +225,24 @@ const Movies = ({ match }) => {
             <MovieItem
               changeModal={(modal) => setModal(modal)}
               sm={3}
-              key={item.id}
+              key={"movie" + item.id}
               item={item}
             ></MovieItem>
           </>
         ))}
-        {console.log(movies)}
+        {/* {console.log(movies)} */}
         <>
-          {isLoading && (
+          {!isLoading && (
             <>
               {[...Array(listS)].map((item, index) => (
-                <SkeletonItem key={index} />
+                <SkeletonItem key={"skeleton"+index} />
               ))}
             </>
           )}
         </>
         {/* {!isLoading && movies.length === 0 && <NoResults />} */}
       </Grid>
-      <Stack spacing={2}>
+      <Stack key="stack" spacing={2}>
         {selectedCategory ? (
           <Pagination
             pagenumber={numberOfPages}

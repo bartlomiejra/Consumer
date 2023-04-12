@@ -60,11 +60,12 @@ const Search = ({ getQuery }) => {
   return (
     <form>
       <TextField
+      // variant="outlined"
         onChange={(newValue) => getQuery(newValue)}
         // type="text"
         // value={text}
-        sx={{ color: pink[100], background: '#fff' }}
-        sx={{ width: 0.95 }}
+        // sx={{  background: '#fff' }}
+        sx={{ color: pink[100], width: 0.95}}
         id="search-bar"
         className="text"
         // onInput={(e) => {}}

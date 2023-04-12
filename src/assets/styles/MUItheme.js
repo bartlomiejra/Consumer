@@ -36,12 +36,13 @@ export const MUItheme = createTheme({
     MuiInputLabel: {
       input: {
         color: '#fff',
-        background: '#123',
+        background: '#fff',
       },
     },
     MuiInputBase: {
       input: {
-        background: '#dd7711',
+        background: '#fefefe',
+
         padding: 10,
         color: '#red',
       },
@@ -59,7 +60,7 @@ export const MUItheme = createTheme({
     },
 
     background: {
-      default: '#000000',
+      default: '#222222',
       paper: '#333333',
     },
     divider: 'rgba(0,0,0,0.12)',
@@ -187,6 +188,8 @@ export const MUItheme = createTheme({
       size: 'small',
     },
     MuiTextField: {
+      backgroundColor: '#fefeef',
+      border: '3px',
       margin: 'dense',
       size: 'small',
     },

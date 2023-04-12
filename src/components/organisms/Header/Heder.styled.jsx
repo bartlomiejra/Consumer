@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 export const Styledheader = styled.header`
+
+ 
+
+
   h1 {
     /* color: #D26C94; */
 

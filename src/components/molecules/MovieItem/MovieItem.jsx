@@ -155,7 +155,7 @@ const MovieItem = ({ setSelectedId, item, poster_path }) => {
                 divider={<Divider orientation="vertical" flexItem />}
               >
                 {arr.slice(0, 4).map((item, index) => {
-                  return <GenreItem>{item.name}</GenreItem>;
+                  return <GenreItem key={item.id}>{item.name}</GenreItem>;
                 })}
               </Stack>
               <Box
